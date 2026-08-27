@@ -49,3 +49,5 @@ pids
 *.pid
 *.seed
 *.pid.lock
+
+/prisma/schema.prisma
