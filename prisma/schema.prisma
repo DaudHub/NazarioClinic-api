@@ -7,76 +7,216 @@ datasource db {
   provider = "postgresql"
 }
 
-/// We could not retrieve columns for the underlying table. Either it has none or you are missing rights to see them. Please check your privileges.
-// model atributoscheckbox {
-// }
+model atributoscheckbox {
+  id_estudio       String                  @db.Uuid
+  id               String                  @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  nombre           String
+  tiempo_extra     Unsupported("interval")
+  estudios         estudios                @relation(fields: [id_estudio], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  atributostextbox atributostextbox[]
 
-/// We could not retrieve columns for the underlying table. Either it has none or you are missing rights to see them. Please check your privileges.
-// model atributostextbox {
-// }
+  @@id([id_estudio, id])
+}
 
-/// We could not retrieve columns for the underlying table. Either it has none or you are missing rights to see them. Please check your privileges.
-// model equipos {
-// }
+model atributostextbox {
+  id_estudio           String             @db.Uuid
+  id                   String             @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  id_atributo_checkbox String?            @db.Uuid
+  descripcion          String
+  obligatorio          Boolean            @default(false)
+  estudios             estudios           @relation(fields: [id_estudio], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  atributoscheckbox    atributoscheckbox? @relation(fields: [id_estudio, id_atributo_checkbox], references: [id_estudio, id], onDelete: NoAction, onUpdate: NoAction)
 
-/// We could not retrieve columns for the underlying table. Either it has none or you are missing rights to see them. Please check your privileges.
-// model equiposxestudio {
-// }
-
-/// We could not retrieve columns for the underlying table. Either it has none or you are missing rights to see them. Please check your privileges.
-// model estudios {
-// }
-
-/// We could not retrieve columns for the underlying table. Either it has none or you are missing rights to see them. Please check your privileges.
-// model estudiosxsede {
-// }
-
-/// We could not retrieve columns for the underlying table. Either it has none or you are missing rights to see them. Please check your privileges.
-// model gruposusuario {
-// }
+  @@id([id_estudio, id])
+}
 
 /// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
-/// We could not retrieve columns for the underlying table. Either it has none or you are missing rights to see them. Please check your privileges.
-// model horariosxsede {
-// }
+model disponibilidadsede {
+  id_sede                                            String    @db.Uuid
+  desde                                              DateTime  @db.Timestamp(6)
+  hasta                                              DateTime  @db.Timestamp(6)
+  tecnico                                            String?   @db.Uuid
+  usuario_alta                                       String    @db.Uuid
+  sedes                                              sedes     @relation(fields: [id_sede], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  usuarios_disponibilidadsede_tecnicoTousuarios      usuarios? @relation("disponibilidadsede_tecnicoTousuarios", fields: [tecnico], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  usuarios_disponibilidadsede_usuario_altaTousuarios usuarios  @relation("disponibilidadsede_usuario_altaTousuarios", fields: [usuario_alta], references: [id], onDelete: NoAction, onUpdate: NoAction)
 
-/// We could not retrieve columns for the underlying table. Either it has none or you are missing rights to see them. Please check your privileges.
-// model pacientes {
-// }
+  @@id([id_sede, desde])
+}
 
-/// We could not retrieve columns for the underlying table. Either it has none or you are missing rights to see them. Please check your privileges.
-// model profesionales {
-// }
+model equipos {
+  id              String            @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  id_sede         String            @db.Uuid
+  nombre          String
+  modelo          String
+  nro_serie       String            @unique
+  activo          Boolean           @default(true)
+  sedes           sedes             @relation(fields: [id_sede], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  equiposxestudio equiposxestudio[]
 
-/// We could not retrieve columns for the underlying table. Either it has none or you are missing rights to see them. Please check your privileges.
-// model refreshtokens {
-// }
+  @@id([id_sede, id])
+}
+
+model equiposxestudio {
+  id_sede    String   @db.Uuid
+  id_equipo  String   @db.Uuid
+  id_estudio String   @db.Uuid
+  estudios   estudios @relation(fields: [id_estudio], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  equipos    equipos  @relation(fields: [id_sede, id_equipo], references: [id_sede, id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@id([id_sede, id_estudio, id_equipo])
+}
+
+model estudios {
+  id                String                  @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  codigo            String                  @unique @db.VarChar(20)
+  nombre            String
+  descripcion       String
+  duracion          Unsupported("interval")
+  activo            Boolean                 @default(true)
+  atributoscheckbox atributoscheckbox[]
+  atributostextbox  atributostextbox[]
+  equiposxestudio   equiposxestudio[]
+  estudiosxsede     estudiosxsede[]
+  salasxestudio     salasxestudio[]
+}
+
+model estudiosxsede {
+  id_estudio String   @db.Uuid
+  id_sede    String   @db.Uuid
+  estudios   estudios @relation(fields: [id_estudio], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  sedes      sedes    @relation(fields: [id_sede], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@id([id_estudio, id_sede])
+}
+
+model gruposusuario {
+  id             String           @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  nombre         String
+  usuariosxgrupo usuariosxgrupo[]
+}
 
 /// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
-/// We could not retrieve columns for the underlying table. Either it has none or you are missing rights to see them. Please check your privileges.
-// model salas {
-// }
+model horariosxsede {
+  id_sede  String   @db.Uuid
+  dia      Int
+  apertura DateTime @db.Time(6)
+  cierre   DateTime @db.Time(6)
+  sedes    sedes    @relation(fields: [id_sede], references: [id], onDelete: NoAction, onUpdate: NoAction)
 
-/// We could not retrieve columns for the underlying table. Either it has none or you are missing rights to see them. Please check your privileges.
-// model salasxestudio {
-// }
+  @@id([id_sede, dia])
+}
 
-/// We could not retrieve columns for the underlying table. Either it has none or you are missing rights to see them. Please check your privileges.
-// model sedes {
-// }
+model pacientes {
+  id        String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  documento String   @unique @db.VarChar(20)
+  nombre    String
+  telefono  String?  @db.VarChar(20)
+  mail      String
+  turnos    turnos[]
+}
 
-/// We could not retrieve columns for the underlying table. Either it has none or you are missing rights to see them. Please check your privileges.
-// model turnos {
-// }
+model profesionales {
+  id     String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  nombre String
+  mail   String
+  rut    String?  @db.VarChar(12)
+  turnos turnos[]
+}
 
-/// We could not retrieve columns for the underlying table. Either it has none or you are missing rights to see them. Please check your privileges.
-// model usuarios {
-// }
+model refreshtokens {
+  id_usuario String   @id @db.Uuid
+  token      String
+  fec_venc   DateTime @db.Timestamp(6)
+  usuarios   usuarios @relation(fields: [id_usuario], references: [id], onDelete: NoAction, onUpdate: NoAction)
+}
 
-/// We could not retrieve columns for the underlying table. Either it has none or you are missing rights to see them. Please check your privileges.
-// model usuariosxgrupo {
-// }
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model salas {
+  id            String          @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  id_sede       String          @db.Uuid
+  nombre        String
+  capacidad     Int
+  activa        Boolean         @default(true)
+  sedes         sedes           @relation(fields: [id_sede], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  salasxestudio salasxestudio[]
+  turnos        turnos[]
 
-/// We could not retrieve columns for the underlying table. Either it has none or you are missing rights to see them. Please check your privileges.
-// model usuariosxsede {
-// }
+  @@id([id_sede, id])
+}
+
+model salasxestudio {
+  id_sede    String   @db.Uuid
+  id_sala    String   @db.Uuid
+  id_estudio String   @db.Uuid
+  estudios   estudios @relation(fields: [id_estudio], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  salas      salas    @relation(fields: [id_sede, id_sala], references: [id_sede, id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@id([id_sede, id_estudio, id_sala])
+}
+
+model sedes {
+  id                 String               @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  codigo             String               @unique @db.VarChar(20)
+  nombre             String
+  direccion          String
+  x                  Decimal              @db.Decimal(8, 5)
+  y                  Decimal              @db.Decimal(8, 5)
+  habilitada         Boolean              @default(true)
+  turnos_simultaneos Int                  @default(1)
+  disponibilidadsede disponibilidadsede[]
+  equipos            equipos[]
+  estudiosxsede      estudiosxsede[]
+  horariosxsede      horariosxsede[]
+  salas              salas[]
+  usuariosxsede      usuariosxsede[]
+}
+
+model turnos {
+  id             String                  @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  id_sede        String                  @db.Uuid
+  id_sala        String                  @db.Uuid
+  horario        DateTime                @db.Timestamp(6)
+  duracion       Unsupported("interval")
+  estudio        String                  @db.Uuid
+  precio         Decimal                 @db.Decimal(14, 2)
+  id_paciente    String                  @db.Uuid
+  id_profesional String?                 @db.Uuid
+  usuario_alta   String                  @db.Uuid
+  usuario_mod    String                  @db.Uuid
+  pacientes      pacientes               @relation(fields: [id_paciente], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  profesionales  profesionales?          @relation(fields: [id_profesional], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  salas          salas                   @relation(fields: [id_sede, id_sala], references: [id_sede, id], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model usuarios {
+  id                                                           String               @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  usuario                                                      String               @unique
+  nombre                                                       String
+  mail                                                         String               @unique
+  passwd                                                       String
+  sys_admin                                                    Boolean              @default(false)
+  disponibilidadsede_disponibilidadsede_tecnicoTousuarios      disponibilidadsede[] @relation("disponibilidadsede_tecnicoTousuarios")
+  disponibilidadsede_disponibilidadsede_usuario_altaTousuarios disponibilidadsede[] @relation("disponibilidadsede_usuario_altaTousuarios")
+  refreshtokens                                                refreshtokens?
+  usuariosxgrupo                                               usuariosxgrupo[]
+  usuariosxsede                                                usuariosxsede[]
+}
+
+model usuariosxgrupo {
+  id_grupo      String        @db.Uuid
+  id_usuario    String        @db.Uuid
+  gruposusuario gruposusuario @relation(fields: [id_grupo], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  usuarios      usuarios      @relation(fields: [id_usuario], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@id([id_grupo, id_usuario])
+}
+
+model usuariosxsede {
+  id_usuario String   @db.Uuid
+  id_sede    String   @db.Uuid
+  sedes      sedes    @relation(fields: [id_sede], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  usuarios   usuarios @relation(fields: [id_usuario], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@id([id_usuario, id_sede])
+}

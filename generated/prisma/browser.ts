@@ -17,4 +17,98 @@ import * as Prisma from './internal/prismaNamespaceBrowser.js'
 export { Prisma }
 export * as $Enums from './enums.js'
 export * from './enums.js';
-
+/**
+ * Model atributoscheckbox
+ * 
+ */
+export type atributoscheckbox = Prisma.atributoscheckboxModel
+/**
+ * Model atributostextbox
+ * 
+ */
+export type atributostextbox = Prisma.atributostextboxModel
+/**
+ * Model disponibilidadsede
+ * This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+ */
+export type disponibilidadsede = Prisma.disponibilidadsedeModel
+/**
+ * Model equipos
+ * 
+ */
+export type equipos = Prisma.equiposModel
+/**
+ * Model equiposxestudio
+ * 
+ */
+export type equiposxestudio = Prisma.equiposxestudioModel
+/**
+ * Model estudios
+ * 
+ */
+export type estudios = Prisma.estudiosModel
+/**
+ * Model estudiosxsede
+ * 
+ */
+export type estudiosxsede = Prisma.estudiosxsedeModel
+/**
+ * Model gruposusuario
+ * 
+ */
+export type gruposusuario = Prisma.gruposusuarioModel
+/**
+ * Model horariosxsede
+ * This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+ */
+export type horariosxsede = Prisma.horariosxsedeModel
+/**
+ * Model pacientes
+ * 
+ */
+export type pacientes = Prisma.pacientesModel
+/**
+ * Model profesionales
+ * 
+ */
+export type profesionales = Prisma.profesionalesModel
+/**
+ * Model refreshtokens
+ * 
+ */
+export type refreshtokens = Prisma.refreshtokensModel
+/**
+ * Model salas
+ * This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+ */
+export type salas = Prisma.salasModel
+/**
+ * Model salasxestudio
+ * 
+ */
+export type salasxestudio = Prisma.salasxestudioModel
+/**
+ * Model sedes
+ * 
+ */
+export type sedes = Prisma.sedesModel
+/**
+ * Model turnos
+ * 
+ */
+export type turnos = Prisma.turnosModel
+/**
+ * Model usuarios
+ * 
+ */
+export type usuarios = Prisma.usuariosModel
+/**
+ * Model usuariosxgrupo
+ * 
+ */
+export type usuariosxgrupo = Prisma.usuariosxgrupoModel
+/**
+ * Model usuariosxsede
+ * 
+ */
+export type usuariosxsede = Prisma.usuariosxsedeModel

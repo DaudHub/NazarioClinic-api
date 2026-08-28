@@ -8,4 +8,23 @@
  *
  * 🟢 You can import this file directly.
  */
+export type * from './models/atributoscheckbox.js'
+export type * from './models/atributostextbox.js'
+export type * from './models/disponibilidadsede.js'
+export type * from './models/equipos.js'
+export type * from './models/equiposxestudio.js'
+export type * from './models/estudios.js'
+export type * from './models/estudiosxsede.js'
+export type * from './models/gruposusuario.js'
+export type * from './models/horariosxsede.js'
+export type * from './models/pacientes.js'
+export type * from './models/profesionales.js'
+export type * from './models/refreshtokens.js'
+export type * from './models/salas.js'
+export type * from './models/salasxestudio.js'
+export type * from './models/sedes.js'
+export type * from './models/turnos.js'
+export type * from './models/usuarios.js'
+export type * from './models/usuariosxgrupo.js'
+export type * from './models/usuariosxsede.js'
 export type * from './commonInputTypes.js'

@@ -29,8 +29,8 @@ export * from "./enums.js"
  * const prisma = new PrismaClient({
  *   adapter: new PrismaPg({ connectionString: process.env.DATABASE_URL })
  * })
- * // Fetch zero or more Users
- * const users = await prisma.user.findMany()
+ * // Fetch zero or more Atributoscheckboxes
+ * const atributoscheckboxes = await prisma.atributoscheckbox.findMany()
  * ```
  * 
  * Read more in our [docs](https://pris.ly/d/client).
@@ -39,4 +39,98 @@ export const PrismaClient = $Class.getPrismaClientClass()
 export type PrismaClient<LogOpts extends Prisma.LogLevel = never, OmitOpts extends Prisma.PrismaClientOptions["omit"] = Prisma.PrismaClientOptions["omit"], ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = $Class.PrismaClient<LogOpts, OmitOpts, ExtArgs>
 export { Prisma }
 
-
+/**
+ * Model atributoscheckbox
+ * 
+ */
+export type atributoscheckbox = Prisma.atributoscheckboxModel
+/**
+ * Model atributostextbox
+ * 
+ */
+export type atributostextbox = Prisma.atributostextboxModel
+/**
+ * Model disponibilidadsede
+ * This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+ */
+export type disponibilidadsede = Prisma.disponibilidadsedeModel
+/**
+ * Model equipos
+ * 
+ */
+export type equipos = Prisma.equiposModel
+/**
+ * Model equiposxestudio
+ * 
+ */
+export type equiposxestudio = Prisma.equiposxestudioModel
+/**
+ * Model estudios
+ * 
+ */
+export type estudios = Prisma.estudiosModel
+/**
+ * Model estudiosxsede
+ * 
+ */
+export type estudiosxsede = Prisma.estudiosxsedeModel
+/**
+ * Model gruposusuario
+ * 
+ */
+export type gruposusuario = Prisma.gruposusuarioModel
+/**
+ * Model horariosxsede
+ * This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+ */
+export type horariosxsede = Prisma.horariosxsedeModel
+/**
+ * Model pacientes
+ * 
+ */
+export type pacientes = Prisma.pacientesModel
+/**
+ * Model profesionales
+ * 
+ */
+export type profesionales = Prisma.profesionalesModel
+/**
+ * Model refreshtokens
+ * 
+ */
+export type refreshtokens = Prisma.refreshtokensModel
+/**
+ * Model salas
+ * This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+ */
+export type salas = Prisma.salasModel
+/**
+ * Model salasxestudio
+ * 
+ */
+export type salasxestudio = Prisma.salasxestudioModel
+/**
+ * Model sedes
+ * 
+ */
+export type sedes = Prisma.sedesModel
+/**
+ * Model turnos
+ * 
+ */
+export type turnos = Prisma.turnosModel
+/**
+ * Model usuarios
+ * 
+ */
+export type usuarios = Prisma.usuariosModel
+/**
+ * Model usuariosxgrupo
+ * 
+ */
+export type usuariosxgrupo = Prisma.usuariosxgrupoModel
+/**
+ * Model usuariosxsede
+ * 
+ */
+export type usuariosxsede = Prisma.usuariosxsedeModel

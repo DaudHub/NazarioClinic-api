@@ -51,7 +51,25 @@ export const AnyNull = runtime.AnyNull
 
 
 export const ModelName = {
-
+  atributoscheckbox: 'atributoscheckbox',
+  atributostextbox: 'atributostextbox',
+  disponibilidadsede: 'disponibilidadsede',
+  equipos: 'equipos',
+  equiposxestudio: 'equiposxestudio',
+  estudios: 'estudios',
+  estudiosxsede: 'estudiosxsede',
+  gruposusuario: 'gruposusuario',
+  horariosxsede: 'horariosxsede',
+  pacientes: 'pacientes',
+  profesionales: 'profesionales',
+  refreshtokens: 'refreshtokens',
+  salas: 'salas',
+  salasxestudio: 'salasxestudio',
+  sedes: 'sedes',
+  turnos: 'turnos',
+  usuarios: 'usuarios',
+  usuariosxgrupo: 'usuariosxgrupo',
+  usuariosxsede: 'usuariosxsede'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -68,4 +86,225 @@ export const TransactionIsolationLevel = runtime.makeStrictEnum({
 } as const)
 
 export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof typeof TransactionIsolationLevel]
+
+
+export const AtributoscheckboxScalarFieldEnum = {
+  id_estudio: 'id_estudio',
+  id: 'id',
+  nombre: 'nombre'
+} as const
+
+export type AtributoscheckboxScalarFieldEnum = (typeof AtributoscheckboxScalarFieldEnum)[keyof typeof AtributoscheckboxScalarFieldEnum]
+
+
+export const AtributostextboxScalarFieldEnum = {
+  id_estudio: 'id_estudio',
+  id: 'id',
+  id_atributo_checkbox: 'id_atributo_checkbox',
+  descripcion: 'descripcion',
+  obligatorio: 'obligatorio'
+} as const
+
+export type AtributostextboxScalarFieldEnum = (typeof AtributostextboxScalarFieldEnum)[keyof typeof AtributostextboxScalarFieldEnum]
+
+
+export const DisponibilidadsedeScalarFieldEnum = {
+  id_sede: 'id_sede',
+  desde: 'desde',
+  hasta: 'hasta',
+  tecnico: 'tecnico',
+  usuario_alta: 'usuario_alta'
+} as const
+
+export type DisponibilidadsedeScalarFieldEnum = (typeof DisponibilidadsedeScalarFieldEnum)[keyof typeof DisponibilidadsedeScalarFieldEnum]
+
+
+export const EquiposScalarFieldEnum = {
+  id: 'id',
+  id_sede: 'id_sede',
+  nombre: 'nombre',
+  modelo: 'modelo',
+  nro_serie: 'nro_serie',
+  activo: 'activo'
+} as const
+
+export type EquiposScalarFieldEnum = (typeof EquiposScalarFieldEnum)[keyof typeof EquiposScalarFieldEnum]
+
+
+export const EquiposxestudioScalarFieldEnum = {
+  id_sede: 'id_sede',
+  id_equipo: 'id_equipo',
+  id_estudio: 'id_estudio'
+} as const
+
+export type EquiposxestudioScalarFieldEnum = (typeof EquiposxestudioScalarFieldEnum)[keyof typeof EquiposxestudioScalarFieldEnum]
+
+
+export const EstudiosScalarFieldEnum = {
+  id: 'id',
+  codigo: 'codigo',
+  nombre: 'nombre',
+  descripcion: 'descripcion',
+  activo: 'activo'
+} as const
+
+export type EstudiosScalarFieldEnum = (typeof EstudiosScalarFieldEnum)[keyof typeof EstudiosScalarFieldEnum]
+
+
+export const EstudiosxsedeScalarFieldEnum = {
+  id_estudio: 'id_estudio',
+  id_sede: 'id_sede'
+} as const
+
+export type EstudiosxsedeScalarFieldEnum = (typeof EstudiosxsedeScalarFieldEnum)[keyof typeof EstudiosxsedeScalarFieldEnum]
+
+
+export const GruposusuarioScalarFieldEnum = {
+  id: 'id',
+  nombre: 'nombre'
+} as const
+
+export type GruposusuarioScalarFieldEnum = (typeof GruposusuarioScalarFieldEnum)[keyof typeof GruposusuarioScalarFieldEnum]
+
+
+export const HorariosxsedeScalarFieldEnum = {
+  id_sede: 'id_sede',
+  dia: 'dia',
+  apertura: 'apertura',
+  cierre: 'cierre'
+} as const
+
+export type HorariosxsedeScalarFieldEnum = (typeof HorariosxsedeScalarFieldEnum)[keyof typeof HorariosxsedeScalarFieldEnum]
+
+
+export const PacientesScalarFieldEnum = {
+  id: 'id',
+  documento: 'documento',
+  nombre: 'nombre',
+  telefono: 'telefono',
+  mail: 'mail'
+} as const
+
+export type PacientesScalarFieldEnum = (typeof PacientesScalarFieldEnum)[keyof typeof PacientesScalarFieldEnum]
+
+
+export const ProfesionalesScalarFieldEnum = {
+  id: 'id',
+  nombre: 'nombre',
+  mail: 'mail',
+  rut: 'rut'
+} as const
+
+export type ProfesionalesScalarFieldEnum = (typeof ProfesionalesScalarFieldEnum)[keyof typeof ProfesionalesScalarFieldEnum]
+
+
+export const RefreshtokensScalarFieldEnum = {
+  id_usuario: 'id_usuario',
+  token: 'token',
+  fec_venc: 'fec_venc'
+} as const
+
+export type RefreshtokensScalarFieldEnum = (typeof RefreshtokensScalarFieldEnum)[keyof typeof RefreshtokensScalarFieldEnum]
+
+
+export const SalasScalarFieldEnum = {
+  id: 'id',
+  id_sede: 'id_sede',
+  nombre: 'nombre',
+  capacidad: 'capacidad',
+  activa: 'activa'
+} as const
+
+export type SalasScalarFieldEnum = (typeof SalasScalarFieldEnum)[keyof typeof SalasScalarFieldEnum]
+
+
+export const SalasxestudioScalarFieldEnum = {
+  id_sede: 'id_sede',
+  id_sala: 'id_sala',
+  id_estudio: 'id_estudio'
+} as const
+
+export type SalasxestudioScalarFieldEnum = (typeof SalasxestudioScalarFieldEnum)[keyof typeof SalasxestudioScalarFieldEnum]
+
+
+export const SedesScalarFieldEnum = {
+  id: 'id',
+  codigo: 'codigo',
+  nombre: 'nombre',
+  direccion: 'direccion',
+  x: 'x',
+  y: 'y',
+  habilitada: 'habilitada',
+  turnos_simultaneos: 'turnos_simultaneos'
+} as const
+
+export type SedesScalarFieldEnum = (typeof SedesScalarFieldEnum)[keyof typeof SedesScalarFieldEnum]
+
+
+export const TurnosScalarFieldEnum = {
+  id: 'id',
+  id_sede: 'id_sede',
+  id_sala: 'id_sala',
+  horario: 'horario',
+  estudio: 'estudio',
+  precio: 'precio',
+  id_paciente: 'id_paciente',
+  id_profesional: 'id_profesional',
+  usuario_alta: 'usuario_alta',
+  usuario_mod: 'usuario_mod'
+} as const
+
+export type TurnosScalarFieldEnum = (typeof TurnosScalarFieldEnum)[keyof typeof TurnosScalarFieldEnum]
+
+
+export const UsuariosScalarFieldEnum = {
+  id: 'id',
+  usuario: 'usuario',
+  nombre: 'nombre',
+  mail: 'mail',
+  passwd: 'passwd',
+  sys_admin: 'sys_admin'
+} as const
+
+export type UsuariosScalarFieldEnum = (typeof UsuariosScalarFieldEnum)[keyof typeof UsuariosScalarFieldEnum]
+
+
+export const UsuariosxgrupoScalarFieldEnum = {
+  id_grupo: 'id_grupo',
+  id_usuario: 'id_usuario'
+} as const
+
+export type UsuariosxgrupoScalarFieldEnum = (typeof UsuariosxgrupoScalarFieldEnum)[keyof typeof UsuariosxgrupoScalarFieldEnum]
+
+
+export const UsuariosxsedeScalarFieldEnum = {
+  id_usuario: 'id_usuario',
+  id_sede: 'id_sede'
+} as const
+
+export type UsuariosxsedeScalarFieldEnum = (typeof UsuariosxsedeScalarFieldEnum)[keyof typeof UsuariosxsedeScalarFieldEnum]
+
+
+export const SortOrder = {
+  asc: 'asc',
+  desc: 'desc'
+} as const
+
+export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder]
+
+
+export const QueryMode = {
+  default: 'default',
+  insensitive: 'insensitive'
+} as const
+
+export type QueryMode = (typeof QueryMode)[keyof typeof QueryMode]
+
+
+export const NullsOrder = {
+  first: 'first',
+  last: 'last'
+} as const
+
+export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder]
 
