@@ -169,6 +169,7 @@ model sedes {
   estudiosxsede      estudiosxsede[]
   horariosxsede      horariosxsede[]
   salas              salas[]
+  telefonos          telefonos[]          @ignore
   usuariosxsede      usuariosxsede[]
 }
 
@@ -219,4 +220,13 @@ model usuariosxsede {
   usuarios   usuarios @relation(fields: [id_usuario], references: [id], onDelete: NoAction, onUpdate: NoAction)
 
   @@id([id_usuario, id_sede])
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model telefonos {
+  id_sede  String @db.Uuid
+  telefono String
+  sedes    sedes  @relation(fields: [id_sede], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@ignore
 }
