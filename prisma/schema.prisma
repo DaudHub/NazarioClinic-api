@@ -8,14 +8,27 @@ datasource db {
 }
 
 model atributoscheckbox {
-  id_estudio       String                  @db.Uuid
-  id               String                  @default(dbgenerated("gen_random_uuid()")) @db.Uuid
-  nombre           String
-  tiempo_extra     Unsupported("interval")
-  estudios         estudios                @relation(fields: [id_estudio], references: [id], onDelete: NoAction, onUpdate: NoAction)
-  atributostextbox atributostextbox[]
+  id_estudio           String                  @db.Uuid
+  id                   String                  @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  nombre               String
+  tiempo_extra         Unsupported("interval")
+  precio               Decimal                 @db.Decimal(14, 2)
+  estudios             estudios                @relation(fields: [id_estudio], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  atributoscheckxorden atributoscheckxorden[]
+  atributostextbox     atributostextbox[]
 
   @@id([id_estudio, id])
+}
+
+model atributoscheckxorden {
+  id_orden          String            @db.Uuid
+  id_estudio        String            @db.Uuid
+  id_atributo       String            @db.Uuid
+  valor             Boolean
+  atributoscheckbox atributoscheckbox @relation(fields: [id_estudio, id_atributo], references: [id_estudio, id], onDelete: NoAction, onUpdate: NoAction)
+  estudiosxorden    estudiosxorden    @relation(fields: [id_orden, id_estudio], references: [id_orden, id_estudio], onDelete: NoAction, onUpdate: NoAction)
+
+  @@id([id_orden, id_estudio, id_atributo])
 }
 
 model atributostextbox {
@@ -28,20 +41,6 @@ model atributostextbox {
   atributoscheckbox    atributoscheckbox? @relation(fields: [id_estudio, id_atributo_checkbox], references: [id_estudio, id], onDelete: NoAction, onUpdate: NoAction)
 
   @@id([id_estudio, id])
-}
-
-/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
-model disponibilidadsede {
-  id_sede                                            String    @db.Uuid
-  desde                                              DateTime  @db.Timestamp(6)
-  hasta                                              DateTime  @db.Timestamp(6)
-  tecnico                                            String?   @db.Uuid
-  usuario_alta                                       String    @db.Uuid
-  sedes                                              sedes     @relation(fields: [id_sede], references: [id], onDelete: NoAction, onUpdate: NoAction)
-  usuarios_disponibilidadsede_tecnicoTousuarios      usuarios? @relation("disponibilidadsede_tecnicoTousuarios", fields: [tecnico], references: [id], onDelete: NoAction, onUpdate: NoAction)
-  usuarios_disponibilidadsede_usuario_altaTousuarios usuarios  @relation("disponibilidadsede_usuario_altaTousuarios", fields: [usuario_alta], references: [id], onDelete: NoAction, onUpdate: NoAction)
-
-  @@id([id_sede, desde])
 }
 
 model equipos {
@@ -77,8 +76,19 @@ model estudios {
   atributoscheckbox atributoscheckbox[]
   atributostextbox  atributostextbox[]
   equiposxestudio   equiposxestudio[]
+  estudiosxorden    estudiosxorden[]
   estudiosxsede     estudiosxsede[]
   salasxestudio     salasxestudio[]
+}
+
+model estudiosxorden {
+  id_orden             String                 @db.Uuid
+  id_estudio           String                 @db.Uuid
+  atributoscheckxorden atributoscheckxorden[]
+  estudios             estudios               @relation(fields: [id_estudio], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  ordenes              ordenes                @relation(fields: [id_orden], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@id([id_orden, id_estudio])
 }
 
 model estudiosxsede {
@@ -107,21 +117,36 @@ model horariosxsede {
   @@id([id_sede, dia])
 }
 
+model mails {
+  id_sede String @db.Uuid
+  mail    String
+  sedes   sedes  @relation(fields: [id_sede], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@id([id_sede, mail])
+}
+
+model ordenes {
+  id             String           @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  id_profesional String           @db.Uuid
+  id_paciente    String           @db.Uuid
+  usuario_alta   String           @db.Uuid
+  usuario_mod    String           @db.Uuid
+  estudiosxorden estudiosxorden[]
+  pacientes      pacientes        @relation(fields: [id_paciente], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  profesionales  profesionales    @relation(fields: [id_profesional], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  turnos         turnos[]
+}
+
 model pacientes {
-  id        String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
-  documento String   @unique @db.VarChar(20)
-  nombre    String
-  telefono  String?  @db.VarChar(20)
-  mail      String
-  turnos    turnos[]
+  id        String    @id @db.Uuid
+  ordenes   ordenes[]
+  titulares titulares @relation(fields: [id], references: [id], onDelete: NoAction, onUpdate: NoAction)
 }
 
 model profesionales {
-  id     String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
-  nombre String
-  mail   String
-  rut    String?  @db.VarChar(12)
-  turnos turnos[]
+  id        String    @id @db.Uuid
+  ordenes   ordenes[]
+  titulares titulares @relation(fields: [id], references: [id], onDelete: NoAction, onUpdate: NoAction)
 }
 
 model refreshtokens {
@@ -156,20 +181,20 @@ model salasxestudio {
 }
 
 model sedes {
-  id                 String               @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
-  codigo             String               @unique @db.VarChar(20)
-  nombre             String
-  direccion          String
-  x                  Decimal              @db.Decimal(8, 5)
-  y                  Decimal              @db.Decimal(8, 5)
-  habilitada         Boolean              @default(true)
-  disponibilidadsede disponibilidadsede[]
-  equipos            equipos[]
-  estudiosxsede      estudiosxsede[]
-  horariosxsede      horariosxsede[]
-  salas              salas[]
-  telefonos          telefonos[]
-  usuariosxsede      usuariosxsede[]
+  id            String          @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  codigo        String          @unique @db.VarChar(20)
+  nombre        String
+  direccion     String
+  x             Decimal         @db.Decimal(8, 5)
+  y             Decimal         @db.Decimal(8, 5)
+  habilitada    Boolean         @default(true)
+  equipos       equipos[]
+  estudiosxsede estudiosxsede[]
+  horariosxsede horariosxsede[]
+  mails         mails[]
+  salas         salas[]
+  telefonos     telefonos[]
+  usuariosxsede usuariosxsede[]
 }
 
 model telefonos {
@@ -180,35 +205,49 @@ model telefonos {
   @@id([id_sede, telefono])
 }
 
+model tiposidentificacion {
+  codigo    Int         @id
+  nombre    String
+  titulares titulares[]
+}
+
+model titulares {
+  id                  String              @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  tipoidentificacion  Int
+  identificacion      String
+  nombre              String
+  telefono            String
+  mail                String
+  pacientes           pacientes?
+  profesionales       profesionales?
+  tiposidentificacion tiposidentificacion @relation(fields: [tipoidentificacion], references: [codigo], onDelete: NoAction, onUpdate: NoAction)
+}
+
 model turnos {
-  id             String                  @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
-  id_sede        String                  @db.Uuid
-  id_sala        String                  @db.Uuid
-  horario        DateTime                @db.Timestamp(6)
-  duracion       Unsupported("interval")
-  estudio        String                  @db.Uuid
-  precio         Decimal                 @db.Decimal(14, 2)
-  id_paciente    String                  @db.Uuid
-  id_profesional String?                 @db.Uuid
-  usuario_alta   String                  @db.Uuid
-  usuario_mod    String                  @db.Uuid
-  pacientes      pacientes               @relation(fields: [id_paciente], references: [id], onDelete: NoAction, onUpdate: NoAction)
-  profesionales  profesionales?          @relation(fields: [id_profesional], references: [id], onDelete: NoAction, onUpdate: NoAction)
-  salas          salas                   @relation(fields: [id_sede, id_sala], references: [id_sede, id], onDelete: NoAction, onUpdate: NoAction)
+  id           String                  @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  id_sede      String                  @db.Uuid
+  id_sala      String                  @db.Uuid
+  horario      DateTime                @db.Timestamp(6)
+  duracion     Unsupported("interval")
+  estudio      String                  @db.Uuid
+  precio       Decimal                 @db.Decimal(14, 2)
+  id_orden     String                  @db.Uuid
+  usuario_alta String                  @db.Uuid
+  usuario_mod  String                  @db.Uuid
+  ordenes      ordenes                 @relation(fields: [id_orden], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  salas        salas                   @relation(fields: [id_sede, id_sala], references: [id_sede, id], onDelete: NoAction, onUpdate: NoAction)
 }
 
 model usuarios {
-  id                                                           String               @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
-  usuario                                                      String               @unique
-  nombre                                                       String
-  mail                                                         String               @unique
-  passwd                                                       String
-  sys_admin                                                    Boolean              @default(false)
-  disponibilidadsede_disponibilidadsede_tecnicoTousuarios      disponibilidadsede[] @relation("disponibilidadsede_tecnicoTousuarios")
-  disponibilidadsede_disponibilidadsede_usuario_altaTousuarios disponibilidadsede[] @relation("disponibilidadsede_usuario_altaTousuarios")
-  refreshtokens                                                refreshtokens?
-  usuariosxgrupo                                               usuariosxgrupo[]
-  usuariosxsede                                                usuariosxsede[]
+  id             String           @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  usuario        String           @unique
+  nombre         String
+  mail           String           @unique
+  passwd         String
+  sys_admin      Boolean          @default(false)
+  refreshtokens  refreshtokens?
+  usuariosxgrupo usuariosxgrupo[]
+  usuariosxsede  usuariosxsede[]
 }
 
 model usuariosxgrupo {

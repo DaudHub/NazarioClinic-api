@@ -185,6 +185,7 @@ export type estudiosWhereInput = {
   atributoscheckbox?: Prisma.AtributoscheckboxListRelationFilter
   atributostextbox?: Prisma.AtributostextboxListRelationFilter
   equiposxestudio?: Prisma.EquiposxestudioListRelationFilter
+  estudiosxorden?: Prisma.EstudiosxordenListRelationFilter
   estudiosxsede?: Prisma.EstudiosxsedeListRelationFilter
   salasxestudio?: Prisma.SalasxestudioListRelationFilter
 }
@@ -198,6 +199,7 @@ export type estudiosOrderByWithRelationInput = {
   atributoscheckbox?: Prisma.atributoscheckboxOrderByRelationAggregateInput
   atributostextbox?: Prisma.atributostextboxOrderByRelationAggregateInput
   equiposxestudio?: Prisma.equiposxestudioOrderByRelationAggregateInput
+  estudiosxorden?: Prisma.estudiosxordenOrderByRelationAggregateInput
   estudiosxsede?: Prisma.estudiosxsedeOrderByRelationAggregateInput
   salasxestudio?: Prisma.salasxestudioOrderByRelationAggregateInput
 }
@@ -214,6 +216,7 @@ export type estudiosWhereUniqueInput = Prisma.AtLeast<{
   atributoscheckbox?: Prisma.AtributoscheckboxListRelationFilter
   atributostextbox?: Prisma.AtributostextboxListRelationFilter
   equiposxestudio?: Prisma.EquiposxestudioListRelationFilter
+  estudiosxorden?: Prisma.EstudiosxordenListRelationFilter
   estudiosxsede?: Prisma.EstudiosxsedeListRelationFilter
   salasxestudio?: Prisma.SalasxestudioListRelationFilter
 }, "id" | "codigo">
@@ -249,6 +252,7 @@ export type estudiosUpdateInput = {
   atributoscheckbox?: Prisma.atributoscheckboxUpdateManyWithoutEstudiosNestedInput
   atributostextbox?: Prisma.atributostextboxUpdateManyWithoutEstudiosNestedInput
   equiposxestudio?: Prisma.equiposxestudioUpdateManyWithoutEstudiosNestedInput
+  estudiosxorden?: Prisma.estudiosxordenUpdateManyWithoutEstudiosNestedInput
   estudiosxsede?: Prisma.estudiosxsedeUpdateManyWithoutEstudiosNestedInput
   salasxestudio?: Prisma.salasxestudioUpdateManyWithoutEstudiosNestedInput
 }
@@ -262,6 +266,7 @@ export type estudiosUncheckedUpdateInput = {
   atributoscheckbox?: Prisma.atributoscheckboxUncheckedUpdateManyWithoutEstudiosNestedInput
   atributostextbox?: Prisma.atributostextboxUncheckedUpdateManyWithoutEstudiosNestedInput
   equiposxestudio?: Prisma.equiposxestudioUncheckedUpdateManyWithoutEstudiosNestedInput
+  estudiosxorden?: Prisma.estudiosxordenUncheckedUpdateManyWithoutEstudiosNestedInput
   estudiosxsede?: Prisma.estudiosxsedeUncheckedUpdateManyWithoutEstudiosNestedInput
   salasxestudio?: Prisma.salasxestudioUncheckedUpdateManyWithoutEstudiosNestedInput
 }
@@ -334,6 +339,15 @@ export type estudiosUpdateOneRequiredWithoutEquiposxestudioNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.estudiosUpdateToOneWithWhereWithoutEquiposxestudioInput, Prisma.estudiosUpdateWithoutEquiposxestudioInput>, Prisma.estudiosUncheckedUpdateWithoutEquiposxestudioInput>
 }
 
+export type estudiosCreateNestedOneWithoutEstudiosxordenInput = {
+  connect?: Prisma.estudiosWhereUniqueInput
+}
+
+export type estudiosUpdateOneRequiredWithoutEstudiosxordenNestedInput = {
+  connect?: Prisma.estudiosWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.estudiosUpdateToOneWithWhereWithoutEstudiosxordenInput, Prisma.estudiosUpdateWithoutEstudiosxordenInput>, Prisma.estudiosUncheckedUpdateWithoutEstudiosxordenInput>
+}
+
 export type estudiosCreateNestedOneWithoutEstudiosxsedeInput = {
   connect?: Prisma.estudiosWhereUniqueInput
 }
@@ -365,6 +379,7 @@ export type estudiosUpdateWithoutAtributoscheckboxInput = {
   activo?: Prisma.BoolFieldUpdateOperationsInput | boolean
   atributostextbox?: Prisma.atributostextboxUpdateManyWithoutEstudiosNestedInput
   equiposxestudio?: Prisma.equiposxestudioUpdateManyWithoutEstudiosNestedInput
+  estudiosxorden?: Prisma.estudiosxordenUpdateManyWithoutEstudiosNestedInput
   estudiosxsede?: Prisma.estudiosxsedeUpdateManyWithoutEstudiosNestedInput
   salasxestudio?: Prisma.salasxestudioUpdateManyWithoutEstudiosNestedInput
 }
@@ -377,6 +392,7 @@ export type estudiosUncheckedUpdateWithoutAtributoscheckboxInput = {
   activo?: Prisma.BoolFieldUpdateOperationsInput | boolean
   atributostextbox?: Prisma.atributostextboxUncheckedUpdateManyWithoutEstudiosNestedInput
   equiposxestudio?: Prisma.equiposxestudioUncheckedUpdateManyWithoutEstudiosNestedInput
+  estudiosxorden?: Prisma.estudiosxordenUncheckedUpdateManyWithoutEstudiosNestedInput
   estudiosxsede?: Prisma.estudiosxsedeUncheckedUpdateManyWithoutEstudiosNestedInput
   salasxestudio?: Prisma.salasxestudioUncheckedUpdateManyWithoutEstudiosNestedInput
 }
@@ -394,6 +410,7 @@ export type estudiosUpdateWithoutAtributostextboxInput = {
   activo?: Prisma.BoolFieldUpdateOperationsInput | boolean
   atributoscheckbox?: Prisma.atributoscheckboxUpdateManyWithoutEstudiosNestedInput
   equiposxestudio?: Prisma.equiposxestudioUpdateManyWithoutEstudiosNestedInput
+  estudiosxorden?: Prisma.estudiosxordenUpdateManyWithoutEstudiosNestedInput
   estudiosxsede?: Prisma.estudiosxsedeUpdateManyWithoutEstudiosNestedInput
   salasxestudio?: Prisma.salasxestudioUpdateManyWithoutEstudiosNestedInput
 }
@@ -406,6 +423,7 @@ export type estudiosUncheckedUpdateWithoutAtributostextboxInput = {
   activo?: Prisma.BoolFieldUpdateOperationsInput | boolean
   atributoscheckbox?: Prisma.atributoscheckboxUncheckedUpdateManyWithoutEstudiosNestedInput
   equiposxestudio?: Prisma.equiposxestudioUncheckedUpdateManyWithoutEstudiosNestedInput
+  estudiosxorden?: Prisma.estudiosxordenUncheckedUpdateManyWithoutEstudiosNestedInput
   estudiosxsede?: Prisma.estudiosxsedeUncheckedUpdateManyWithoutEstudiosNestedInput
   salasxestudio?: Prisma.salasxestudioUncheckedUpdateManyWithoutEstudiosNestedInput
 }
@@ -423,6 +441,7 @@ export type estudiosUpdateWithoutEquiposxestudioInput = {
   activo?: Prisma.BoolFieldUpdateOperationsInput | boolean
   atributoscheckbox?: Prisma.atributoscheckboxUpdateManyWithoutEstudiosNestedInput
   atributostextbox?: Prisma.atributostextboxUpdateManyWithoutEstudiosNestedInput
+  estudiosxorden?: Prisma.estudiosxordenUpdateManyWithoutEstudiosNestedInput
   estudiosxsede?: Prisma.estudiosxsedeUpdateManyWithoutEstudiosNestedInput
   salasxestudio?: Prisma.salasxestudioUpdateManyWithoutEstudiosNestedInput
 }
@@ -435,6 +454,38 @@ export type estudiosUncheckedUpdateWithoutEquiposxestudioInput = {
   activo?: Prisma.BoolFieldUpdateOperationsInput | boolean
   atributoscheckbox?: Prisma.atributoscheckboxUncheckedUpdateManyWithoutEstudiosNestedInput
   atributostextbox?: Prisma.atributostextboxUncheckedUpdateManyWithoutEstudiosNestedInput
+  estudiosxorden?: Prisma.estudiosxordenUncheckedUpdateManyWithoutEstudiosNestedInput
+  estudiosxsede?: Prisma.estudiosxsedeUncheckedUpdateManyWithoutEstudiosNestedInput
+  salasxestudio?: Prisma.salasxestudioUncheckedUpdateManyWithoutEstudiosNestedInput
+}
+
+export type estudiosUpdateToOneWithWhereWithoutEstudiosxordenInput = {
+  where?: Prisma.estudiosWhereInput
+  data: Prisma.XOR<Prisma.estudiosUpdateWithoutEstudiosxordenInput, Prisma.estudiosUncheckedUpdateWithoutEstudiosxordenInput>
+}
+
+export type estudiosUpdateWithoutEstudiosxordenInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  codigo?: Prisma.StringFieldUpdateOperationsInput | string
+  nombre?: Prisma.StringFieldUpdateOperationsInput | string
+  descripcion?: Prisma.StringFieldUpdateOperationsInput | string
+  activo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  atributoscheckbox?: Prisma.atributoscheckboxUpdateManyWithoutEstudiosNestedInput
+  atributostextbox?: Prisma.atributostextboxUpdateManyWithoutEstudiosNestedInput
+  equiposxestudio?: Prisma.equiposxestudioUpdateManyWithoutEstudiosNestedInput
+  estudiosxsede?: Prisma.estudiosxsedeUpdateManyWithoutEstudiosNestedInput
+  salasxestudio?: Prisma.salasxestudioUpdateManyWithoutEstudiosNestedInput
+}
+
+export type estudiosUncheckedUpdateWithoutEstudiosxordenInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  codigo?: Prisma.StringFieldUpdateOperationsInput | string
+  nombre?: Prisma.StringFieldUpdateOperationsInput | string
+  descripcion?: Prisma.StringFieldUpdateOperationsInput | string
+  activo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  atributoscheckbox?: Prisma.atributoscheckboxUncheckedUpdateManyWithoutEstudiosNestedInput
+  atributostextbox?: Prisma.atributostextboxUncheckedUpdateManyWithoutEstudiosNestedInput
+  equiposxestudio?: Prisma.equiposxestudioUncheckedUpdateManyWithoutEstudiosNestedInput
   estudiosxsede?: Prisma.estudiosxsedeUncheckedUpdateManyWithoutEstudiosNestedInput
   salasxestudio?: Prisma.salasxestudioUncheckedUpdateManyWithoutEstudiosNestedInput
 }
@@ -453,6 +504,7 @@ export type estudiosUpdateWithoutEstudiosxsedeInput = {
   atributoscheckbox?: Prisma.atributoscheckboxUpdateManyWithoutEstudiosNestedInput
   atributostextbox?: Prisma.atributostextboxUpdateManyWithoutEstudiosNestedInput
   equiposxestudio?: Prisma.equiposxestudioUpdateManyWithoutEstudiosNestedInput
+  estudiosxorden?: Prisma.estudiosxordenUpdateManyWithoutEstudiosNestedInput
   salasxestudio?: Prisma.salasxestudioUpdateManyWithoutEstudiosNestedInput
 }
 
@@ -465,6 +517,7 @@ export type estudiosUncheckedUpdateWithoutEstudiosxsedeInput = {
   atributoscheckbox?: Prisma.atributoscheckboxUncheckedUpdateManyWithoutEstudiosNestedInput
   atributostextbox?: Prisma.atributostextboxUncheckedUpdateManyWithoutEstudiosNestedInput
   equiposxestudio?: Prisma.equiposxestudioUncheckedUpdateManyWithoutEstudiosNestedInput
+  estudiosxorden?: Prisma.estudiosxordenUncheckedUpdateManyWithoutEstudiosNestedInput
   salasxestudio?: Prisma.salasxestudioUncheckedUpdateManyWithoutEstudiosNestedInput
 }
 
@@ -482,6 +535,7 @@ export type estudiosUpdateWithoutSalasxestudioInput = {
   atributoscheckbox?: Prisma.atributoscheckboxUpdateManyWithoutEstudiosNestedInput
   atributostextbox?: Prisma.atributostextboxUpdateManyWithoutEstudiosNestedInput
   equiposxestudio?: Prisma.equiposxestudioUpdateManyWithoutEstudiosNestedInput
+  estudiosxorden?: Prisma.estudiosxordenUpdateManyWithoutEstudiosNestedInput
   estudiosxsede?: Prisma.estudiosxsedeUpdateManyWithoutEstudiosNestedInput
 }
 
@@ -494,6 +548,7 @@ export type estudiosUncheckedUpdateWithoutSalasxestudioInput = {
   atributoscheckbox?: Prisma.atributoscheckboxUncheckedUpdateManyWithoutEstudiosNestedInput
   atributostextbox?: Prisma.atributostextboxUncheckedUpdateManyWithoutEstudiosNestedInput
   equiposxestudio?: Prisma.equiposxestudioUncheckedUpdateManyWithoutEstudiosNestedInput
+  estudiosxorden?: Prisma.estudiosxordenUncheckedUpdateManyWithoutEstudiosNestedInput
   estudiosxsede?: Prisma.estudiosxsedeUncheckedUpdateManyWithoutEstudiosNestedInput
 }
 
@@ -506,6 +561,7 @@ export type EstudiosCountOutputType = {
   atributoscheckbox: number
   atributostextbox: number
   equiposxestudio: number
+  estudiosxorden: number
   estudiosxsede: number
   salasxestudio: number
 }
@@ -514,6 +570,7 @@ export type EstudiosCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensio
   atributoscheckbox?: boolean | EstudiosCountOutputTypeCountAtributoscheckboxArgs
   atributostextbox?: boolean | EstudiosCountOutputTypeCountAtributostextboxArgs
   equiposxestudio?: boolean | EstudiosCountOutputTypeCountEquiposxestudioArgs
+  estudiosxorden?: boolean | EstudiosCountOutputTypeCountEstudiosxordenArgs
   estudiosxsede?: boolean | EstudiosCountOutputTypeCountEstudiosxsedeArgs
   salasxestudio?: boolean | EstudiosCountOutputTypeCountSalasxestudioArgs
 }
@@ -552,6 +609,13 @@ export type EstudiosCountOutputTypeCountEquiposxestudioArgs<ExtArgs extends runt
 /**
  * EstudiosCountOutputType without action
  */
+export type EstudiosCountOutputTypeCountEstudiosxordenArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.estudiosxordenWhereInput
+}
+
+/**
+ * EstudiosCountOutputType without action
+ */
 export type EstudiosCountOutputTypeCountEstudiosxsedeArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   where?: Prisma.estudiosxsedeWhereInput
 }
@@ -573,6 +637,7 @@ export type estudiosSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs
   atributoscheckbox?: boolean | Prisma.estudios$atributoscheckboxArgs<ExtArgs>
   atributostextbox?: boolean | Prisma.estudios$atributostextboxArgs<ExtArgs>
   equiposxestudio?: boolean | Prisma.estudios$equiposxestudioArgs<ExtArgs>
+  estudiosxorden?: boolean | Prisma.estudios$estudiosxordenArgs<ExtArgs>
   estudiosxsede?: boolean | Prisma.estudios$estudiosxsedeArgs<ExtArgs>
   salasxestudio?: boolean | Prisma.estudios$salasxestudioArgs<ExtArgs>
   _count?: boolean | Prisma.EstudiosCountOutputTypeDefaultArgs<ExtArgs>
@@ -600,6 +665,7 @@ export type estudiosInclude<ExtArgs extends runtime.Types.Extensions.InternalArg
   atributoscheckbox?: boolean | Prisma.estudios$atributoscheckboxArgs<ExtArgs>
   atributostextbox?: boolean | Prisma.estudios$atributostextboxArgs<ExtArgs>
   equiposxestudio?: boolean | Prisma.estudios$equiposxestudioArgs<ExtArgs>
+  estudiosxorden?: boolean | Prisma.estudios$estudiosxordenArgs<ExtArgs>
   estudiosxsede?: boolean | Prisma.estudios$estudiosxsedeArgs<ExtArgs>
   salasxestudio?: boolean | Prisma.estudios$salasxestudioArgs<ExtArgs>
   _count?: boolean | Prisma.EstudiosCountOutputTypeDefaultArgs<ExtArgs>
@@ -612,6 +678,7 @@ export type $estudiosPayload<ExtArgs extends runtime.Types.Extensions.InternalAr
     atributoscheckbox: Prisma.$atributoscheckboxPayload<ExtArgs>[]
     atributostextbox: Prisma.$atributostextboxPayload<ExtArgs>[]
     equiposxestudio: Prisma.$equiposxestudioPayload<ExtArgs>[]
+    estudiosxorden: Prisma.$estudiosxordenPayload<ExtArgs>[]
     estudiosxsede: Prisma.$estudiosxsedePayload<ExtArgs>[]
     salasxestudio: Prisma.$salasxestudioPayload<ExtArgs>[]
   }
@@ -947,6 +1014,7 @@ export interface Prisma__estudiosClient<T, Null = never, ExtArgs extends runtime
   atributoscheckbox<T extends Prisma.estudios$atributoscheckboxArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.estudios$atributoscheckboxArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$atributoscheckboxPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   atributostextbox<T extends Prisma.estudios$atributostextboxArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.estudios$atributostextboxArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$atributostextboxPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   equiposxestudio<T extends Prisma.estudios$equiposxestudioArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.estudios$equiposxestudioArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$equiposxestudioPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  estudiosxorden<T extends Prisma.estudios$estudiosxordenArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.estudios$estudiosxordenArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$estudiosxordenPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   estudiosxsede<T extends Prisma.estudios$estudiosxsedeArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.estudios$estudiosxsedeArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$estudiosxsedePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   salasxestudio<T extends Prisma.estudios$salasxestudioArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.estudios$salasxestudioArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$salasxestudioPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
@@ -1363,6 +1431,30 @@ export type estudios$equiposxestudioArgs<ExtArgs extends runtime.Types.Extension
   take?: number
   skip?: number
   distinct?: Prisma.EquiposxestudioScalarFieldEnum | Prisma.EquiposxestudioScalarFieldEnum[]
+}
+
+/**
+ * estudios.estudiosxorden
+ */
+export type estudios$estudiosxordenArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the estudiosxorden
+   */
+  select?: Prisma.estudiosxordenSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the estudiosxorden
+   */
+  omit?: Prisma.estudiosxordenOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.estudiosxordenInclude<ExtArgs> | null
+  where?: Prisma.estudiosxordenWhereInput
+  orderBy?: Prisma.estudiosxordenOrderByWithRelationInput | Prisma.estudiosxordenOrderByWithRelationInput[]
+  cursor?: Prisma.estudiosxordenWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.EstudiosxordenScalarFieldEnum | Prisma.EstudiosxordenScalarFieldEnum[]
 }
 
 /**

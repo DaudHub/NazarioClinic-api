@@ -190,8 +190,6 @@ export type usuariosWhereInput = {
   mail?: Prisma.StringFilter<"usuarios"> | string
   passwd?: Prisma.StringFilter<"usuarios"> | string
   sys_admin?: Prisma.BoolFilter<"usuarios"> | boolean
-  disponibilidadsede_disponibilidadsede_tecnicoTousuarios?: Prisma.DisponibilidadsedeListRelationFilter
-  disponibilidadsede_disponibilidadsede_usuario_altaTousuarios?: Prisma.DisponibilidadsedeListRelationFilter
   refreshtokens?: Prisma.XOR<Prisma.RefreshtokensNullableScalarRelationFilter, Prisma.refreshtokensWhereInput> | null
   usuariosxgrupo?: Prisma.UsuariosxgrupoListRelationFilter
   usuariosxsede?: Prisma.UsuariosxsedeListRelationFilter
@@ -204,8 +202,6 @@ export type usuariosOrderByWithRelationInput = {
   mail?: Prisma.SortOrder
   passwd?: Prisma.SortOrder
   sys_admin?: Prisma.SortOrder
-  disponibilidadsede_disponibilidadsede_tecnicoTousuarios?: Prisma.disponibilidadsedeOrderByRelationAggregateInput
-  disponibilidadsede_disponibilidadsede_usuario_altaTousuarios?: Prisma.disponibilidadsedeOrderByRelationAggregateInput
   refreshtokens?: Prisma.refreshtokensOrderByWithRelationInput
   usuariosxgrupo?: Prisma.usuariosxgrupoOrderByRelationAggregateInput
   usuariosxsede?: Prisma.usuariosxsedeOrderByRelationAggregateInput
@@ -221,8 +217,6 @@ export type usuariosWhereUniqueInput = Prisma.AtLeast<{
   nombre?: Prisma.StringFilter<"usuarios"> | string
   passwd?: Prisma.StringFilter<"usuarios"> | string
   sys_admin?: Prisma.BoolFilter<"usuarios"> | boolean
-  disponibilidadsede_disponibilidadsede_tecnicoTousuarios?: Prisma.DisponibilidadsedeListRelationFilter
-  disponibilidadsede_disponibilidadsede_usuario_altaTousuarios?: Prisma.DisponibilidadsedeListRelationFilter
   refreshtokens?: Prisma.XOR<Prisma.RefreshtokensNullableScalarRelationFilter, Prisma.refreshtokensWhereInput> | null
   usuariosxgrupo?: Prisma.UsuariosxgrupoListRelationFilter
   usuariosxsede?: Prisma.UsuariosxsedeListRelationFilter
@@ -259,8 +253,6 @@ export type usuariosCreateInput = {
   mail: string
   passwd: string
   sys_admin?: boolean
-  disponibilidadsede_disponibilidadsede_tecnicoTousuarios?: Prisma.disponibilidadsedeCreateNestedManyWithoutUsuarios_disponibilidadsede_tecnicoTousuariosInput
-  disponibilidadsede_disponibilidadsede_usuario_altaTousuarios?: Prisma.disponibilidadsedeCreateNestedManyWithoutUsuarios_disponibilidadsede_usuario_altaTousuariosInput
   refreshtokens?: Prisma.refreshtokensCreateNestedOneWithoutUsuariosInput
   usuariosxgrupo?: Prisma.usuariosxgrupoCreateNestedManyWithoutUsuariosInput
   usuariosxsede?: Prisma.usuariosxsedeCreateNestedManyWithoutUsuariosInput
@@ -273,8 +265,6 @@ export type usuariosUncheckedCreateInput = {
   mail: string
   passwd: string
   sys_admin?: boolean
-  disponibilidadsede_disponibilidadsede_tecnicoTousuarios?: Prisma.disponibilidadsedeUncheckedCreateNestedManyWithoutUsuarios_disponibilidadsede_tecnicoTousuariosInput
-  disponibilidadsede_disponibilidadsede_usuario_altaTousuarios?: Prisma.disponibilidadsedeUncheckedCreateNestedManyWithoutUsuarios_disponibilidadsede_usuario_altaTousuariosInput
   refreshtokens?: Prisma.refreshtokensUncheckedCreateNestedOneWithoutUsuariosInput
   usuariosxgrupo?: Prisma.usuariosxgrupoUncheckedCreateNestedManyWithoutUsuariosInput
   usuariosxsede?: Prisma.usuariosxsedeUncheckedCreateNestedManyWithoutUsuariosInput
@@ -287,8 +277,6 @@ export type usuariosUpdateInput = {
   mail?: Prisma.StringFieldUpdateOperationsInput | string
   passwd?: Prisma.StringFieldUpdateOperationsInput | string
   sys_admin?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  disponibilidadsede_disponibilidadsede_tecnicoTousuarios?: Prisma.disponibilidadsedeUpdateManyWithoutUsuarios_disponibilidadsede_tecnicoTousuariosNestedInput
-  disponibilidadsede_disponibilidadsede_usuario_altaTousuarios?: Prisma.disponibilidadsedeUpdateManyWithoutUsuarios_disponibilidadsede_usuario_altaTousuariosNestedInput
   refreshtokens?: Prisma.refreshtokensUpdateOneWithoutUsuariosNestedInput
   usuariosxgrupo?: Prisma.usuariosxgrupoUpdateManyWithoutUsuariosNestedInput
   usuariosxsede?: Prisma.usuariosxsedeUpdateManyWithoutUsuariosNestedInput
@@ -301,8 +289,6 @@ export type usuariosUncheckedUpdateInput = {
   mail?: Prisma.StringFieldUpdateOperationsInput | string
   passwd?: Prisma.StringFieldUpdateOperationsInput | string
   sys_admin?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  disponibilidadsede_disponibilidadsede_tecnicoTousuarios?: Prisma.disponibilidadsedeUncheckedUpdateManyWithoutUsuarios_disponibilidadsede_tecnicoTousuariosNestedInput
-  disponibilidadsede_disponibilidadsede_usuario_altaTousuarios?: Prisma.disponibilidadsedeUncheckedUpdateManyWithoutUsuarios_disponibilidadsede_usuario_altaTousuariosNestedInput
   refreshtokens?: Prisma.refreshtokensUncheckedUpdateOneWithoutUsuariosNestedInput
   usuariosxgrupo?: Prisma.usuariosxgrupoUncheckedUpdateManyWithoutUsuariosNestedInput
   usuariosxsede?: Prisma.usuariosxsedeUncheckedUpdateManyWithoutUsuariosNestedInput
@@ -335,11 +321,6 @@ export type usuariosUncheckedUpdateManyInput = {
   sys_admin?: Prisma.BoolFieldUpdateOperationsInput | boolean
 }
 
-export type UsuariosNullableScalarRelationFilter = {
-  is?: Prisma.usuariosWhereInput | null
-  isNot?: Prisma.usuariosWhereInput | null
-}
-
 export type UsuariosScalarRelationFilter = {
   is?: Prisma.usuariosWhereInput
   isNot?: Prisma.usuariosWhereInput
@@ -370,36 +351,6 @@ export type usuariosMinOrderByAggregateInput = {
   mail?: Prisma.SortOrder
   passwd?: Prisma.SortOrder
   sys_admin?: Prisma.SortOrder
-}
-
-export type usuariosCreateNestedOneWithoutDisponibilidadsede_disponibilidadsede_tecnicoTousuariosInput = {
-  create?: Prisma.XOR<Prisma.usuariosCreateWithoutDisponibilidadsede_disponibilidadsede_tecnicoTousuariosInput, Prisma.usuariosUncheckedCreateWithoutDisponibilidadsede_disponibilidadsede_tecnicoTousuariosInput>
-  connectOrCreate?: Prisma.usuariosCreateOrConnectWithoutDisponibilidadsede_disponibilidadsede_tecnicoTousuariosInput
-  connect?: Prisma.usuariosWhereUniqueInput
-}
-
-export type usuariosCreateNestedOneWithoutDisponibilidadsede_disponibilidadsede_usuario_altaTousuariosInput = {
-  create?: Prisma.XOR<Prisma.usuariosCreateWithoutDisponibilidadsede_disponibilidadsede_usuario_altaTousuariosInput, Prisma.usuariosUncheckedCreateWithoutDisponibilidadsede_disponibilidadsede_usuario_altaTousuariosInput>
-  connectOrCreate?: Prisma.usuariosCreateOrConnectWithoutDisponibilidadsede_disponibilidadsede_usuario_altaTousuariosInput
-  connect?: Prisma.usuariosWhereUniqueInput
-}
-
-export type usuariosUpdateOneWithoutDisponibilidadsede_disponibilidadsede_tecnicoTousuariosNestedInput = {
-  create?: Prisma.XOR<Prisma.usuariosCreateWithoutDisponibilidadsede_disponibilidadsede_tecnicoTousuariosInput, Prisma.usuariosUncheckedCreateWithoutDisponibilidadsede_disponibilidadsede_tecnicoTousuariosInput>
-  connectOrCreate?: Prisma.usuariosCreateOrConnectWithoutDisponibilidadsede_disponibilidadsede_tecnicoTousuariosInput
-  upsert?: Prisma.usuariosUpsertWithoutDisponibilidadsede_disponibilidadsede_tecnicoTousuariosInput
-  disconnect?: Prisma.usuariosWhereInput | boolean
-  delete?: Prisma.usuariosWhereInput | boolean
-  connect?: Prisma.usuariosWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.usuariosUpdateToOneWithWhereWithoutDisponibilidadsede_disponibilidadsede_tecnicoTousuariosInput, Prisma.usuariosUpdateWithoutDisponibilidadsede_disponibilidadsede_tecnicoTousuariosInput>, Prisma.usuariosUncheckedUpdateWithoutDisponibilidadsede_disponibilidadsede_tecnicoTousuariosInput>
-}
-
-export type usuariosUpdateOneRequiredWithoutDisponibilidadsede_disponibilidadsede_usuario_altaTousuariosNestedInput = {
-  create?: Prisma.XOR<Prisma.usuariosCreateWithoutDisponibilidadsede_disponibilidadsede_usuario_altaTousuariosInput, Prisma.usuariosUncheckedCreateWithoutDisponibilidadsede_disponibilidadsede_usuario_altaTousuariosInput>
-  connectOrCreate?: Prisma.usuariosCreateOrConnectWithoutDisponibilidadsede_disponibilidadsede_usuario_altaTousuariosInput
-  upsert?: Prisma.usuariosUpsertWithoutDisponibilidadsede_disponibilidadsede_usuario_altaTousuariosInput
-  connect?: Prisma.usuariosWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.usuariosUpdateToOneWithWhereWithoutDisponibilidadsede_disponibilidadsede_usuario_altaTousuariosInput, Prisma.usuariosUpdateWithoutDisponibilidadsede_disponibilidadsede_usuario_altaTousuariosInput>, Prisma.usuariosUncheckedUpdateWithoutDisponibilidadsede_disponibilidadsede_usuario_altaTousuariosInput>
 }
 
 export type usuariosCreateNestedOneWithoutRefreshtokensInput = {
@@ -444,142 +395,6 @@ export type usuariosUpdateOneRequiredWithoutUsuariosxsedeNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.usuariosUpdateToOneWithWhereWithoutUsuariosxsedeInput, Prisma.usuariosUpdateWithoutUsuariosxsedeInput>, Prisma.usuariosUncheckedUpdateWithoutUsuariosxsedeInput>
 }
 
-export type usuariosCreateWithoutDisponibilidadsede_disponibilidadsede_tecnicoTousuariosInput = {
-  id?: string
-  usuario: string
-  nombre: string
-  mail: string
-  passwd: string
-  sys_admin?: boolean
-  disponibilidadsede_disponibilidadsede_usuario_altaTousuarios?: Prisma.disponibilidadsedeCreateNestedManyWithoutUsuarios_disponibilidadsede_usuario_altaTousuariosInput
-  refreshtokens?: Prisma.refreshtokensCreateNestedOneWithoutUsuariosInput
-  usuariosxgrupo?: Prisma.usuariosxgrupoCreateNestedManyWithoutUsuariosInput
-  usuariosxsede?: Prisma.usuariosxsedeCreateNestedManyWithoutUsuariosInput
-}
-
-export type usuariosUncheckedCreateWithoutDisponibilidadsede_disponibilidadsede_tecnicoTousuariosInput = {
-  id?: string
-  usuario: string
-  nombre: string
-  mail: string
-  passwd: string
-  sys_admin?: boolean
-  disponibilidadsede_disponibilidadsede_usuario_altaTousuarios?: Prisma.disponibilidadsedeUncheckedCreateNestedManyWithoutUsuarios_disponibilidadsede_usuario_altaTousuariosInput
-  refreshtokens?: Prisma.refreshtokensUncheckedCreateNestedOneWithoutUsuariosInput
-  usuariosxgrupo?: Prisma.usuariosxgrupoUncheckedCreateNestedManyWithoutUsuariosInput
-  usuariosxsede?: Prisma.usuariosxsedeUncheckedCreateNestedManyWithoutUsuariosInput
-}
-
-export type usuariosCreateOrConnectWithoutDisponibilidadsede_disponibilidadsede_tecnicoTousuariosInput = {
-  where: Prisma.usuariosWhereUniqueInput
-  create: Prisma.XOR<Prisma.usuariosCreateWithoutDisponibilidadsede_disponibilidadsede_tecnicoTousuariosInput, Prisma.usuariosUncheckedCreateWithoutDisponibilidadsede_disponibilidadsede_tecnicoTousuariosInput>
-}
-
-export type usuariosCreateWithoutDisponibilidadsede_disponibilidadsede_usuario_altaTousuariosInput = {
-  id?: string
-  usuario: string
-  nombre: string
-  mail: string
-  passwd: string
-  sys_admin?: boolean
-  disponibilidadsede_disponibilidadsede_tecnicoTousuarios?: Prisma.disponibilidadsedeCreateNestedManyWithoutUsuarios_disponibilidadsede_tecnicoTousuariosInput
-  refreshtokens?: Prisma.refreshtokensCreateNestedOneWithoutUsuariosInput
-  usuariosxgrupo?: Prisma.usuariosxgrupoCreateNestedManyWithoutUsuariosInput
-  usuariosxsede?: Prisma.usuariosxsedeCreateNestedManyWithoutUsuariosInput
-}
-
-export type usuariosUncheckedCreateWithoutDisponibilidadsede_disponibilidadsede_usuario_altaTousuariosInput = {
-  id?: string
-  usuario: string
-  nombre: string
-  mail: string
-  passwd: string
-  sys_admin?: boolean
-  disponibilidadsede_disponibilidadsede_tecnicoTousuarios?: Prisma.disponibilidadsedeUncheckedCreateNestedManyWithoutUsuarios_disponibilidadsede_tecnicoTousuariosInput
-  refreshtokens?: Prisma.refreshtokensUncheckedCreateNestedOneWithoutUsuariosInput
-  usuariosxgrupo?: Prisma.usuariosxgrupoUncheckedCreateNestedManyWithoutUsuariosInput
-  usuariosxsede?: Prisma.usuariosxsedeUncheckedCreateNestedManyWithoutUsuariosInput
-}
-
-export type usuariosCreateOrConnectWithoutDisponibilidadsede_disponibilidadsede_usuario_altaTousuariosInput = {
-  where: Prisma.usuariosWhereUniqueInput
-  create: Prisma.XOR<Prisma.usuariosCreateWithoutDisponibilidadsede_disponibilidadsede_usuario_altaTousuariosInput, Prisma.usuariosUncheckedCreateWithoutDisponibilidadsede_disponibilidadsede_usuario_altaTousuariosInput>
-}
-
-export type usuariosUpsertWithoutDisponibilidadsede_disponibilidadsede_tecnicoTousuariosInput = {
-  update: Prisma.XOR<Prisma.usuariosUpdateWithoutDisponibilidadsede_disponibilidadsede_tecnicoTousuariosInput, Prisma.usuariosUncheckedUpdateWithoutDisponibilidadsede_disponibilidadsede_tecnicoTousuariosInput>
-  create: Prisma.XOR<Prisma.usuariosCreateWithoutDisponibilidadsede_disponibilidadsede_tecnicoTousuariosInput, Prisma.usuariosUncheckedCreateWithoutDisponibilidadsede_disponibilidadsede_tecnicoTousuariosInput>
-  where?: Prisma.usuariosWhereInput
-}
-
-export type usuariosUpdateToOneWithWhereWithoutDisponibilidadsede_disponibilidadsede_tecnicoTousuariosInput = {
-  where?: Prisma.usuariosWhereInput
-  data: Prisma.XOR<Prisma.usuariosUpdateWithoutDisponibilidadsede_disponibilidadsede_tecnicoTousuariosInput, Prisma.usuariosUncheckedUpdateWithoutDisponibilidadsede_disponibilidadsede_tecnicoTousuariosInput>
-}
-
-export type usuariosUpdateWithoutDisponibilidadsede_disponibilidadsede_tecnicoTousuariosInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  usuario?: Prisma.StringFieldUpdateOperationsInput | string
-  nombre?: Prisma.StringFieldUpdateOperationsInput | string
-  mail?: Prisma.StringFieldUpdateOperationsInput | string
-  passwd?: Prisma.StringFieldUpdateOperationsInput | string
-  sys_admin?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  disponibilidadsede_disponibilidadsede_usuario_altaTousuarios?: Prisma.disponibilidadsedeUpdateManyWithoutUsuarios_disponibilidadsede_usuario_altaTousuariosNestedInput
-  refreshtokens?: Prisma.refreshtokensUpdateOneWithoutUsuariosNestedInput
-  usuariosxgrupo?: Prisma.usuariosxgrupoUpdateManyWithoutUsuariosNestedInput
-  usuariosxsede?: Prisma.usuariosxsedeUpdateManyWithoutUsuariosNestedInput
-}
-
-export type usuariosUncheckedUpdateWithoutDisponibilidadsede_disponibilidadsede_tecnicoTousuariosInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  usuario?: Prisma.StringFieldUpdateOperationsInput | string
-  nombre?: Prisma.StringFieldUpdateOperationsInput | string
-  mail?: Prisma.StringFieldUpdateOperationsInput | string
-  passwd?: Prisma.StringFieldUpdateOperationsInput | string
-  sys_admin?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  disponibilidadsede_disponibilidadsede_usuario_altaTousuarios?: Prisma.disponibilidadsedeUncheckedUpdateManyWithoutUsuarios_disponibilidadsede_usuario_altaTousuariosNestedInput
-  refreshtokens?: Prisma.refreshtokensUncheckedUpdateOneWithoutUsuariosNestedInput
-  usuariosxgrupo?: Prisma.usuariosxgrupoUncheckedUpdateManyWithoutUsuariosNestedInput
-  usuariosxsede?: Prisma.usuariosxsedeUncheckedUpdateManyWithoutUsuariosNestedInput
-}
-
-export type usuariosUpsertWithoutDisponibilidadsede_disponibilidadsede_usuario_altaTousuariosInput = {
-  update: Prisma.XOR<Prisma.usuariosUpdateWithoutDisponibilidadsede_disponibilidadsede_usuario_altaTousuariosInput, Prisma.usuariosUncheckedUpdateWithoutDisponibilidadsede_disponibilidadsede_usuario_altaTousuariosInput>
-  create: Prisma.XOR<Prisma.usuariosCreateWithoutDisponibilidadsede_disponibilidadsede_usuario_altaTousuariosInput, Prisma.usuariosUncheckedCreateWithoutDisponibilidadsede_disponibilidadsede_usuario_altaTousuariosInput>
-  where?: Prisma.usuariosWhereInput
-}
-
-export type usuariosUpdateToOneWithWhereWithoutDisponibilidadsede_disponibilidadsede_usuario_altaTousuariosInput = {
-  where?: Prisma.usuariosWhereInput
-  data: Prisma.XOR<Prisma.usuariosUpdateWithoutDisponibilidadsede_disponibilidadsede_usuario_altaTousuariosInput, Prisma.usuariosUncheckedUpdateWithoutDisponibilidadsede_disponibilidadsede_usuario_altaTousuariosInput>
-}
-
-export type usuariosUpdateWithoutDisponibilidadsede_disponibilidadsede_usuario_altaTousuariosInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  usuario?: Prisma.StringFieldUpdateOperationsInput | string
-  nombre?: Prisma.StringFieldUpdateOperationsInput | string
-  mail?: Prisma.StringFieldUpdateOperationsInput | string
-  passwd?: Prisma.StringFieldUpdateOperationsInput | string
-  sys_admin?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  disponibilidadsede_disponibilidadsede_tecnicoTousuarios?: Prisma.disponibilidadsedeUpdateManyWithoutUsuarios_disponibilidadsede_tecnicoTousuariosNestedInput
-  refreshtokens?: Prisma.refreshtokensUpdateOneWithoutUsuariosNestedInput
-  usuariosxgrupo?: Prisma.usuariosxgrupoUpdateManyWithoutUsuariosNestedInput
-  usuariosxsede?: Prisma.usuariosxsedeUpdateManyWithoutUsuariosNestedInput
-}
-
-export type usuariosUncheckedUpdateWithoutDisponibilidadsede_disponibilidadsede_usuario_altaTousuariosInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  usuario?: Prisma.StringFieldUpdateOperationsInput | string
-  nombre?: Prisma.StringFieldUpdateOperationsInput | string
-  mail?: Prisma.StringFieldUpdateOperationsInput | string
-  passwd?: Prisma.StringFieldUpdateOperationsInput | string
-  sys_admin?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  disponibilidadsede_disponibilidadsede_tecnicoTousuarios?: Prisma.disponibilidadsedeUncheckedUpdateManyWithoutUsuarios_disponibilidadsede_tecnicoTousuariosNestedInput
-  refreshtokens?: Prisma.refreshtokensUncheckedUpdateOneWithoutUsuariosNestedInput
-  usuariosxgrupo?: Prisma.usuariosxgrupoUncheckedUpdateManyWithoutUsuariosNestedInput
-  usuariosxsede?: Prisma.usuariosxsedeUncheckedUpdateManyWithoutUsuariosNestedInput
-}
-
 export type usuariosCreateWithoutRefreshtokensInput = {
   id?: string
   usuario: string
@@ -587,8 +402,6 @@ export type usuariosCreateWithoutRefreshtokensInput = {
   mail: string
   passwd: string
   sys_admin?: boolean
-  disponibilidadsede_disponibilidadsede_tecnicoTousuarios?: Prisma.disponibilidadsedeCreateNestedManyWithoutUsuarios_disponibilidadsede_tecnicoTousuariosInput
-  disponibilidadsede_disponibilidadsede_usuario_altaTousuarios?: Prisma.disponibilidadsedeCreateNestedManyWithoutUsuarios_disponibilidadsede_usuario_altaTousuariosInput
   usuariosxgrupo?: Prisma.usuariosxgrupoCreateNestedManyWithoutUsuariosInput
   usuariosxsede?: Prisma.usuariosxsedeCreateNestedManyWithoutUsuariosInput
 }
@@ -600,8 +413,6 @@ export type usuariosUncheckedCreateWithoutRefreshtokensInput = {
   mail: string
   passwd: string
   sys_admin?: boolean
-  disponibilidadsede_disponibilidadsede_tecnicoTousuarios?: Prisma.disponibilidadsedeUncheckedCreateNestedManyWithoutUsuarios_disponibilidadsede_tecnicoTousuariosInput
-  disponibilidadsede_disponibilidadsede_usuario_altaTousuarios?: Prisma.disponibilidadsedeUncheckedCreateNestedManyWithoutUsuarios_disponibilidadsede_usuario_altaTousuariosInput
   usuariosxgrupo?: Prisma.usuariosxgrupoUncheckedCreateNestedManyWithoutUsuariosInput
   usuariosxsede?: Prisma.usuariosxsedeUncheckedCreateNestedManyWithoutUsuariosInput
 }
@@ -629,8 +440,6 @@ export type usuariosUpdateWithoutRefreshtokensInput = {
   mail?: Prisma.StringFieldUpdateOperationsInput | string
   passwd?: Prisma.StringFieldUpdateOperationsInput | string
   sys_admin?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  disponibilidadsede_disponibilidadsede_tecnicoTousuarios?: Prisma.disponibilidadsedeUpdateManyWithoutUsuarios_disponibilidadsede_tecnicoTousuariosNestedInput
-  disponibilidadsede_disponibilidadsede_usuario_altaTousuarios?: Prisma.disponibilidadsedeUpdateManyWithoutUsuarios_disponibilidadsede_usuario_altaTousuariosNestedInput
   usuariosxgrupo?: Prisma.usuariosxgrupoUpdateManyWithoutUsuariosNestedInput
   usuariosxsede?: Prisma.usuariosxsedeUpdateManyWithoutUsuariosNestedInput
 }
@@ -642,8 +451,6 @@ export type usuariosUncheckedUpdateWithoutRefreshtokensInput = {
   mail?: Prisma.StringFieldUpdateOperationsInput | string
   passwd?: Prisma.StringFieldUpdateOperationsInput | string
   sys_admin?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  disponibilidadsede_disponibilidadsede_tecnicoTousuarios?: Prisma.disponibilidadsedeUncheckedUpdateManyWithoutUsuarios_disponibilidadsede_tecnicoTousuariosNestedInput
-  disponibilidadsede_disponibilidadsede_usuario_altaTousuarios?: Prisma.disponibilidadsedeUncheckedUpdateManyWithoutUsuarios_disponibilidadsede_usuario_altaTousuariosNestedInput
   usuariosxgrupo?: Prisma.usuariosxgrupoUncheckedUpdateManyWithoutUsuariosNestedInput
   usuariosxsede?: Prisma.usuariosxsedeUncheckedUpdateManyWithoutUsuariosNestedInput
 }
@@ -655,8 +462,6 @@ export type usuariosCreateWithoutUsuariosxgrupoInput = {
   mail: string
   passwd: string
   sys_admin?: boolean
-  disponibilidadsede_disponibilidadsede_tecnicoTousuarios?: Prisma.disponibilidadsedeCreateNestedManyWithoutUsuarios_disponibilidadsede_tecnicoTousuariosInput
-  disponibilidadsede_disponibilidadsede_usuario_altaTousuarios?: Prisma.disponibilidadsedeCreateNestedManyWithoutUsuarios_disponibilidadsede_usuario_altaTousuariosInput
   refreshtokens?: Prisma.refreshtokensCreateNestedOneWithoutUsuariosInput
   usuariosxsede?: Prisma.usuariosxsedeCreateNestedManyWithoutUsuariosInput
 }
@@ -668,8 +473,6 @@ export type usuariosUncheckedCreateWithoutUsuariosxgrupoInput = {
   mail: string
   passwd: string
   sys_admin?: boolean
-  disponibilidadsede_disponibilidadsede_tecnicoTousuarios?: Prisma.disponibilidadsedeUncheckedCreateNestedManyWithoutUsuarios_disponibilidadsede_tecnicoTousuariosInput
-  disponibilidadsede_disponibilidadsede_usuario_altaTousuarios?: Prisma.disponibilidadsedeUncheckedCreateNestedManyWithoutUsuarios_disponibilidadsede_usuario_altaTousuariosInput
   refreshtokens?: Prisma.refreshtokensUncheckedCreateNestedOneWithoutUsuariosInput
   usuariosxsede?: Prisma.usuariosxsedeUncheckedCreateNestedManyWithoutUsuariosInput
 }
@@ -697,8 +500,6 @@ export type usuariosUpdateWithoutUsuariosxgrupoInput = {
   mail?: Prisma.StringFieldUpdateOperationsInput | string
   passwd?: Prisma.StringFieldUpdateOperationsInput | string
   sys_admin?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  disponibilidadsede_disponibilidadsede_tecnicoTousuarios?: Prisma.disponibilidadsedeUpdateManyWithoutUsuarios_disponibilidadsede_tecnicoTousuariosNestedInput
-  disponibilidadsede_disponibilidadsede_usuario_altaTousuarios?: Prisma.disponibilidadsedeUpdateManyWithoutUsuarios_disponibilidadsede_usuario_altaTousuariosNestedInput
   refreshtokens?: Prisma.refreshtokensUpdateOneWithoutUsuariosNestedInput
   usuariosxsede?: Prisma.usuariosxsedeUpdateManyWithoutUsuariosNestedInput
 }
@@ -710,8 +511,6 @@ export type usuariosUncheckedUpdateWithoutUsuariosxgrupoInput = {
   mail?: Prisma.StringFieldUpdateOperationsInput | string
   passwd?: Prisma.StringFieldUpdateOperationsInput | string
   sys_admin?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  disponibilidadsede_disponibilidadsede_tecnicoTousuarios?: Prisma.disponibilidadsedeUncheckedUpdateManyWithoutUsuarios_disponibilidadsede_tecnicoTousuariosNestedInput
-  disponibilidadsede_disponibilidadsede_usuario_altaTousuarios?: Prisma.disponibilidadsedeUncheckedUpdateManyWithoutUsuarios_disponibilidadsede_usuario_altaTousuariosNestedInput
   refreshtokens?: Prisma.refreshtokensUncheckedUpdateOneWithoutUsuariosNestedInput
   usuariosxsede?: Prisma.usuariosxsedeUncheckedUpdateManyWithoutUsuariosNestedInput
 }
@@ -723,8 +522,6 @@ export type usuariosCreateWithoutUsuariosxsedeInput = {
   mail: string
   passwd: string
   sys_admin?: boolean
-  disponibilidadsede_disponibilidadsede_tecnicoTousuarios?: Prisma.disponibilidadsedeCreateNestedManyWithoutUsuarios_disponibilidadsede_tecnicoTousuariosInput
-  disponibilidadsede_disponibilidadsede_usuario_altaTousuarios?: Prisma.disponibilidadsedeCreateNestedManyWithoutUsuarios_disponibilidadsede_usuario_altaTousuariosInput
   refreshtokens?: Prisma.refreshtokensCreateNestedOneWithoutUsuariosInput
   usuariosxgrupo?: Prisma.usuariosxgrupoCreateNestedManyWithoutUsuariosInput
 }
@@ -736,8 +533,6 @@ export type usuariosUncheckedCreateWithoutUsuariosxsedeInput = {
   mail: string
   passwd: string
   sys_admin?: boolean
-  disponibilidadsede_disponibilidadsede_tecnicoTousuarios?: Prisma.disponibilidadsedeUncheckedCreateNestedManyWithoutUsuarios_disponibilidadsede_tecnicoTousuariosInput
-  disponibilidadsede_disponibilidadsede_usuario_altaTousuarios?: Prisma.disponibilidadsedeUncheckedCreateNestedManyWithoutUsuarios_disponibilidadsede_usuario_altaTousuariosInput
   refreshtokens?: Prisma.refreshtokensUncheckedCreateNestedOneWithoutUsuariosInput
   usuariosxgrupo?: Prisma.usuariosxgrupoUncheckedCreateNestedManyWithoutUsuariosInput
 }
@@ -765,8 +560,6 @@ export type usuariosUpdateWithoutUsuariosxsedeInput = {
   mail?: Prisma.StringFieldUpdateOperationsInput | string
   passwd?: Prisma.StringFieldUpdateOperationsInput | string
   sys_admin?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  disponibilidadsede_disponibilidadsede_tecnicoTousuarios?: Prisma.disponibilidadsedeUpdateManyWithoutUsuarios_disponibilidadsede_tecnicoTousuariosNestedInput
-  disponibilidadsede_disponibilidadsede_usuario_altaTousuarios?: Prisma.disponibilidadsedeUpdateManyWithoutUsuarios_disponibilidadsede_usuario_altaTousuariosNestedInput
   refreshtokens?: Prisma.refreshtokensUpdateOneWithoutUsuariosNestedInput
   usuariosxgrupo?: Prisma.usuariosxgrupoUpdateManyWithoutUsuariosNestedInput
 }
@@ -778,8 +571,6 @@ export type usuariosUncheckedUpdateWithoutUsuariosxsedeInput = {
   mail?: Prisma.StringFieldUpdateOperationsInput | string
   passwd?: Prisma.StringFieldUpdateOperationsInput | string
   sys_admin?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  disponibilidadsede_disponibilidadsede_tecnicoTousuarios?: Prisma.disponibilidadsedeUncheckedUpdateManyWithoutUsuarios_disponibilidadsede_tecnicoTousuariosNestedInput
-  disponibilidadsede_disponibilidadsede_usuario_altaTousuarios?: Prisma.disponibilidadsedeUncheckedUpdateManyWithoutUsuarios_disponibilidadsede_usuario_altaTousuariosNestedInput
   refreshtokens?: Prisma.refreshtokensUncheckedUpdateOneWithoutUsuariosNestedInput
   usuariosxgrupo?: Prisma.usuariosxgrupoUncheckedUpdateManyWithoutUsuariosNestedInput
 }
@@ -790,15 +581,11 @@ export type usuariosUncheckedUpdateWithoutUsuariosxsedeInput = {
  */
 
 export type UsuariosCountOutputType = {
-  disponibilidadsede_disponibilidadsede_tecnicoTousuarios: number
-  disponibilidadsede_disponibilidadsede_usuario_altaTousuarios: number
   usuariosxgrupo: number
   usuariosxsede: number
 }
 
 export type UsuariosCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  disponibilidadsede_disponibilidadsede_tecnicoTousuarios?: boolean | UsuariosCountOutputTypeCountDisponibilidadsede_disponibilidadsede_tecnicoTousuariosArgs
-  disponibilidadsede_disponibilidadsede_usuario_altaTousuarios?: boolean | UsuariosCountOutputTypeCountDisponibilidadsede_disponibilidadsede_usuario_altaTousuariosArgs
   usuariosxgrupo?: boolean | UsuariosCountOutputTypeCountUsuariosxgrupoArgs
   usuariosxsede?: boolean | UsuariosCountOutputTypeCountUsuariosxsedeArgs
 }
@@ -811,20 +598,6 @@ export type UsuariosCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Ext
    * Select specific fields to fetch from the UsuariosCountOutputType
    */
   select?: Prisma.UsuariosCountOutputTypeSelect<ExtArgs> | null
-}
-
-/**
- * UsuariosCountOutputType without action
- */
-export type UsuariosCountOutputTypeCountDisponibilidadsede_disponibilidadsede_tecnicoTousuariosArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.disponibilidadsedeWhereInput
-}
-
-/**
- * UsuariosCountOutputType without action
- */
-export type UsuariosCountOutputTypeCountDisponibilidadsede_disponibilidadsede_usuario_altaTousuariosArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.disponibilidadsedeWhereInput
 }
 
 /**
@@ -849,8 +622,6 @@ export type usuariosSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs
   mail?: boolean
   passwd?: boolean
   sys_admin?: boolean
-  disponibilidadsede_disponibilidadsede_tecnicoTousuarios?: boolean | Prisma.usuarios$disponibilidadsede_disponibilidadsede_tecnicoTousuariosArgs<ExtArgs>
-  disponibilidadsede_disponibilidadsede_usuario_altaTousuarios?: boolean | Prisma.usuarios$disponibilidadsede_disponibilidadsede_usuario_altaTousuariosArgs<ExtArgs>
   refreshtokens?: boolean | Prisma.usuarios$refreshtokensArgs<ExtArgs>
   usuariosxgrupo?: boolean | Prisma.usuarios$usuariosxgrupoArgs<ExtArgs>
   usuariosxsede?: boolean | Prisma.usuarios$usuariosxsedeArgs<ExtArgs>
@@ -886,8 +657,6 @@ export type usuariosSelectScalar = {
 
 export type usuariosOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "usuario" | "nombre" | "mail" | "passwd" | "sys_admin", ExtArgs["result"]["usuarios"]>
 export type usuariosInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  disponibilidadsede_disponibilidadsede_tecnicoTousuarios?: boolean | Prisma.usuarios$disponibilidadsede_disponibilidadsede_tecnicoTousuariosArgs<ExtArgs>
-  disponibilidadsede_disponibilidadsede_usuario_altaTousuarios?: boolean | Prisma.usuarios$disponibilidadsede_disponibilidadsede_usuario_altaTousuariosArgs<ExtArgs>
   refreshtokens?: boolean | Prisma.usuarios$refreshtokensArgs<ExtArgs>
   usuariosxgrupo?: boolean | Prisma.usuarios$usuariosxgrupoArgs<ExtArgs>
   usuariosxsede?: boolean | Prisma.usuarios$usuariosxsedeArgs<ExtArgs>
@@ -899,8 +668,6 @@ export type usuariosIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Ext
 export type $usuariosPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "usuarios"
   objects: {
-    disponibilidadsede_disponibilidadsede_tecnicoTousuarios: Prisma.$disponibilidadsedePayload<ExtArgs>[]
-    disponibilidadsede_disponibilidadsede_usuario_altaTousuarios: Prisma.$disponibilidadsedePayload<ExtArgs>[]
     refreshtokens: Prisma.$refreshtokensPayload<ExtArgs> | null
     usuariosxgrupo: Prisma.$usuariosxgrupoPayload<ExtArgs>[]
     usuariosxsede: Prisma.$usuariosxsedePayload<ExtArgs>[]
@@ -1306,8 +1073,6 @@ readonly fields: usuariosFieldRefs;
  */
 export interface Prisma__usuariosClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
-  disponibilidadsede_disponibilidadsede_tecnicoTousuarios<T extends Prisma.usuarios$disponibilidadsede_disponibilidadsede_tecnicoTousuariosArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.usuarios$disponibilidadsede_disponibilidadsede_tecnicoTousuariosArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$disponibilidadsedePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-  disponibilidadsede_disponibilidadsede_usuario_altaTousuarios<T extends Prisma.usuarios$disponibilidadsede_disponibilidadsede_usuario_altaTousuariosArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.usuarios$disponibilidadsede_disponibilidadsede_usuario_altaTousuariosArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$disponibilidadsedePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   refreshtokens<T extends Prisma.usuarios$refreshtokensArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.usuarios$refreshtokensArgs<ExtArgs>>): Prisma.Prisma__refreshtokensClient<runtime.Types.Result.GetResult<Prisma.$refreshtokensPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   usuariosxgrupo<T extends Prisma.usuarios$usuariosxgrupoArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.usuarios$usuariosxgrupoArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$usuariosxgrupoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   usuariosxsede<T extends Prisma.usuarios$usuariosxsedeArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.usuarios$usuariosxsedeArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$usuariosxsedePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
@@ -1736,54 +1501,6 @@ export type usuariosDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.Inte
    * Limit how many usuarios to delete.
    */
   limit?: number
-}
-
-/**
- * usuarios.disponibilidadsede_disponibilidadsede_tecnicoTousuarios
- */
-export type usuarios$disponibilidadsede_disponibilidadsede_tecnicoTousuariosArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the disponibilidadsede
-   */
-  select?: Prisma.disponibilidadsedeSelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the disponibilidadsede
-   */
-  omit?: Prisma.disponibilidadsedeOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.disponibilidadsedeInclude<ExtArgs> | null
-  where?: Prisma.disponibilidadsedeWhereInput
-  orderBy?: Prisma.disponibilidadsedeOrderByWithRelationInput | Prisma.disponibilidadsedeOrderByWithRelationInput[]
-  cursor?: Prisma.disponibilidadsedeWhereUniqueInput
-  take?: number
-  skip?: number
-  distinct?: Prisma.DisponibilidadsedeScalarFieldEnum | Prisma.DisponibilidadsedeScalarFieldEnum[]
-}
-
-/**
- * usuarios.disponibilidadsede_disponibilidadsede_usuario_altaTousuarios
- */
-export type usuarios$disponibilidadsede_disponibilidadsede_usuario_altaTousuariosArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the disponibilidadsede
-   */
-  select?: Prisma.disponibilidadsedeSelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the disponibilidadsede
-   */
-  omit?: Prisma.disponibilidadsedeOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.disponibilidadsedeInclude<ExtArgs> | null
-  where?: Prisma.disponibilidadsedeWhereInput
-  orderBy?: Prisma.disponibilidadsedeOrderByWithRelationInput | Prisma.disponibilidadsedeOrderByWithRelationInput[]
-  cursor?: Prisma.disponibilidadsedeWhereUniqueInput
-  take?: number
-  skip?: number
-  distinct?: Prisma.DisponibilidadsedeScalarFieldEnum | Prisma.DisponibilidadsedeScalarFieldEnum[]
 }
 
 /**

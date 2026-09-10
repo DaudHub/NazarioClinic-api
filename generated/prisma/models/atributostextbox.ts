@@ -353,10 +353,6 @@ export type atributostextboxUncheckedUpdateManyWithoutAtributoscheckboxNestedInp
   deleteMany?: Prisma.atributostextboxScalarWhereInput | Prisma.atributostextboxScalarWhereInput[]
 }
 
-export type BoolFieldUpdateOperationsInput = {
-  set?: boolean
-}
-
 export type NullableStringFieldUpdateOperationsInput = {
   set?: string | null
 }

@@ -26,52 +26,28 @@ export type AggregatePacientes = {
 
 export type PacientesMinAggregateOutputType = {
   id: string | null
-  documento: string | null
-  nombre: string | null
-  telefono: string | null
-  mail: string | null
 }
 
 export type PacientesMaxAggregateOutputType = {
   id: string | null
-  documento: string | null
-  nombre: string | null
-  telefono: string | null
-  mail: string | null
 }
 
 export type PacientesCountAggregateOutputType = {
   id: number
-  documento: number
-  nombre: number
-  telefono: number
-  mail: number
   _all: number
 }
 
 
 export type PacientesMinAggregateInputType = {
   id?: true
-  documento?: true
-  nombre?: true
-  telefono?: true
-  mail?: true
 }
 
 export type PacientesMaxAggregateInputType = {
   id?: true
-  documento?: true
-  nombre?: true
-  telefono?: true
-  mail?: true
 }
 
 export type PacientesCountAggregateInputType = {
   id?: true
-  documento?: true
-  nombre?: true
-  telefono?: true
-  mail?: true
   _all?: true
 }
 
@@ -149,10 +125,6 @@ export type pacientesGroupByArgs<ExtArgs extends runtime.Types.Extensions.Intern
 
 export type PacientesGroupByOutputType = {
   id: string
-  documento: string
-  nombre: string
-  telefono: string | null
-  mail: string
   _count: PacientesCountAggregateOutputType | null
   _min: PacientesMinAggregateOutputType | null
   _max: PacientesMaxAggregateOutputType | null
@@ -178,40 +150,27 @@ export type pacientesWhereInput = {
   OR?: Prisma.pacientesWhereInput[]
   NOT?: Prisma.pacientesWhereInput | Prisma.pacientesWhereInput[]
   id?: Prisma.UuidFilter<"pacientes"> | string
-  documento?: Prisma.StringFilter<"pacientes"> | string
-  nombre?: Prisma.StringFilter<"pacientes"> | string
-  telefono?: Prisma.StringNullableFilter<"pacientes"> | string | null
-  mail?: Prisma.StringFilter<"pacientes"> | string
-  turnos?: Prisma.TurnosListRelationFilter
+  ordenes?: Prisma.OrdenesListRelationFilter
+  titulares?: Prisma.XOR<Prisma.TitularesScalarRelationFilter, Prisma.titularesWhereInput>
 }
 
 export type pacientesOrderByWithRelationInput = {
   id?: Prisma.SortOrder
-  documento?: Prisma.SortOrder
-  nombre?: Prisma.SortOrder
-  telefono?: Prisma.SortOrderInput | Prisma.SortOrder
-  mail?: Prisma.SortOrder
-  turnos?: Prisma.turnosOrderByRelationAggregateInput
+  ordenes?: Prisma.ordenesOrderByRelationAggregateInput
+  titulares?: Prisma.titularesOrderByWithRelationInput
 }
 
 export type pacientesWhereUniqueInput = Prisma.AtLeast<{
   id?: string
-  documento?: string
   AND?: Prisma.pacientesWhereInput | Prisma.pacientesWhereInput[]
   OR?: Prisma.pacientesWhereInput[]
   NOT?: Prisma.pacientesWhereInput | Prisma.pacientesWhereInput[]
-  nombre?: Prisma.StringFilter<"pacientes"> | string
-  telefono?: Prisma.StringNullableFilter<"pacientes"> | string | null
-  mail?: Prisma.StringFilter<"pacientes"> | string
-  turnos?: Prisma.TurnosListRelationFilter
-}, "id" | "documento">
+  ordenes?: Prisma.OrdenesListRelationFilter
+  titulares?: Prisma.XOR<Prisma.TitularesScalarRelationFilter, Prisma.titularesWhereInput>
+}, "id">
 
 export type pacientesOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
-  documento?: Prisma.SortOrder
-  nombre?: Prisma.SortOrder
-  telefono?: Prisma.SortOrderInput | Prisma.SortOrder
-  mail?: Prisma.SortOrder
   _count?: Prisma.pacientesCountOrderByAggregateInput
   _max?: Prisma.pacientesMaxOrderByAggregateInput
   _min?: Prisma.pacientesMinOrderByAggregateInput
@@ -222,94 +181,38 @@ export type pacientesScalarWhereWithAggregatesInput = {
   OR?: Prisma.pacientesScalarWhereWithAggregatesInput[]
   NOT?: Prisma.pacientesScalarWhereWithAggregatesInput | Prisma.pacientesScalarWhereWithAggregatesInput[]
   id?: Prisma.UuidWithAggregatesFilter<"pacientes"> | string
-  documento?: Prisma.StringWithAggregatesFilter<"pacientes"> | string
-  nombre?: Prisma.StringWithAggregatesFilter<"pacientes"> | string
-  telefono?: Prisma.StringNullableWithAggregatesFilter<"pacientes"> | string | null
-  mail?: Prisma.StringWithAggregatesFilter<"pacientes"> | string
 }
 
 export type pacientesCreateInput = {
-  id?: string
-  documento: string
-  nombre: string
-  telefono?: string | null
-  mail: string
-  turnos?: Prisma.turnosCreateNestedManyWithoutPacientesInput
+  ordenes?: Prisma.ordenesCreateNestedManyWithoutPacientesInput
+  titulares: Prisma.titularesCreateNestedOneWithoutPacientesInput
 }
 
 export type pacientesUncheckedCreateInput = {
-  id?: string
-  documento: string
-  nombre: string
-  telefono?: string | null
-  mail: string
-  turnos?: Prisma.turnosUncheckedCreateNestedManyWithoutPacientesInput
+  id: string
+  ordenes?: Prisma.ordenesUncheckedCreateNestedManyWithoutPacientesInput
 }
 
 export type pacientesUpdateInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  documento?: Prisma.StringFieldUpdateOperationsInput | string
-  nombre?: Prisma.StringFieldUpdateOperationsInput | string
-  telefono?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  mail?: Prisma.StringFieldUpdateOperationsInput | string
-  turnos?: Prisma.turnosUpdateManyWithoutPacientesNestedInput
+  ordenes?: Prisma.ordenesUpdateManyWithoutPacientesNestedInput
+  titulares?: Prisma.titularesUpdateOneRequiredWithoutPacientesNestedInput
 }
 
 export type pacientesUncheckedUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  documento?: Prisma.StringFieldUpdateOperationsInput | string
-  nombre?: Prisma.StringFieldUpdateOperationsInput | string
-  telefono?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  mail?: Prisma.StringFieldUpdateOperationsInput | string
-  turnos?: Prisma.turnosUncheckedUpdateManyWithoutPacientesNestedInput
+  ordenes?: Prisma.ordenesUncheckedUpdateManyWithoutPacientesNestedInput
 }
 
 export type pacientesCreateManyInput = {
-  id?: string
-  documento: string
-  nombre: string
-  telefono?: string | null
-  mail: string
+  id: string
 }
 
 export type pacientesUpdateManyMutationInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  documento?: Prisma.StringFieldUpdateOperationsInput | string
-  nombre?: Prisma.StringFieldUpdateOperationsInput | string
-  telefono?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  mail?: Prisma.StringFieldUpdateOperationsInput | string
+
 }
 
 export type pacientesUncheckedUpdateManyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  documento?: Prisma.StringFieldUpdateOperationsInput | string
-  nombre?: Prisma.StringFieldUpdateOperationsInput | string
-  telefono?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  mail?: Prisma.StringFieldUpdateOperationsInput | string
-}
-
-export type pacientesCountOrderByAggregateInput = {
-  id?: Prisma.SortOrder
-  documento?: Prisma.SortOrder
-  nombre?: Prisma.SortOrder
-  telefono?: Prisma.SortOrder
-  mail?: Prisma.SortOrder
-}
-
-export type pacientesMaxOrderByAggregateInput = {
-  id?: Prisma.SortOrder
-  documento?: Prisma.SortOrder
-  nombre?: Prisma.SortOrder
-  telefono?: Prisma.SortOrder
-  mail?: Prisma.SortOrder
-}
-
-export type pacientesMinOrderByAggregateInput = {
-  id?: Prisma.SortOrder
-  documento?: Prisma.SortOrder
-  nombre?: Prisma.SortOrder
-  telefono?: Prisma.SortOrder
-  mail?: Prisma.SortOrder
 }
 
 export type PacientesScalarRelationFilter = {
@@ -317,60 +220,131 @@ export type PacientesScalarRelationFilter = {
   isNot?: Prisma.pacientesWhereInput
 }
 
-export type pacientesUpdateOneRequiredWithoutTurnosNestedInput = {
-  create?: Prisma.XOR<Prisma.pacientesCreateWithoutTurnosInput, Prisma.pacientesUncheckedCreateWithoutTurnosInput>
-  connectOrCreate?: Prisma.pacientesCreateOrConnectWithoutTurnosInput
-  upsert?: Prisma.pacientesUpsertWithoutTurnosInput
+export type pacientesCountOrderByAggregateInput = {
+  id?: Prisma.SortOrder
+}
+
+export type pacientesMaxOrderByAggregateInput = {
+  id?: Prisma.SortOrder
+}
+
+export type pacientesMinOrderByAggregateInput = {
+  id?: Prisma.SortOrder
+}
+
+export type PacientesNullableScalarRelationFilter = {
+  is?: Prisma.pacientesWhereInput | null
+  isNot?: Prisma.pacientesWhereInput | null
+}
+
+export type pacientesCreateNestedOneWithoutOrdenesInput = {
+  create?: Prisma.XOR<Prisma.pacientesCreateWithoutOrdenesInput, Prisma.pacientesUncheckedCreateWithoutOrdenesInput>
+  connectOrCreate?: Prisma.pacientesCreateOrConnectWithoutOrdenesInput
   connect?: Prisma.pacientesWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.pacientesUpdateToOneWithWhereWithoutTurnosInput, Prisma.pacientesUpdateWithoutTurnosInput>, Prisma.pacientesUncheckedUpdateWithoutTurnosInput>
 }
 
-export type pacientesCreateWithoutTurnosInput = {
-  id?: string
-  documento: string
-  nombre: string
-  telefono?: string | null
-  mail: string
+export type pacientesUpdateOneRequiredWithoutOrdenesNestedInput = {
+  create?: Prisma.XOR<Prisma.pacientesCreateWithoutOrdenesInput, Prisma.pacientesUncheckedCreateWithoutOrdenesInput>
+  connectOrCreate?: Prisma.pacientesCreateOrConnectWithoutOrdenesInput
+  upsert?: Prisma.pacientesUpsertWithoutOrdenesInput
+  connect?: Prisma.pacientesWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.pacientesUpdateToOneWithWhereWithoutOrdenesInput, Prisma.pacientesUpdateWithoutOrdenesInput>, Prisma.pacientesUncheckedUpdateWithoutOrdenesInput>
 }
 
-export type pacientesUncheckedCreateWithoutTurnosInput = {
-  id?: string
-  documento: string
-  nombre: string
-  telefono?: string | null
-  mail: string
+export type pacientesCreateNestedOneWithoutTitularesInput = {
+  create?: Prisma.XOR<Prisma.pacientesCreateWithoutTitularesInput, Prisma.pacientesUncheckedCreateWithoutTitularesInput>
+  connectOrCreate?: Prisma.pacientesCreateOrConnectWithoutTitularesInput
+  connect?: Prisma.pacientesWhereUniqueInput
 }
 
-export type pacientesCreateOrConnectWithoutTurnosInput = {
+export type pacientesUncheckedCreateNestedOneWithoutTitularesInput = {
+  create?: Prisma.XOR<Prisma.pacientesCreateWithoutTitularesInput, Prisma.pacientesUncheckedCreateWithoutTitularesInput>
+  connectOrCreate?: Prisma.pacientesCreateOrConnectWithoutTitularesInput
+  connect?: Prisma.pacientesWhereUniqueInput
+}
+
+export type pacientesUpdateOneWithoutTitularesNestedInput = {
+  create?: Prisma.XOR<Prisma.pacientesCreateWithoutTitularesInput, Prisma.pacientesUncheckedCreateWithoutTitularesInput>
+  connectOrCreate?: Prisma.pacientesCreateOrConnectWithoutTitularesInput
+  upsert?: Prisma.pacientesUpsertWithoutTitularesInput
+  disconnect?: Prisma.pacientesWhereInput | boolean
+  delete?: Prisma.pacientesWhereInput | boolean
+  connect?: Prisma.pacientesWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.pacientesUpdateToOneWithWhereWithoutTitularesInput, Prisma.pacientesUpdateWithoutTitularesInput>, Prisma.pacientesUncheckedUpdateWithoutTitularesInput>
+}
+
+export type pacientesUncheckedUpdateOneWithoutTitularesNestedInput = {
+  create?: Prisma.XOR<Prisma.pacientesCreateWithoutTitularesInput, Prisma.pacientesUncheckedCreateWithoutTitularesInput>
+  connectOrCreate?: Prisma.pacientesCreateOrConnectWithoutTitularesInput
+  upsert?: Prisma.pacientesUpsertWithoutTitularesInput
+  disconnect?: Prisma.pacientesWhereInput | boolean
+  delete?: Prisma.pacientesWhereInput | boolean
+  connect?: Prisma.pacientesWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.pacientesUpdateToOneWithWhereWithoutTitularesInput, Prisma.pacientesUpdateWithoutTitularesInput>, Prisma.pacientesUncheckedUpdateWithoutTitularesInput>
+}
+
+export type pacientesCreateWithoutOrdenesInput = {
+  titulares: Prisma.titularesCreateNestedOneWithoutPacientesInput
+}
+
+export type pacientesUncheckedCreateWithoutOrdenesInput = {
+  id: string
+}
+
+export type pacientesCreateOrConnectWithoutOrdenesInput = {
   where: Prisma.pacientesWhereUniqueInput
-  create: Prisma.XOR<Prisma.pacientesCreateWithoutTurnosInput, Prisma.pacientesUncheckedCreateWithoutTurnosInput>
+  create: Prisma.XOR<Prisma.pacientesCreateWithoutOrdenesInput, Prisma.pacientesUncheckedCreateWithoutOrdenesInput>
 }
 
-export type pacientesUpsertWithoutTurnosInput = {
-  update: Prisma.XOR<Prisma.pacientesUpdateWithoutTurnosInput, Prisma.pacientesUncheckedUpdateWithoutTurnosInput>
-  create: Prisma.XOR<Prisma.pacientesCreateWithoutTurnosInput, Prisma.pacientesUncheckedCreateWithoutTurnosInput>
+export type pacientesUpsertWithoutOrdenesInput = {
+  update: Prisma.XOR<Prisma.pacientesUpdateWithoutOrdenesInput, Prisma.pacientesUncheckedUpdateWithoutOrdenesInput>
+  create: Prisma.XOR<Prisma.pacientesCreateWithoutOrdenesInput, Prisma.pacientesUncheckedCreateWithoutOrdenesInput>
   where?: Prisma.pacientesWhereInput
 }
 
-export type pacientesUpdateToOneWithWhereWithoutTurnosInput = {
+export type pacientesUpdateToOneWithWhereWithoutOrdenesInput = {
   where?: Prisma.pacientesWhereInput
-  data: Prisma.XOR<Prisma.pacientesUpdateWithoutTurnosInput, Prisma.pacientesUncheckedUpdateWithoutTurnosInput>
+  data: Prisma.XOR<Prisma.pacientesUpdateWithoutOrdenesInput, Prisma.pacientesUncheckedUpdateWithoutOrdenesInput>
 }
 
-export type pacientesUpdateWithoutTurnosInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  documento?: Prisma.StringFieldUpdateOperationsInput | string
-  nombre?: Prisma.StringFieldUpdateOperationsInput | string
-  telefono?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  mail?: Prisma.StringFieldUpdateOperationsInput | string
+export type pacientesUpdateWithoutOrdenesInput = {
+  titulares?: Prisma.titularesUpdateOneRequiredWithoutPacientesNestedInput
 }
 
-export type pacientesUncheckedUpdateWithoutTurnosInput = {
+export type pacientesUncheckedUpdateWithoutOrdenesInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  documento?: Prisma.StringFieldUpdateOperationsInput | string
-  nombre?: Prisma.StringFieldUpdateOperationsInput | string
-  telefono?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  mail?: Prisma.StringFieldUpdateOperationsInput | string
+}
+
+export type pacientesCreateWithoutTitularesInput = {
+  ordenes?: Prisma.ordenesCreateNestedManyWithoutPacientesInput
+}
+
+export type pacientesUncheckedCreateWithoutTitularesInput = {
+  ordenes?: Prisma.ordenesUncheckedCreateNestedManyWithoutPacientesInput
+}
+
+export type pacientesCreateOrConnectWithoutTitularesInput = {
+  where: Prisma.pacientesWhereUniqueInput
+  create: Prisma.XOR<Prisma.pacientesCreateWithoutTitularesInput, Prisma.pacientesUncheckedCreateWithoutTitularesInput>
+}
+
+export type pacientesUpsertWithoutTitularesInput = {
+  update: Prisma.XOR<Prisma.pacientesUpdateWithoutTitularesInput, Prisma.pacientesUncheckedUpdateWithoutTitularesInput>
+  create: Prisma.XOR<Prisma.pacientesCreateWithoutTitularesInput, Prisma.pacientesUncheckedCreateWithoutTitularesInput>
+  where?: Prisma.pacientesWhereInput
+}
+
+export type pacientesUpdateToOneWithWhereWithoutTitularesInput = {
+  where?: Prisma.pacientesWhereInput
+  data: Prisma.XOR<Prisma.pacientesUpdateWithoutTitularesInput, Prisma.pacientesUncheckedUpdateWithoutTitularesInput>
+}
+
+export type pacientesUpdateWithoutTitularesInput = {
+  ordenes?: Prisma.ordenesUpdateManyWithoutPacientesNestedInput
+}
+
+export type pacientesUncheckedUpdateWithoutTitularesInput = {
+  ordenes?: Prisma.ordenesUncheckedUpdateManyWithoutPacientesNestedInput
 }
 
 
@@ -379,11 +353,11 @@ export type pacientesUncheckedUpdateWithoutTurnosInput = {
  */
 
 export type PacientesCountOutputType = {
-  turnos: number
+  ordenes: number
 }
 
 export type PacientesCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  turnos?: boolean | PacientesCountOutputTypeCountTurnosArgs
+  ordenes?: boolean | PacientesCountOutputTypeCountOrdenesArgs
 }
 
 /**
@@ -399,64 +373,53 @@ export type PacientesCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Ex
 /**
  * PacientesCountOutputType without action
  */
-export type PacientesCountOutputTypeCountTurnosArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.turnosWhereInput
+export type PacientesCountOutputTypeCountOrdenesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.ordenesWhereInput
 }
 
 
 export type pacientesSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
-  documento?: boolean
-  nombre?: boolean
-  telefono?: boolean
-  mail?: boolean
-  turnos?: boolean | Prisma.pacientes$turnosArgs<ExtArgs>
+  ordenes?: boolean | Prisma.pacientes$ordenesArgs<ExtArgs>
+  titulares?: boolean | Prisma.titularesDefaultArgs<ExtArgs>
   _count?: boolean | Prisma.PacientesCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["pacientes"]>
 
 export type pacientesSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
-  documento?: boolean
-  nombre?: boolean
-  telefono?: boolean
-  mail?: boolean
+  titulares?: boolean | Prisma.titularesDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["pacientes"]>
 
 export type pacientesSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
-  documento?: boolean
-  nombre?: boolean
-  telefono?: boolean
-  mail?: boolean
+  titulares?: boolean | Prisma.titularesDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["pacientes"]>
 
 export type pacientesSelectScalar = {
   id?: boolean
-  documento?: boolean
-  nombre?: boolean
-  telefono?: boolean
-  mail?: boolean
 }
 
-export type pacientesOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "documento" | "nombre" | "telefono" | "mail", ExtArgs["result"]["pacientes"]>
+export type pacientesOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id", ExtArgs["result"]["pacientes"]>
 export type pacientesInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  turnos?: boolean | Prisma.pacientes$turnosArgs<ExtArgs>
+  ordenes?: boolean | Prisma.pacientes$ordenesArgs<ExtArgs>
+  titulares?: boolean | Prisma.titularesDefaultArgs<ExtArgs>
   _count?: boolean | Prisma.PacientesCountOutputTypeDefaultArgs<ExtArgs>
 }
-export type pacientesIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
-export type pacientesIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
+export type pacientesIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  titulares?: boolean | Prisma.titularesDefaultArgs<ExtArgs>
+}
+export type pacientesIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  titulares?: boolean | Prisma.titularesDefaultArgs<ExtArgs>
+}
 
 export type $pacientesPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "pacientes"
   objects: {
-    turnos: Prisma.$turnosPayload<ExtArgs>[]
+    ordenes: Prisma.$ordenesPayload<ExtArgs>[]
+    titulares: Prisma.$titularesPayload<ExtArgs>
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
-    documento: string
-    nombre: string
-    telefono: string | null
-    mail: string
   }, ExtArgs["result"]["pacientes"]>
   composites: {}
 }
@@ -851,7 +814,8 @@ readonly fields: pacientesFieldRefs;
  */
 export interface Prisma__pacientesClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
-  turnos<T extends Prisma.pacientes$turnosArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.pacientes$turnosArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$turnosPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  ordenes<T extends Prisma.pacientes$ordenesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.pacientes$ordenesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ordenesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  titulares<T extends Prisma.titularesDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.titularesDefaultArgs<ExtArgs>>): Prisma.Prisma__titularesClient<runtime.Types.Result.GetResult<Prisma.$titularesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -882,10 +846,6 @@ export interface Prisma__pacientesClient<T, Null = never, ExtArgs extends runtim
  */
 export interface pacientesFieldRefs {
   readonly id: Prisma.FieldRef<"pacientes", 'String'>
-  readonly documento: Prisma.FieldRef<"pacientes", 'String'>
-  readonly nombre: Prisma.FieldRef<"pacientes", 'String'>
-  readonly telefono: Prisma.FieldRef<"pacientes", 'String'>
-  readonly mail: Prisma.FieldRef<"pacientes", 'String'>
 }
     
 
@@ -1140,6 +1100,10 @@ export type pacientesCreateManyAndReturnArgs<ExtArgs extends runtime.Types.Exten
    */
   data: Prisma.pacientesCreateManyInput | Prisma.pacientesCreateManyInput[]
   skipDuplicates?: boolean
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.pacientesIncludeCreateManyAndReturn<ExtArgs> | null
 }
 
 /**
@@ -1210,6 +1174,10 @@ export type pacientesUpdateManyAndReturnArgs<ExtArgs extends runtime.Types.Exten
    * Limit how many pacientes to update.
    */
   limit?: number
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.pacientesIncludeUpdateManyAndReturn<ExtArgs> | null
 }
 
 /**
@@ -1279,27 +1247,27 @@ export type pacientesDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.Int
 }
 
 /**
- * pacientes.turnos
+ * pacientes.ordenes
  */
-export type pacientes$turnosArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type pacientes$ordenesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the turnos
+   * Select specific fields to fetch from the ordenes
    */
-  select?: Prisma.turnosSelect<ExtArgs> | null
+  select?: Prisma.ordenesSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the turnos
+   * Omit specific fields from the ordenes
    */
-  omit?: Prisma.turnosOmit<ExtArgs> | null
+  omit?: Prisma.ordenesOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.turnosInclude<ExtArgs> | null
-  where?: Prisma.turnosWhereInput
-  orderBy?: Prisma.turnosOrderByWithRelationInput | Prisma.turnosOrderByWithRelationInput[]
-  cursor?: Prisma.turnosWhereUniqueInput
+  include?: Prisma.ordenesInclude<ExtArgs> | null
+  where?: Prisma.ordenesWhereInput
+  orderBy?: Prisma.ordenesOrderByWithRelationInput | Prisma.ordenesOrderByWithRelationInput[]
+  cursor?: Prisma.ordenesWhereUniqueInput
   take?: number
   skip?: number
-  distinct?: Prisma.TurnosScalarFieldEnum | Prisma.TurnosScalarFieldEnum[]
+  distinct?: Prisma.OrdenesScalarFieldEnum | Prisma.OrdenesScalarFieldEnum[]
 }
 
 /**

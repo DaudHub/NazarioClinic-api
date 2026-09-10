@@ -353,6 +353,10 @@ export type IntFieldUpdateOperationsInput = {
   divide?: number
 }
 
+export type DateTimeFieldUpdateOperationsInput = {
+  set?: Date | string
+}
+
 export type horariosxsedeCreateNestedManyWithoutSedesInput = {
   create?: Prisma.XOR<Prisma.horariosxsedeCreateWithoutSedesInput, Prisma.horariosxsedeUncheckedCreateWithoutSedesInput> | Prisma.horariosxsedeCreateWithoutSedesInput[] | Prisma.horariosxsedeUncheckedCreateWithoutSedesInput[]
   connectOrCreate?: Prisma.horariosxsedeCreateOrConnectWithoutSedesInput | Prisma.horariosxsedeCreateOrConnectWithoutSedesInput[]

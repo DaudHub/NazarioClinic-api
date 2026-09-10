@@ -41,8 +41,7 @@ export type TurnosMinAggregateOutputType = {
   horario: Date | null
   estudio: string | null
   precio: runtime.Decimal | null
-  id_paciente: string | null
-  id_profesional: string | null
+  id_orden: string | null
   usuario_alta: string | null
   usuario_mod: string | null
 }
@@ -54,8 +53,7 @@ export type TurnosMaxAggregateOutputType = {
   horario: Date | null
   estudio: string | null
   precio: runtime.Decimal | null
-  id_paciente: string | null
-  id_profesional: string | null
+  id_orden: string | null
   usuario_alta: string | null
   usuario_mod: string | null
 }
@@ -67,8 +65,7 @@ export type TurnosCountAggregateOutputType = {
   horario: number
   estudio: number
   precio: number
-  id_paciente: number
-  id_profesional: number
+  id_orden: number
   usuario_alta: number
   usuario_mod: number
   _all: number
@@ -90,8 +87,7 @@ export type TurnosMinAggregateInputType = {
   horario?: true
   estudio?: true
   precio?: true
-  id_paciente?: true
-  id_profesional?: true
+  id_orden?: true
   usuario_alta?: true
   usuario_mod?: true
 }
@@ -103,8 +99,7 @@ export type TurnosMaxAggregateInputType = {
   horario?: true
   estudio?: true
   precio?: true
-  id_paciente?: true
-  id_profesional?: true
+  id_orden?: true
   usuario_alta?: true
   usuario_mod?: true
 }
@@ -116,8 +111,7 @@ export type TurnosCountAggregateInputType = {
   horario?: true
   estudio?: true
   precio?: true
-  id_paciente?: true
-  id_profesional?: true
+  id_orden?: true
   usuario_alta?: true
   usuario_mod?: true
   _all?: true
@@ -216,8 +210,7 @@ export type TurnosGroupByOutputType = {
   horario: Date
   estudio: string
   precio: runtime.Decimal
-  id_paciente: string
-  id_profesional: string | null
+  id_orden: string
   usuario_alta: string
   usuario_mod: string
   _count: TurnosCountAggregateOutputType | null
@@ -252,12 +245,10 @@ export type turnosWhereInput = {
   horario?: Prisma.DateTimeFilter<"turnos"> | Date | string
   estudio?: Prisma.UuidFilter<"turnos"> | string
   precio?: Prisma.DecimalFilter<"turnos"> | runtime.Decimal | runtime.DecimalJsLike | number | string
-  id_paciente?: Prisma.UuidFilter<"turnos"> | string
-  id_profesional?: Prisma.UuidNullableFilter<"turnos"> | string | null
+  id_orden?: Prisma.UuidFilter<"turnos"> | string
   usuario_alta?: Prisma.UuidFilter<"turnos"> | string
   usuario_mod?: Prisma.UuidFilter<"turnos"> | string
-  pacientes?: Prisma.XOR<Prisma.PacientesScalarRelationFilter, Prisma.pacientesWhereInput>
-  profesionales?: Prisma.XOR<Prisma.ProfesionalesNullableScalarRelationFilter, Prisma.profesionalesWhereInput> | null
+  ordenes?: Prisma.XOR<Prisma.OrdenesScalarRelationFilter, Prisma.ordenesWhereInput>
   salas?: Prisma.XOR<Prisma.SalasScalarRelationFilter, Prisma.salasWhereInput>
 }
 
@@ -268,12 +259,10 @@ export type turnosOrderByWithRelationInput = {
   horario?: Prisma.SortOrder
   estudio?: Prisma.SortOrder
   precio?: Prisma.SortOrder
-  id_paciente?: Prisma.SortOrder
-  id_profesional?: Prisma.SortOrderInput | Prisma.SortOrder
+  id_orden?: Prisma.SortOrder
   usuario_alta?: Prisma.SortOrder
   usuario_mod?: Prisma.SortOrder
-  pacientes?: Prisma.pacientesOrderByWithRelationInput
-  profesionales?: Prisma.profesionalesOrderByWithRelationInput
+  ordenes?: Prisma.ordenesOrderByWithRelationInput
   salas?: Prisma.salasOrderByWithRelationInput
 }
 
@@ -287,12 +276,10 @@ export type turnosWhereUniqueInput = Prisma.AtLeast<{
   horario?: Prisma.DateTimeFilter<"turnos"> | Date | string
   estudio?: Prisma.UuidFilter<"turnos"> | string
   precio?: Prisma.DecimalFilter<"turnos"> | runtime.Decimal | runtime.DecimalJsLike | number | string
-  id_paciente?: Prisma.UuidFilter<"turnos"> | string
-  id_profesional?: Prisma.UuidNullableFilter<"turnos"> | string | null
+  id_orden?: Prisma.UuidFilter<"turnos"> | string
   usuario_alta?: Prisma.UuidFilter<"turnos"> | string
   usuario_mod?: Prisma.UuidFilter<"turnos"> | string
-  pacientes?: Prisma.XOR<Prisma.PacientesScalarRelationFilter, Prisma.pacientesWhereInput>
-  profesionales?: Prisma.XOR<Prisma.ProfesionalesNullableScalarRelationFilter, Prisma.profesionalesWhereInput> | null
+  ordenes?: Prisma.XOR<Prisma.OrdenesScalarRelationFilter, Prisma.ordenesWhereInput>
   salas?: Prisma.XOR<Prisma.SalasScalarRelationFilter, Prisma.salasWhereInput>
 }, "id">
 
@@ -303,8 +290,7 @@ export type turnosOrderByWithAggregationInput = {
   horario?: Prisma.SortOrder
   estudio?: Prisma.SortOrder
   precio?: Prisma.SortOrder
-  id_paciente?: Prisma.SortOrder
-  id_profesional?: Prisma.SortOrderInput | Prisma.SortOrder
+  id_orden?: Prisma.SortOrder
   usuario_alta?: Prisma.SortOrder
   usuario_mod?: Prisma.SortOrder
   _count?: Prisma.turnosCountOrderByAggregateInput
@@ -324,8 +310,7 @@ export type turnosScalarWhereWithAggregatesInput = {
   horario?: Prisma.DateTimeWithAggregatesFilter<"turnos"> | Date | string
   estudio?: Prisma.UuidWithAggregatesFilter<"turnos"> | string
   precio?: Prisma.DecimalWithAggregatesFilter<"turnos"> | runtime.Decimal | runtime.DecimalJsLike | number | string
-  id_paciente?: Prisma.UuidWithAggregatesFilter<"turnos"> | string
-  id_profesional?: Prisma.UuidNullableWithAggregatesFilter<"turnos"> | string | null
+  id_orden?: Prisma.UuidWithAggregatesFilter<"turnos"> | string
   usuario_alta?: Prisma.UuidWithAggregatesFilter<"turnos"> | string
   usuario_mod?: Prisma.UuidWithAggregatesFilter<"turnos"> | string
 }
@@ -337,8 +322,7 @@ export type turnosUpdateInput = {
   precio?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   usuario_alta?: Prisma.StringFieldUpdateOperationsInput | string
   usuario_mod?: Prisma.StringFieldUpdateOperationsInput | string
-  pacientes?: Prisma.pacientesUpdateOneRequiredWithoutTurnosNestedInput
-  profesionales?: Prisma.profesionalesUpdateOneWithoutTurnosNestedInput
+  ordenes?: Prisma.ordenesUpdateOneRequiredWithoutTurnosNestedInput
   salas?: Prisma.salasUpdateOneRequiredWithoutTurnosNestedInput
 }
 
@@ -349,8 +333,7 @@ export type turnosUncheckedUpdateInput = {
   horario?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   estudio?: Prisma.StringFieldUpdateOperationsInput | string
   precio?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  id_paciente?: Prisma.StringFieldUpdateOperationsInput | string
-  id_profesional?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  id_orden?: Prisma.StringFieldUpdateOperationsInput | string
   usuario_alta?: Prisma.StringFieldUpdateOperationsInput | string
   usuario_mod?: Prisma.StringFieldUpdateOperationsInput | string
 }
@@ -371,8 +354,7 @@ export type turnosUncheckedUpdateManyInput = {
   horario?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   estudio?: Prisma.StringFieldUpdateOperationsInput | string
   precio?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  id_paciente?: Prisma.StringFieldUpdateOperationsInput | string
-  id_profesional?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  id_orden?: Prisma.StringFieldUpdateOperationsInput | string
   usuario_alta?: Prisma.StringFieldUpdateOperationsInput | string
   usuario_mod?: Prisma.StringFieldUpdateOperationsInput | string
 }
@@ -394,8 +376,7 @@ export type turnosCountOrderByAggregateInput = {
   horario?: Prisma.SortOrder
   estudio?: Prisma.SortOrder
   precio?: Prisma.SortOrder
-  id_paciente?: Prisma.SortOrder
-  id_profesional?: Prisma.SortOrder
+  id_orden?: Prisma.SortOrder
   usuario_alta?: Prisma.SortOrder
   usuario_mod?: Prisma.SortOrder
 }
@@ -411,8 +392,7 @@ export type turnosMaxOrderByAggregateInput = {
   horario?: Prisma.SortOrder
   estudio?: Prisma.SortOrder
   precio?: Prisma.SortOrder
-  id_paciente?: Prisma.SortOrder
-  id_profesional?: Prisma.SortOrder
+  id_orden?: Prisma.SortOrder
   usuario_alta?: Prisma.SortOrder
   usuario_mod?: Prisma.SortOrder
 }
@@ -424,8 +404,7 @@ export type turnosMinOrderByAggregateInput = {
   horario?: Prisma.SortOrder
   estudio?: Prisma.SortOrder
   precio?: Prisma.SortOrder
-  id_paciente?: Prisma.SortOrder
-  id_profesional?: Prisma.SortOrder
+  id_orden?: Prisma.SortOrder
   usuario_alta?: Prisma.SortOrder
   usuario_mod?: Prisma.SortOrder
 }
@@ -434,59 +413,31 @@ export type turnosSumOrderByAggregateInput = {
   precio?: Prisma.SortOrder
 }
 
-export type turnosCreateNestedManyWithoutPacientesInput = {
+export type turnosCreateNestedManyWithoutOrdenesInput = {
   connect?: Prisma.turnosWhereUniqueInput | Prisma.turnosWhereUniqueInput[]
 }
 
-export type turnosUncheckedCreateNestedManyWithoutPacientesInput = {
+export type turnosUncheckedCreateNestedManyWithoutOrdenesInput = {
   connect?: Prisma.turnosWhereUniqueInput | Prisma.turnosWhereUniqueInput[]
 }
 
-export type turnosUpdateManyWithoutPacientesNestedInput = {
+export type turnosUpdateManyWithoutOrdenesNestedInput = {
   set?: Prisma.turnosWhereUniqueInput | Prisma.turnosWhereUniqueInput[]
   disconnect?: Prisma.turnosWhereUniqueInput | Prisma.turnosWhereUniqueInput[]
   delete?: Prisma.turnosWhereUniqueInput | Prisma.turnosWhereUniqueInput[]
   connect?: Prisma.turnosWhereUniqueInput | Prisma.turnosWhereUniqueInput[]
-  update?: Prisma.turnosUpdateWithWhereUniqueWithoutPacientesInput | Prisma.turnosUpdateWithWhereUniqueWithoutPacientesInput[]
-  updateMany?: Prisma.turnosUpdateManyWithWhereWithoutPacientesInput | Prisma.turnosUpdateManyWithWhereWithoutPacientesInput[]
+  update?: Prisma.turnosUpdateWithWhereUniqueWithoutOrdenesInput | Prisma.turnosUpdateWithWhereUniqueWithoutOrdenesInput[]
+  updateMany?: Prisma.turnosUpdateManyWithWhereWithoutOrdenesInput | Prisma.turnosUpdateManyWithWhereWithoutOrdenesInput[]
   deleteMany?: Prisma.turnosScalarWhereInput | Prisma.turnosScalarWhereInput[]
 }
 
-export type turnosUncheckedUpdateManyWithoutPacientesNestedInput = {
+export type turnosUncheckedUpdateManyWithoutOrdenesNestedInput = {
   set?: Prisma.turnosWhereUniqueInput | Prisma.turnosWhereUniqueInput[]
   disconnect?: Prisma.turnosWhereUniqueInput | Prisma.turnosWhereUniqueInput[]
   delete?: Prisma.turnosWhereUniqueInput | Prisma.turnosWhereUniqueInput[]
   connect?: Prisma.turnosWhereUniqueInput | Prisma.turnosWhereUniqueInput[]
-  update?: Prisma.turnosUpdateWithWhereUniqueWithoutPacientesInput | Prisma.turnosUpdateWithWhereUniqueWithoutPacientesInput[]
-  updateMany?: Prisma.turnosUpdateManyWithWhereWithoutPacientesInput | Prisma.turnosUpdateManyWithWhereWithoutPacientesInput[]
-  deleteMany?: Prisma.turnosScalarWhereInput | Prisma.turnosScalarWhereInput[]
-}
-
-export type turnosCreateNestedManyWithoutProfesionalesInput = {
-  connect?: Prisma.turnosWhereUniqueInput | Prisma.turnosWhereUniqueInput[]
-}
-
-export type turnosUncheckedCreateNestedManyWithoutProfesionalesInput = {
-  connect?: Prisma.turnosWhereUniqueInput | Prisma.turnosWhereUniqueInput[]
-}
-
-export type turnosUpdateManyWithoutProfesionalesNestedInput = {
-  set?: Prisma.turnosWhereUniqueInput | Prisma.turnosWhereUniqueInput[]
-  disconnect?: Prisma.turnosWhereUniqueInput | Prisma.turnosWhereUniqueInput[]
-  delete?: Prisma.turnosWhereUniqueInput | Prisma.turnosWhereUniqueInput[]
-  connect?: Prisma.turnosWhereUniqueInput | Prisma.turnosWhereUniqueInput[]
-  update?: Prisma.turnosUpdateWithWhereUniqueWithoutProfesionalesInput | Prisma.turnosUpdateWithWhereUniqueWithoutProfesionalesInput[]
-  updateMany?: Prisma.turnosUpdateManyWithWhereWithoutProfesionalesInput | Prisma.turnosUpdateManyWithWhereWithoutProfesionalesInput[]
-  deleteMany?: Prisma.turnosScalarWhereInput | Prisma.turnosScalarWhereInput[]
-}
-
-export type turnosUncheckedUpdateManyWithoutProfesionalesNestedInput = {
-  set?: Prisma.turnosWhereUniqueInput | Prisma.turnosWhereUniqueInput[]
-  disconnect?: Prisma.turnosWhereUniqueInput | Prisma.turnosWhereUniqueInput[]
-  delete?: Prisma.turnosWhereUniqueInput | Prisma.turnosWhereUniqueInput[]
-  connect?: Prisma.turnosWhereUniqueInput | Prisma.turnosWhereUniqueInput[]
-  update?: Prisma.turnosUpdateWithWhereUniqueWithoutProfesionalesInput | Prisma.turnosUpdateWithWhereUniqueWithoutProfesionalesInput[]
-  updateMany?: Prisma.turnosUpdateManyWithWhereWithoutProfesionalesInput | Prisma.turnosUpdateManyWithWhereWithoutProfesionalesInput[]
+  update?: Prisma.turnosUpdateWithWhereUniqueWithoutOrdenesInput | Prisma.turnosUpdateWithWhereUniqueWithoutOrdenesInput[]
+  updateMany?: Prisma.turnosUpdateManyWithWhereWithoutOrdenesInput | Prisma.turnosUpdateManyWithWhereWithoutOrdenesInput[]
   deleteMany?: Prisma.turnosScalarWhereInput | Prisma.turnosScalarWhereInput[]
 }
 
@@ -518,14 +469,14 @@ export type turnosUncheckedUpdateManyWithoutSalasNestedInput = {
   deleteMany?: Prisma.turnosScalarWhereInput | Prisma.turnosScalarWhereInput[]
 }
 
-export type turnosUpdateWithWhereUniqueWithoutPacientesInput = {
+export type turnosUpdateWithWhereUniqueWithoutOrdenesInput = {
   where: Prisma.turnosWhereUniqueInput
-  data: Prisma.XOR<Prisma.turnosUpdateWithoutPacientesInput, Prisma.turnosUncheckedUpdateWithoutPacientesInput>
+  data: Prisma.XOR<Prisma.turnosUpdateWithoutOrdenesInput, Prisma.turnosUncheckedUpdateWithoutOrdenesInput>
 }
 
-export type turnosUpdateManyWithWhereWithoutPacientesInput = {
+export type turnosUpdateManyWithWhereWithoutOrdenesInput = {
   where: Prisma.turnosScalarWhereInput
-  data: Prisma.XOR<Prisma.turnosUpdateManyMutationInput, Prisma.turnosUncheckedUpdateManyWithoutPacientesInput>
+  data: Prisma.XOR<Prisma.turnosUpdateManyMutationInput, Prisma.turnosUncheckedUpdateManyWithoutOrdenesInput>
 }
 
 export type turnosScalarWhereInput = {
@@ -538,20 +489,9 @@ export type turnosScalarWhereInput = {
   horario?: Prisma.DateTimeFilter<"turnos"> | Date | string
   estudio?: Prisma.UuidFilter<"turnos"> | string
   precio?: Prisma.DecimalFilter<"turnos"> | runtime.Decimal | runtime.DecimalJsLike | number | string
-  id_paciente?: Prisma.UuidFilter<"turnos"> | string
-  id_profesional?: Prisma.UuidNullableFilter<"turnos"> | string | null
+  id_orden?: Prisma.UuidFilter<"turnos"> | string
   usuario_alta?: Prisma.UuidFilter<"turnos"> | string
   usuario_mod?: Prisma.UuidFilter<"turnos"> | string
-}
-
-export type turnosUpdateWithWhereUniqueWithoutProfesionalesInput = {
-  where: Prisma.turnosWhereUniqueInput
-  data: Prisma.XOR<Prisma.turnosUpdateWithoutProfesionalesInput, Prisma.turnosUncheckedUpdateWithoutProfesionalesInput>
-}
-
-export type turnosUpdateManyWithWhereWithoutProfesionalesInput = {
-  where: Prisma.turnosScalarWhereInput
-  data: Prisma.XOR<Prisma.turnosUpdateManyMutationInput, Prisma.turnosUncheckedUpdateManyWithoutProfesionalesInput>
 }
 
 export type turnosUpdateWithWhereUniqueWithoutSalasInput = {
@@ -564,72 +504,34 @@ export type turnosUpdateManyWithWhereWithoutSalasInput = {
   data: Prisma.XOR<Prisma.turnosUpdateManyMutationInput, Prisma.turnosUncheckedUpdateManyWithoutSalasInput>
 }
 
-export type turnosUpdateWithoutPacientesInput = {
+export type turnosUpdateWithoutOrdenesInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   horario?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   estudio?: Prisma.StringFieldUpdateOperationsInput | string
   precio?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   usuario_alta?: Prisma.StringFieldUpdateOperationsInput | string
   usuario_mod?: Prisma.StringFieldUpdateOperationsInput | string
-  profesionales?: Prisma.profesionalesUpdateOneWithoutTurnosNestedInput
   salas?: Prisma.salasUpdateOneRequiredWithoutTurnosNestedInput
 }
 
-export type turnosUncheckedUpdateWithoutPacientesInput = {
+export type turnosUncheckedUpdateWithoutOrdenesInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   id_sede?: Prisma.StringFieldUpdateOperationsInput | string
   id_sala?: Prisma.StringFieldUpdateOperationsInput | string
   horario?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   estudio?: Prisma.StringFieldUpdateOperationsInput | string
   precio?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  id_profesional?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   usuario_alta?: Prisma.StringFieldUpdateOperationsInput | string
   usuario_mod?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
-export type turnosUncheckedUpdateManyWithoutPacientesInput = {
+export type turnosUncheckedUpdateManyWithoutOrdenesInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   id_sede?: Prisma.StringFieldUpdateOperationsInput | string
   id_sala?: Prisma.StringFieldUpdateOperationsInput | string
   horario?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   estudio?: Prisma.StringFieldUpdateOperationsInput | string
   precio?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  id_profesional?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  usuario_alta?: Prisma.StringFieldUpdateOperationsInput | string
-  usuario_mod?: Prisma.StringFieldUpdateOperationsInput | string
-}
-
-export type turnosUpdateWithoutProfesionalesInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  horario?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  estudio?: Prisma.StringFieldUpdateOperationsInput | string
-  precio?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  usuario_alta?: Prisma.StringFieldUpdateOperationsInput | string
-  usuario_mod?: Prisma.StringFieldUpdateOperationsInput | string
-  pacientes?: Prisma.pacientesUpdateOneRequiredWithoutTurnosNestedInput
-  salas?: Prisma.salasUpdateOneRequiredWithoutTurnosNestedInput
-}
-
-export type turnosUncheckedUpdateWithoutProfesionalesInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  id_sede?: Prisma.StringFieldUpdateOperationsInput | string
-  id_sala?: Prisma.StringFieldUpdateOperationsInput | string
-  horario?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  estudio?: Prisma.StringFieldUpdateOperationsInput | string
-  precio?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  id_paciente?: Prisma.StringFieldUpdateOperationsInput | string
-  usuario_alta?: Prisma.StringFieldUpdateOperationsInput | string
-  usuario_mod?: Prisma.StringFieldUpdateOperationsInput | string
-}
-
-export type turnosUncheckedUpdateManyWithoutProfesionalesInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  id_sede?: Prisma.StringFieldUpdateOperationsInput | string
-  id_sala?: Prisma.StringFieldUpdateOperationsInput | string
-  horario?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  estudio?: Prisma.StringFieldUpdateOperationsInput | string
-  precio?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  id_paciente?: Prisma.StringFieldUpdateOperationsInput | string
   usuario_alta?: Prisma.StringFieldUpdateOperationsInput | string
   usuario_mod?: Prisma.StringFieldUpdateOperationsInput | string
 }
@@ -641,8 +543,7 @@ export type turnosUpdateWithoutSalasInput = {
   precio?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   usuario_alta?: Prisma.StringFieldUpdateOperationsInput | string
   usuario_mod?: Prisma.StringFieldUpdateOperationsInput | string
-  pacientes?: Prisma.pacientesUpdateOneRequiredWithoutTurnosNestedInput
-  profesionales?: Prisma.profesionalesUpdateOneWithoutTurnosNestedInput
+  ordenes?: Prisma.ordenesUpdateOneRequiredWithoutTurnosNestedInput
 }
 
 export type turnosUncheckedUpdateWithoutSalasInput = {
@@ -650,8 +551,7 @@ export type turnosUncheckedUpdateWithoutSalasInput = {
   horario?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   estudio?: Prisma.StringFieldUpdateOperationsInput | string
   precio?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  id_paciente?: Prisma.StringFieldUpdateOperationsInput | string
-  id_profesional?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  id_orden?: Prisma.StringFieldUpdateOperationsInput | string
   usuario_alta?: Prisma.StringFieldUpdateOperationsInput | string
   usuario_mod?: Prisma.StringFieldUpdateOperationsInput | string
 }
@@ -661,8 +561,7 @@ export type turnosUncheckedUpdateManyWithoutSalasInput = {
   horario?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   estudio?: Prisma.StringFieldUpdateOperationsInput | string
   precio?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  id_paciente?: Prisma.StringFieldUpdateOperationsInput | string
-  id_profesional?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  id_orden?: Prisma.StringFieldUpdateOperationsInput | string
   usuario_alta?: Prisma.StringFieldUpdateOperationsInput | string
   usuario_mod?: Prisma.StringFieldUpdateOperationsInput | string
 }
@@ -676,12 +575,10 @@ export type turnosSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs =
   horario?: boolean
   estudio?: boolean
   precio?: boolean
-  id_paciente?: boolean
-  id_profesional?: boolean
+  id_orden?: boolean
   usuario_alta?: boolean
   usuario_mod?: boolean
-  pacientes?: boolean | Prisma.pacientesDefaultArgs<ExtArgs>
-  profesionales?: boolean | Prisma.turnos$profesionalesArgs<ExtArgs>
+  ordenes?: boolean | Prisma.ordenesDefaultArgs<ExtArgs>
   salas?: boolean | Prisma.salasDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["turnos"]>
 
@@ -693,12 +590,10 @@ export type turnosSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extens
   horario?: boolean
   estudio?: boolean
   precio?: boolean
-  id_paciente?: boolean
-  id_profesional?: boolean
+  id_orden?: boolean
   usuario_alta?: boolean
   usuario_mod?: boolean
-  pacientes?: boolean | Prisma.pacientesDefaultArgs<ExtArgs>
-  profesionales?: boolean | Prisma.turnos$profesionalesArgs<ExtArgs>
+  ordenes?: boolean | Prisma.ordenesDefaultArgs<ExtArgs>
   salas?: boolean | Prisma.salasDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["turnos"]>
 
@@ -709,29 +604,25 @@ export type turnosSelectScalar = {
   horario?: boolean
   estudio?: boolean
   precio?: boolean
-  id_paciente?: boolean
-  id_profesional?: boolean
+  id_orden?: boolean
   usuario_alta?: boolean
   usuario_mod?: boolean
 }
 
-export type turnosOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "id_sede" | "id_sala" | "horario" | "estudio" | "precio" | "id_paciente" | "id_profesional" | "usuario_alta" | "usuario_mod", ExtArgs["result"]["turnos"]>
+export type turnosOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "id_sede" | "id_sala" | "horario" | "estudio" | "precio" | "id_orden" | "usuario_alta" | "usuario_mod", ExtArgs["result"]["turnos"]>
 export type turnosInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  pacientes?: boolean | Prisma.pacientesDefaultArgs<ExtArgs>
-  profesionales?: boolean | Prisma.turnos$profesionalesArgs<ExtArgs>
+  ordenes?: boolean | Prisma.ordenesDefaultArgs<ExtArgs>
   salas?: boolean | Prisma.salasDefaultArgs<ExtArgs>
 }
 export type turnosIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  pacientes?: boolean | Prisma.pacientesDefaultArgs<ExtArgs>
-  profesionales?: boolean | Prisma.turnos$profesionalesArgs<ExtArgs>
+  ordenes?: boolean | Prisma.ordenesDefaultArgs<ExtArgs>
   salas?: boolean | Prisma.salasDefaultArgs<ExtArgs>
 }
 
 export type $turnosPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "turnos"
   objects: {
-    pacientes: Prisma.$pacientesPayload<ExtArgs>
-    profesionales: Prisma.$profesionalesPayload<ExtArgs> | null
+    ordenes: Prisma.$ordenesPayload<ExtArgs>
     salas: Prisma.$salasPayload<ExtArgs>
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
@@ -741,8 +632,7 @@ export type $turnosPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs
     horario: Date
     estudio: string
     precio: runtime.Decimal
-    id_paciente: string
-    id_profesional: string | null
+    id_orden: string
     usuario_alta: string
     usuario_mod: string
   }, ExtArgs["result"]["turnos"]>
@@ -1068,8 +958,7 @@ readonly fields: turnosFieldRefs;
  */
 export interface Prisma__turnosClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
-  pacientes<T extends Prisma.pacientesDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.pacientesDefaultArgs<ExtArgs>>): Prisma.Prisma__pacientesClient<runtime.Types.Result.GetResult<Prisma.$pacientesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-  profesionales<T extends Prisma.turnos$profesionalesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.turnos$profesionalesArgs<ExtArgs>>): Prisma.Prisma__profesionalesClient<runtime.Types.Result.GetResult<Prisma.$profesionalesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  ordenes<T extends Prisma.ordenesDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.ordenesDefaultArgs<ExtArgs>>): Prisma.Prisma__ordenesClient<runtime.Types.Result.GetResult<Prisma.$ordenesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   salas<T extends Prisma.salasDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.salasDefaultArgs<ExtArgs>>): Prisma.Prisma__salasClient<runtime.Types.Result.GetResult<Prisma.$salasPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -1106,8 +995,7 @@ export interface turnosFieldRefs {
   readonly horario: Prisma.FieldRef<"turnos", 'DateTime'>
   readonly estudio: Prisma.FieldRef<"turnos", 'String'>
   readonly precio: Prisma.FieldRef<"turnos", 'Decimal'>
-  readonly id_paciente: Prisma.FieldRef<"turnos", 'String'>
-  readonly id_profesional: Prisma.FieldRef<"turnos", 'String'>
+  readonly id_orden: Prisma.FieldRef<"turnos", 'String'>
   readonly usuario_alta: Prisma.FieldRef<"turnos", 'String'>
   readonly usuario_mod: Prisma.FieldRef<"turnos", 'String'>
 }
@@ -1422,25 +1310,6 @@ export type turnosDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.Intern
    * Limit how many turnos to delete.
    */
   limit?: number
-}
-
-/**
- * turnos.profesionales
- */
-export type turnos$profesionalesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the profesionales
-   */
-  select?: Prisma.profesionalesSelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the profesionales
-   */
-  omit?: Prisma.profesionalesOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.profesionalesInclude<ExtArgs> | null
-  where?: Prisma.profesionalesWhereInput
 }
 
 /**

@@ -26,46 +26,28 @@ export type AggregateProfesionales = {
 
 export type ProfesionalesMinAggregateOutputType = {
   id: string | null
-  nombre: string | null
-  mail: string | null
-  rut: string | null
 }
 
 export type ProfesionalesMaxAggregateOutputType = {
   id: string | null
-  nombre: string | null
-  mail: string | null
-  rut: string | null
 }
 
 export type ProfesionalesCountAggregateOutputType = {
   id: number
-  nombre: number
-  mail: number
-  rut: number
   _all: number
 }
 
 
 export type ProfesionalesMinAggregateInputType = {
   id?: true
-  nombre?: true
-  mail?: true
-  rut?: true
 }
 
 export type ProfesionalesMaxAggregateInputType = {
   id?: true
-  nombre?: true
-  mail?: true
-  rut?: true
 }
 
 export type ProfesionalesCountAggregateInputType = {
   id?: true
-  nombre?: true
-  mail?: true
-  rut?: true
   _all?: true
 }
 
@@ -143,9 +125,6 @@ export type profesionalesGroupByArgs<ExtArgs extends runtime.Types.Extensions.In
 
 export type ProfesionalesGroupByOutputType = {
   id: string
-  nombre: string
-  mail: string
-  rut: string | null
   _count: ProfesionalesCountAggregateOutputType | null
   _min: ProfesionalesMinAggregateOutputType | null
   _max: ProfesionalesMaxAggregateOutputType | null
@@ -171,18 +150,14 @@ export type profesionalesWhereInput = {
   OR?: Prisma.profesionalesWhereInput[]
   NOT?: Prisma.profesionalesWhereInput | Prisma.profesionalesWhereInput[]
   id?: Prisma.UuidFilter<"profesionales"> | string
-  nombre?: Prisma.StringFilter<"profesionales"> | string
-  mail?: Prisma.StringFilter<"profesionales"> | string
-  rut?: Prisma.StringNullableFilter<"profesionales"> | string | null
-  turnos?: Prisma.TurnosListRelationFilter
+  ordenes?: Prisma.OrdenesListRelationFilter
+  titulares?: Prisma.XOR<Prisma.TitularesScalarRelationFilter, Prisma.titularesWhereInput>
 }
 
 export type profesionalesOrderByWithRelationInput = {
   id?: Prisma.SortOrder
-  nombre?: Prisma.SortOrder
-  mail?: Prisma.SortOrder
-  rut?: Prisma.SortOrderInput | Prisma.SortOrder
-  turnos?: Prisma.turnosOrderByRelationAggregateInput
+  ordenes?: Prisma.ordenesOrderByRelationAggregateInput
+  titulares?: Prisma.titularesOrderByWithRelationInput
 }
 
 export type profesionalesWhereUniqueInput = Prisma.AtLeast<{
@@ -190,17 +165,12 @@ export type profesionalesWhereUniqueInput = Prisma.AtLeast<{
   AND?: Prisma.profesionalesWhereInput | Prisma.profesionalesWhereInput[]
   OR?: Prisma.profesionalesWhereInput[]
   NOT?: Prisma.profesionalesWhereInput | Prisma.profesionalesWhereInput[]
-  nombre?: Prisma.StringFilter<"profesionales"> | string
-  mail?: Prisma.StringFilter<"profesionales"> | string
-  rut?: Prisma.StringNullableFilter<"profesionales"> | string | null
-  turnos?: Prisma.TurnosListRelationFilter
+  ordenes?: Prisma.OrdenesListRelationFilter
+  titulares?: Prisma.XOR<Prisma.TitularesScalarRelationFilter, Prisma.titularesWhereInput>
 }, "id">
 
 export type profesionalesOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
-  nombre?: Prisma.SortOrder
-  mail?: Prisma.SortOrder
-  rut?: Prisma.SortOrderInput | Prisma.SortOrder
   _count?: Prisma.profesionalesCountOrderByAggregateInput
   _max?: Prisma.profesionalesMaxOrderByAggregateInput
   _min?: Prisma.profesionalesMinOrderByAggregateInput
@@ -211,83 +181,55 @@ export type profesionalesScalarWhereWithAggregatesInput = {
   OR?: Prisma.profesionalesScalarWhereWithAggregatesInput[]
   NOT?: Prisma.profesionalesScalarWhereWithAggregatesInput | Prisma.profesionalesScalarWhereWithAggregatesInput[]
   id?: Prisma.UuidWithAggregatesFilter<"profesionales"> | string
-  nombre?: Prisma.StringWithAggregatesFilter<"profesionales"> | string
-  mail?: Prisma.StringWithAggregatesFilter<"profesionales"> | string
-  rut?: Prisma.StringNullableWithAggregatesFilter<"profesionales"> | string | null
 }
 
 export type profesionalesCreateInput = {
-  id?: string
-  nombre: string
-  mail: string
-  rut?: string | null
-  turnos?: Prisma.turnosCreateNestedManyWithoutProfesionalesInput
+  ordenes?: Prisma.ordenesCreateNestedManyWithoutProfesionalesInput
+  titulares: Prisma.titularesCreateNestedOneWithoutProfesionalesInput
 }
 
 export type profesionalesUncheckedCreateInput = {
-  id?: string
-  nombre: string
-  mail: string
-  rut?: string | null
-  turnos?: Prisma.turnosUncheckedCreateNestedManyWithoutProfesionalesInput
+  id: string
+  ordenes?: Prisma.ordenesUncheckedCreateNestedManyWithoutProfesionalesInput
 }
 
 export type profesionalesUpdateInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  nombre?: Prisma.StringFieldUpdateOperationsInput | string
-  mail?: Prisma.StringFieldUpdateOperationsInput | string
-  rut?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  turnos?: Prisma.turnosUpdateManyWithoutProfesionalesNestedInput
+  ordenes?: Prisma.ordenesUpdateManyWithoutProfesionalesNestedInput
+  titulares?: Prisma.titularesUpdateOneRequiredWithoutProfesionalesNestedInput
 }
 
 export type profesionalesUncheckedUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  nombre?: Prisma.StringFieldUpdateOperationsInput | string
-  mail?: Prisma.StringFieldUpdateOperationsInput | string
-  rut?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  turnos?: Prisma.turnosUncheckedUpdateManyWithoutProfesionalesNestedInput
+  ordenes?: Prisma.ordenesUncheckedUpdateManyWithoutProfesionalesNestedInput
 }
 
 export type profesionalesCreateManyInput = {
-  id?: string
-  nombre: string
-  mail: string
-  rut?: string | null
+  id: string
 }
 
 export type profesionalesUpdateManyMutationInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  nombre?: Prisma.StringFieldUpdateOperationsInput | string
-  mail?: Prisma.StringFieldUpdateOperationsInput | string
-  rut?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+
 }
 
 export type profesionalesUncheckedUpdateManyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  nombre?: Prisma.StringFieldUpdateOperationsInput | string
-  mail?: Prisma.StringFieldUpdateOperationsInput | string
-  rut?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+}
+
+export type ProfesionalesScalarRelationFilter = {
+  is?: Prisma.profesionalesWhereInput
+  isNot?: Prisma.profesionalesWhereInput
 }
 
 export type profesionalesCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  nombre?: Prisma.SortOrder
-  mail?: Prisma.SortOrder
-  rut?: Prisma.SortOrder
 }
 
 export type profesionalesMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  nombre?: Prisma.SortOrder
-  mail?: Prisma.SortOrder
-  rut?: Prisma.SortOrder
 }
 
 export type profesionalesMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  nombre?: Prisma.SortOrder
-  mail?: Prisma.SortOrder
-  rut?: Prisma.SortOrder
 }
 
 export type ProfesionalesNullableScalarRelationFilter = {
@@ -295,58 +237,114 @@ export type ProfesionalesNullableScalarRelationFilter = {
   isNot?: Prisma.profesionalesWhereInput | null
 }
 
-export type profesionalesUpdateOneWithoutTurnosNestedInput = {
-  create?: Prisma.XOR<Prisma.profesionalesCreateWithoutTurnosInput, Prisma.profesionalesUncheckedCreateWithoutTurnosInput>
-  connectOrCreate?: Prisma.profesionalesCreateOrConnectWithoutTurnosInput
-  upsert?: Prisma.profesionalesUpsertWithoutTurnosInput
+export type profesionalesCreateNestedOneWithoutOrdenesInput = {
+  create?: Prisma.XOR<Prisma.profesionalesCreateWithoutOrdenesInput, Prisma.profesionalesUncheckedCreateWithoutOrdenesInput>
+  connectOrCreate?: Prisma.profesionalesCreateOrConnectWithoutOrdenesInput
+  connect?: Prisma.profesionalesWhereUniqueInput
+}
+
+export type profesionalesUpdateOneRequiredWithoutOrdenesNestedInput = {
+  create?: Prisma.XOR<Prisma.profesionalesCreateWithoutOrdenesInput, Prisma.profesionalesUncheckedCreateWithoutOrdenesInput>
+  connectOrCreate?: Prisma.profesionalesCreateOrConnectWithoutOrdenesInput
+  upsert?: Prisma.profesionalesUpsertWithoutOrdenesInput
+  connect?: Prisma.profesionalesWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.profesionalesUpdateToOneWithWhereWithoutOrdenesInput, Prisma.profesionalesUpdateWithoutOrdenesInput>, Prisma.profesionalesUncheckedUpdateWithoutOrdenesInput>
+}
+
+export type profesionalesCreateNestedOneWithoutTitularesInput = {
+  create?: Prisma.XOR<Prisma.profesionalesCreateWithoutTitularesInput, Prisma.profesionalesUncheckedCreateWithoutTitularesInput>
+  connectOrCreate?: Prisma.profesionalesCreateOrConnectWithoutTitularesInput
+  connect?: Prisma.profesionalesWhereUniqueInput
+}
+
+export type profesionalesUncheckedCreateNestedOneWithoutTitularesInput = {
+  create?: Prisma.XOR<Prisma.profesionalesCreateWithoutTitularesInput, Prisma.profesionalesUncheckedCreateWithoutTitularesInput>
+  connectOrCreate?: Prisma.profesionalesCreateOrConnectWithoutTitularesInput
+  connect?: Prisma.profesionalesWhereUniqueInput
+}
+
+export type profesionalesUpdateOneWithoutTitularesNestedInput = {
+  create?: Prisma.XOR<Prisma.profesionalesCreateWithoutTitularesInput, Prisma.profesionalesUncheckedCreateWithoutTitularesInput>
+  connectOrCreate?: Prisma.profesionalesCreateOrConnectWithoutTitularesInput
+  upsert?: Prisma.profesionalesUpsertWithoutTitularesInput
   disconnect?: Prisma.profesionalesWhereInput | boolean
   delete?: Prisma.profesionalesWhereInput | boolean
   connect?: Prisma.profesionalesWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.profesionalesUpdateToOneWithWhereWithoutTurnosInput, Prisma.profesionalesUpdateWithoutTurnosInput>, Prisma.profesionalesUncheckedUpdateWithoutTurnosInput>
+  update?: Prisma.XOR<Prisma.XOR<Prisma.profesionalesUpdateToOneWithWhereWithoutTitularesInput, Prisma.profesionalesUpdateWithoutTitularesInput>, Prisma.profesionalesUncheckedUpdateWithoutTitularesInput>
 }
 
-export type profesionalesCreateWithoutTurnosInput = {
-  id?: string
-  nombre: string
-  mail: string
-  rut?: string | null
+export type profesionalesUncheckedUpdateOneWithoutTitularesNestedInput = {
+  create?: Prisma.XOR<Prisma.profesionalesCreateWithoutTitularesInput, Prisma.profesionalesUncheckedCreateWithoutTitularesInput>
+  connectOrCreate?: Prisma.profesionalesCreateOrConnectWithoutTitularesInput
+  upsert?: Prisma.profesionalesUpsertWithoutTitularesInput
+  disconnect?: Prisma.profesionalesWhereInput | boolean
+  delete?: Prisma.profesionalesWhereInput | boolean
+  connect?: Prisma.profesionalesWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.profesionalesUpdateToOneWithWhereWithoutTitularesInput, Prisma.profesionalesUpdateWithoutTitularesInput>, Prisma.profesionalesUncheckedUpdateWithoutTitularesInput>
 }
 
-export type profesionalesUncheckedCreateWithoutTurnosInput = {
-  id?: string
-  nombre: string
-  mail: string
-  rut?: string | null
+export type profesionalesCreateWithoutOrdenesInput = {
+  titulares: Prisma.titularesCreateNestedOneWithoutProfesionalesInput
 }
 
-export type profesionalesCreateOrConnectWithoutTurnosInput = {
+export type profesionalesUncheckedCreateWithoutOrdenesInput = {
+  id: string
+}
+
+export type profesionalesCreateOrConnectWithoutOrdenesInput = {
   where: Prisma.profesionalesWhereUniqueInput
-  create: Prisma.XOR<Prisma.profesionalesCreateWithoutTurnosInput, Prisma.profesionalesUncheckedCreateWithoutTurnosInput>
+  create: Prisma.XOR<Prisma.profesionalesCreateWithoutOrdenesInput, Prisma.profesionalesUncheckedCreateWithoutOrdenesInput>
 }
 
-export type profesionalesUpsertWithoutTurnosInput = {
-  update: Prisma.XOR<Prisma.profesionalesUpdateWithoutTurnosInput, Prisma.profesionalesUncheckedUpdateWithoutTurnosInput>
-  create: Prisma.XOR<Prisma.profesionalesCreateWithoutTurnosInput, Prisma.profesionalesUncheckedCreateWithoutTurnosInput>
+export type profesionalesUpsertWithoutOrdenesInput = {
+  update: Prisma.XOR<Prisma.profesionalesUpdateWithoutOrdenesInput, Prisma.profesionalesUncheckedUpdateWithoutOrdenesInput>
+  create: Prisma.XOR<Prisma.profesionalesCreateWithoutOrdenesInput, Prisma.profesionalesUncheckedCreateWithoutOrdenesInput>
   where?: Prisma.profesionalesWhereInput
 }
 
-export type profesionalesUpdateToOneWithWhereWithoutTurnosInput = {
+export type profesionalesUpdateToOneWithWhereWithoutOrdenesInput = {
   where?: Prisma.profesionalesWhereInput
-  data: Prisma.XOR<Prisma.profesionalesUpdateWithoutTurnosInput, Prisma.profesionalesUncheckedUpdateWithoutTurnosInput>
+  data: Prisma.XOR<Prisma.profesionalesUpdateWithoutOrdenesInput, Prisma.profesionalesUncheckedUpdateWithoutOrdenesInput>
 }
 
-export type profesionalesUpdateWithoutTurnosInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  nombre?: Prisma.StringFieldUpdateOperationsInput | string
-  mail?: Prisma.StringFieldUpdateOperationsInput | string
-  rut?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+export type profesionalesUpdateWithoutOrdenesInput = {
+  titulares?: Prisma.titularesUpdateOneRequiredWithoutProfesionalesNestedInput
 }
 
-export type profesionalesUncheckedUpdateWithoutTurnosInput = {
+export type profesionalesUncheckedUpdateWithoutOrdenesInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  nombre?: Prisma.StringFieldUpdateOperationsInput | string
-  mail?: Prisma.StringFieldUpdateOperationsInput | string
-  rut?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+}
+
+export type profesionalesCreateWithoutTitularesInput = {
+  ordenes?: Prisma.ordenesCreateNestedManyWithoutProfesionalesInput
+}
+
+export type profesionalesUncheckedCreateWithoutTitularesInput = {
+  ordenes?: Prisma.ordenesUncheckedCreateNestedManyWithoutProfesionalesInput
+}
+
+export type profesionalesCreateOrConnectWithoutTitularesInput = {
+  where: Prisma.profesionalesWhereUniqueInput
+  create: Prisma.XOR<Prisma.profesionalesCreateWithoutTitularesInput, Prisma.profesionalesUncheckedCreateWithoutTitularesInput>
+}
+
+export type profesionalesUpsertWithoutTitularesInput = {
+  update: Prisma.XOR<Prisma.profesionalesUpdateWithoutTitularesInput, Prisma.profesionalesUncheckedUpdateWithoutTitularesInput>
+  create: Prisma.XOR<Prisma.profesionalesCreateWithoutTitularesInput, Prisma.profesionalesUncheckedCreateWithoutTitularesInput>
+  where?: Prisma.profesionalesWhereInput
+}
+
+export type profesionalesUpdateToOneWithWhereWithoutTitularesInput = {
+  where?: Prisma.profesionalesWhereInput
+  data: Prisma.XOR<Prisma.profesionalesUpdateWithoutTitularesInput, Prisma.profesionalesUncheckedUpdateWithoutTitularesInput>
+}
+
+export type profesionalesUpdateWithoutTitularesInput = {
+  ordenes?: Prisma.ordenesUpdateManyWithoutProfesionalesNestedInput
+}
+
+export type profesionalesUncheckedUpdateWithoutTitularesInput = {
+  ordenes?: Prisma.ordenesUncheckedUpdateManyWithoutProfesionalesNestedInput
 }
 
 
@@ -355,11 +353,11 @@ export type profesionalesUncheckedUpdateWithoutTurnosInput = {
  */
 
 export type ProfesionalesCountOutputType = {
-  turnos: number
+  ordenes: number
 }
 
 export type ProfesionalesCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  turnos?: boolean | ProfesionalesCountOutputTypeCountTurnosArgs
+  ordenes?: boolean | ProfesionalesCountOutputTypeCountOrdenesArgs
 }
 
 /**
@@ -375,59 +373,53 @@ export type ProfesionalesCountOutputTypeDefaultArgs<ExtArgs extends runtime.Type
 /**
  * ProfesionalesCountOutputType without action
  */
-export type ProfesionalesCountOutputTypeCountTurnosArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.turnosWhereInput
+export type ProfesionalesCountOutputTypeCountOrdenesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.ordenesWhereInput
 }
 
 
 export type profesionalesSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
-  nombre?: boolean
-  mail?: boolean
-  rut?: boolean
-  turnos?: boolean | Prisma.profesionales$turnosArgs<ExtArgs>
+  ordenes?: boolean | Prisma.profesionales$ordenesArgs<ExtArgs>
+  titulares?: boolean | Prisma.titularesDefaultArgs<ExtArgs>
   _count?: boolean | Prisma.ProfesionalesCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["profesionales"]>
 
 export type profesionalesSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
-  nombre?: boolean
-  mail?: boolean
-  rut?: boolean
+  titulares?: boolean | Prisma.titularesDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["profesionales"]>
 
 export type profesionalesSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
-  nombre?: boolean
-  mail?: boolean
-  rut?: boolean
+  titulares?: boolean | Prisma.titularesDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["profesionales"]>
 
 export type profesionalesSelectScalar = {
   id?: boolean
-  nombre?: boolean
-  mail?: boolean
-  rut?: boolean
 }
 
-export type profesionalesOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "nombre" | "mail" | "rut", ExtArgs["result"]["profesionales"]>
+export type profesionalesOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id", ExtArgs["result"]["profesionales"]>
 export type profesionalesInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  turnos?: boolean | Prisma.profesionales$turnosArgs<ExtArgs>
+  ordenes?: boolean | Prisma.profesionales$ordenesArgs<ExtArgs>
+  titulares?: boolean | Prisma.titularesDefaultArgs<ExtArgs>
   _count?: boolean | Prisma.ProfesionalesCountOutputTypeDefaultArgs<ExtArgs>
 }
-export type profesionalesIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
-export type profesionalesIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
+export type profesionalesIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  titulares?: boolean | Prisma.titularesDefaultArgs<ExtArgs>
+}
+export type profesionalesIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  titulares?: boolean | Prisma.titularesDefaultArgs<ExtArgs>
+}
 
 export type $profesionalesPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "profesionales"
   objects: {
-    turnos: Prisma.$turnosPayload<ExtArgs>[]
+    ordenes: Prisma.$ordenesPayload<ExtArgs>[]
+    titulares: Prisma.$titularesPayload<ExtArgs>
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
-    nombre: string
-    mail: string
-    rut: string | null
   }, ExtArgs["result"]["profesionales"]>
   composites: {}
 }
@@ -822,7 +814,8 @@ readonly fields: profesionalesFieldRefs;
  */
 export interface Prisma__profesionalesClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
-  turnos<T extends Prisma.profesionales$turnosArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.profesionales$turnosArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$turnosPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  ordenes<T extends Prisma.profesionales$ordenesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.profesionales$ordenesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ordenesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  titulares<T extends Prisma.titularesDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.titularesDefaultArgs<ExtArgs>>): Prisma.Prisma__titularesClient<runtime.Types.Result.GetResult<Prisma.$titularesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -853,9 +846,6 @@ export interface Prisma__profesionalesClient<T, Null = never, ExtArgs extends ru
  */
 export interface profesionalesFieldRefs {
   readonly id: Prisma.FieldRef<"profesionales", 'String'>
-  readonly nombre: Prisma.FieldRef<"profesionales", 'String'>
-  readonly mail: Prisma.FieldRef<"profesionales", 'String'>
-  readonly rut: Prisma.FieldRef<"profesionales", 'String'>
 }
     
 
@@ -1110,6 +1100,10 @@ export type profesionalesCreateManyAndReturnArgs<ExtArgs extends runtime.Types.E
    */
   data: Prisma.profesionalesCreateManyInput | Prisma.profesionalesCreateManyInput[]
   skipDuplicates?: boolean
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.profesionalesIncludeCreateManyAndReturn<ExtArgs> | null
 }
 
 /**
@@ -1180,6 +1174,10 @@ export type profesionalesUpdateManyAndReturnArgs<ExtArgs extends runtime.Types.E
    * Limit how many profesionales to update.
    */
   limit?: number
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.profesionalesIncludeUpdateManyAndReturn<ExtArgs> | null
 }
 
 /**
@@ -1249,27 +1247,27 @@ export type profesionalesDeleteManyArgs<ExtArgs extends runtime.Types.Extensions
 }
 
 /**
- * profesionales.turnos
+ * profesionales.ordenes
  */
-export type profesionales$turnosArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type profesionales$ordenesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the turnos
+   * Select specific fields to fetch from the ordenes
    */
-  select?: Prisma.turnosSelect<ExtArgs> | null
+  select?: Prisma.ordenesSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the turnos
+   * Omit specific fields from the ordenes
    */
-  omit?: Prisma.turnosOmit<ExtArgs> | null
+  omit?: Prisma.ordenesOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.turnosInclude<ExtArgs> | null
-  where?: Prisma.turnosWhereInput
-  orderBy?: Prisma.turnosOrderByWithRelationInput | Prisma.turnosOrderByWithRelationInput[]
-  cursor?: Prisma.turnosWhereUniqueInput
+  include?: Prisma.ordenesInclude<ExtArgs> | null
+  where?: Prisma.ordenesWhereInput
+  orderBy?: Prisma.ordenesOrderByWithRelationInput | Prisma.ordenesOrderByWithRelationInput[]
+  cursor?: Prisma.ordenesWhereUniqueInput
   take?: number
   skip?: number
-  distinct?: Prisma.TurnosScalarFieldEnum | Prisma.TurnosScalarFieldEnum[]
+  distinct?: Prisma.OrdenesScalarFieldEnum | Prisma.OrdenesScalarFieldEnum[]
 }
 
 /**

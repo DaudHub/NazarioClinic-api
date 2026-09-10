@@ -4,6 +4,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ConfigModule } from '@nestjs/config';
 import { PrismaModule } from './prisma/prisma.module';
+import { ErrorsModule } from './errors/errors.module';
 import { AuthModule } from './auth/auth.module';
 import { JwtAuthGuard } from './auth/jwt.guard';
 import { SedesModule } from './sedes/sedes.module';
@@ -15,6 +16,7 @@ import { SedesModule } from './sedes/sedes.module';
       cache: true
     }),
     PrismaModule,
+    ErrorsModule,
     AuthModule,
     SedesModule
   ],

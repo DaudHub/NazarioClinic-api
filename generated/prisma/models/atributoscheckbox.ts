@@ -20,46 +20,70 @@ export type atributoscheckboxModel = runtime.Types.Result.DefaultSelection<Prism
 
 export type AggregateAtributoscheckbox = {
   _count: AtributoscheckboxCountAggregateOutputType | null
+  _avg: AtributoscheckboxAvgAggregateOutputType | null
+  _sum: AtributoscheckboxSumAggregateOutputType | null
   _min: AtributoscheckboxMinAggregateOutputType | null
   _max: AtributoscheckboxMaxAggregateOutputType | null
+}
+
+export type AtributoscheckboxAvgAggregateOutputType = {
+  precio: runtime.Decimal | null
+}
+
+export type AtributoscheckboxSumAggregateOutputType = {
+  precio: runtime.Decimal | null
 }
 
 export type AtributoscheckboxMinAggregateOutputType = {
   id_estudio: string | null
   id: string | null
   nombre: string | null
+  precio: runtime.Decimal | null
 }
 
 export type AtributoscheckboxMaxAggregateOutputType = {
   id_estudio: string | null
   id: string | null
   nombre: string | null
+  precio: runtime.Decimal | null
 }
 
 export type AtributoscheckboxCountAggregateOutputType = {
   id_estudio: number
   id: number
   nombre: number
+  precio: number
   _all: number
 }
 
+
+export type AtributoscheckboxAvgAggregateInputType = {
+  precio?: true
+}
+
+export type AtributoscheckboxSumAggregateInputType = {
+  precio?: true
+}
 
 export type AtributoscheckboxMinAggregateInputType = {
   id_estudio?: true
   id?: true
   nombre?: true
+  precio?: true
 }
 
 export type AtributoscheckboxMaxAggregateInputType = {
   id_estudio?: true
   id?: true
   nombre?: true
+  precio?: true
 }
 
 export type AtributoscheckboxCountAggregateInputType = {
   id_estudio?: true
   id?: true
   nombre?: true
+  precio?: true
   _all?: true
 }
 
@@ -101,6 +125,18 @@ export type AtributoscheckboxAggregateArgs<ExtArgs extends runtime.Types.Extensi
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
    * 
+   * Select which fields to average
+  **/
+  _avg?: AtributoscheckboxAvgAggregateInputType
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+   * 
+   * Select which fields to sum
+  **/
+  _sum?: AtributoscheckboxSumAggregateInputType
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+   * 
    * Select which fields to find the minimum value
   **/
   _min?: AtributoscheckboxMinAggregateInputType
@@ -131,6 +167,8 @@ export type atributoscheckboxGroupByArgs<ExtArgs extends runtime.Types.Extension
   take?: number
   skip?: number
   _count?: AtributoscheckboxCountAggregateInputType | true
+  _avg?: AtributoscheckboxAvgAggregateInputType
+  _sum?: AtributoscheckboxSumAggregateInputType
   _min?: AtributoscheckboxMinAggregateInputType
   _max?: AtributoscheckboxMaxAggregateInputType
 }
@@ -139,7 +177,10 @@ export type AtributoscheckboxGroupByOutputType = {
   id_estudio: string
   id: string
   nombre: string
+  precio: runtime.Decimal
   _count: AtributoscheckboxCountAggregateOutputType | null
+  _avg: AtributoscheckboxAvgAggregateOutputType | null
+  _sum: AtributoscheckboxSumAggregateOutputType | null
   _min: AtributoscheckboxMinAggregateOutputType | null
   _max: AtributoscheckboxMaxAggregateOutputType | null
 }
@@ -166,7 +207,9 @@ export type atributoscheckboxWhereInput = {
   id_estudio?: Prisma.UuidFilter<"atributoscheckbox"> | string
   id?: Prisma.UuidFilter<"atributoscheckbox"> | string
   nombre?: Prisma.StringFilter<"atributoscheckbox"> | string
+  precio?: Prisma.DecimalFilter<"atributoscheckbox"> | runtime.Decimal | runtime.DecimalJsLike | number | string
   estudios?: Prisma.XOR<Prisma.EstudiosScalarRelationFilter, Prisma.estudiosWhereInput>
+  atributoscheckxorden?: Prisma.AtributoscheckxordenListRelationFilter
   atributostextbox?: Prisma.AtributostextboxListRelationFilter
 }
 
@@ -174,7 +217,9 @@ export type atributoscheckboxOrderByWithRelationInput = {
   id_estudio?: Prisma.SortOrder
   id?: Prisma.SortOrder
   nombre?: Prisma.SortOrder
+  precio?: Prisma.SortOrder
   estudios?: Prisma.estudiosOrderByWithRelationInput
+  atributoscheckxorden?: Prisma.atributoscheckxordenOrderByRelationAggregateInput
   atributostextbox?: Prisma.atributostextboxOrderByRelationAggregateInput
 }
 
@@ -186,7 +231,9 @@ export type atributoscheckboxWhereUniqueInput = Prisma.AtLeast<{
   id_estudio?: Prisma.UuidFilter<"atributoscheckbox"> | string
   id?: Prisma.UuidFilter<"atributoscheckbox"> | string
   nombre?: Prisma.StringFilter<"atributoscheckbox"> | string
+  precio?: Prisma.DecimalFilter<"atributoscheckbox"> | runtime.Decimal | runtime.DecimalJsLike | number | string
   estudios?: Prisma.XOR<Prisma.EstudiosScalarRelationFilter, Prisma.estudiosWhereInput>
+  atributoscheckxorden?: Prisma.AtributoscheckxordenListRelationFilter
   atributostextbox?: Prisma.AtributostextboxListRelationFilter
 }, "id_estudio_id">
 
@@ -194,9 +241,12 @@ export type atributoscheckboxOrderByWithAggregationInput = {
   id_estudio?: Prisma.SortOrder
   id?: Prisma.SortOrder
   nombre?: Prisma.SortOrder
+  precio?: Prisma.SortOrder
   _count?: Prisma.atributoscheckboxCountOrderByAggregateInput
+  _avg?: Prisma.atributoscheckboxAvgOrderByAggregateInput
   _max?: Prisma.atributoscheckboxMaxOrderByAggregateInput
   _min?: Prisma.atributoscheckboxMinOrderByAggregateInput
+  _sum?: Prisma.atributoscheckboxSumOrderByAggregateInput
 }
 
 export type atributoscheckboxScalarWhereWithAggregatesInput = {
@@ -206,12 +256,15 @@ export type atributoscheckboxScalarWhereWithAggregatesInput = {
   id_estudio?: Prisma.UuidWithAggregatesFilter<"atributoscheckbox"> | string
   id?: Prisma.UuidWithAggregatesFilter<"atributoscheckbox"> | string
   nombre?: Prisma.StringWithAggregatesFilter<"atributoscheckbox"> | string
+  precio?: Prisma.DecimalWithAggregatesFilter<"atributoscheckbox"> | runtime.Decimal | runtime.DecimalJsLike | number | string
 }
 
 export type atributoscheckboxUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   nombre?: Prisma.StringFieldUpdateOperationsInput | string
+  precio?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   estudios?: Prisma.estudiosUpdateOneRequiredWithoutAtributoscheckboxNestedInput
+  atributoscheckxorden?: Prisma.atributoscheckxordenUpdateManyWithoutAtributoscheckboxNestedInput
   atributostextbox?: Prisma.atributostextboxUpdateManyWithoutAtributoscheckboxNestedInput
 }
 
@@ -219,18 +272,22 @@ export type atributoscheckboxUncheckedUpdateInput = {
   id_estudio?: Prisma.StringFieldUpdateOperationsInput | string
   id?: Prisma.StringFieldUpdateOperationsInput | string
   nombre?: Prisma.StringFieldUpdateOperationsInput | string
+  precio?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  atributoscheckxorden?: Prisma.atributoscheckxordenUncheckedUpdateManyWithoutAtributoscheckboxNestedInput
   atributostextbox?: Prisma.atributostextboxUncheckedUpdateManyWithoutAtributoscheckboxNestedInput
 }
 
 export type atributoscheckboxUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   nombre?: Prisma.StringFieldUpdateOperationsInput | string
+  precio?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
 }
 
 export type atributoscheckboxUncheckedUpdateManyInput = {
   id_estudio?: Prisma.StringFieldUpdateOperationsInput | string
   id?: Prisma.StringFieldUpdateOperationsInput | string
   nombre?: Prisma.StringFieldUpdateOperationsInput | string
+  precio?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
 }
 
 export type atributoscheckboxId_estudioIdCompoundUniqueInput = {
@@ -242,18 +299,34 @@ export type atributoscheckboxCountOrderByAggregateInput = {
   id_estudio?: Prisma.SortOrder
   id?: Prisma.SortOrder
   nombre?: Prisma.SortOrder
+  precio?: Prisma.SortOrder
+}
+
+export type atributoscheckboxAvgOrderByAggregateInput = {
+  precio?: Prisma.SortOrder
 }
 
 export type atributoscheckboxMaxOrderByAggregateInput = {
   id_estudio?: Prisma.SortOrder
   id?: Prisma.SortOrder
   nombre?: Prisma.SortOrder
+  precio?: Prisma.SortOrder
 }
 
 export type atributoscheckboxMinOrderByAggregateInput = {
   id_estudio?: Prisma.SortOrder
   id?: Prisma.SortOrder
   nombre?: Prisma.SortOrder
+  precio?: Prisma.SortOrder
+}
+
+export type atributoscheckboxSumOrderByAggregateInput = {
+  precio?: Prisma.SortOrder
+}
+
+export type AtributoscheckboxScalarRelationFilter = {
+  is?: Prisma.atributoscheckboxWhereInput
+  isNot?: Prisma.atributoscheckboxWhereInput
 }
 
 export type AtributoscheckboxNullableScalarRelationFilter = {
@@ -273,6 +346,23 @@ export type atributoscheckboxOrderByRelationAggregateInput = {
 
 export type StringFieldUpdateOperationsInput = {
   set?: string
+}
+
+export type DecimalFieldUpdateOperationsInput = {
+  set?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  increment?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  decrement?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  multiply?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  divide?: runtime.Decimal | runtime.DecimalJsLike | number | string
+}
+
+export type atributoscheckboxCreateNestedOneWithoutAtributoscheckxordenInput = {
+  connect?: Prisma.atributoscheckboxWhereUniqueInput
+}
+
+export type atributoscheckboxUpdateOneRequiredWithoutAtributoscheckxordenNestedInput = {
+  connect?: Prisma.atributoscheckboxWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.atributoscheckboxUpdateToOneWithWhereWithoutAtributoscheckxordenInput, Prisma.atributoscheckboxUpdateWithoutAtributoscheckxordenInput>, Prisma.atributoscheckboxUncheckedUpdateWithoutAtributoscheckxordenInput>
 }
 
 export type atributoscheckboxCreateNestedOneWithoutAtributostextboxInput = {
@@ -306,6 +396,27 @@ export type atributoscheckboxUncheckedUpdateManyWithoutEstudiosNestedInput = {
   deleteMany?: Prisma.atributoscheckboxScalarWhereInput | Prisma.atributoscheckboxScalarWhereInput[]
 }
 
+export type atributoscheckboxUpdateToOneWithWhereWithoutAtributoscheckxordenInput = {
+  where?: Prisma.atributoscheckboxWhereInput
+  data: Prisma.XOR<Prisma.atributoscheckboxUpdateWithoutAtributoscheckxordenInput, Prisma.atributoscheckboxUncheckedUpdateWithoutAtributoscheckxordenInput>
+}
+
+export type atributoscheckboxUpdateWithoutAtributoscheckxordenInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  nombre?: Prisma.StringFieldUpdateOperationsInput | string
+  precio?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  estudios?: Prisma.estudiosUpdateOneRequiredWithoutAtributoscheckboxNestedInput
+  atributostextbox?: Prisma.atributostextboxUpdateManyWithoutAtributoscheckboxNestedInput
+}
+
+export type atributoscheckboxUncheckedUpdateWithoutAtributoscheckxordenInput = {
+  id_estudio?: Prisma.StringFieldUpdateOperationsInput | string
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  nombre?: Prisma.StringFieldUpdateOperationsInput | string
+  precio?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  atributostextbox?: Prisma.atributostextboxUncheckedUpdateManyWithoutAtributoscheckboxNestedInput
+}
+
 export type atributoscheckboxUpdateToOneWithWhereWithoutAtributostextboxInput = {
   where?: Prisma.atributoscheckboxWhereInput
   data: Prisma.XOR<Prisma.atributoscheckboxUpdateWithoutAtributostextboxInput, Prisma.atributoscheckboxUncheckedUpdateWithoutAtributostextboxInput>
@@ -314,13 +425,17 @@ export type atributoscheckboxUpdateToOneWithWhereWithoutAtributostextboxInput = 
 export type atributoscheckboxUpdateWithoutAtributostextboxInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   nombre?: Prisma.StringFieldUpdateOperationsInput | string
+  precio?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   estudios?: Prisma.estudiosUpdateOneRequiredWithoutAtributoscheckboxNestedInput
+  atributoscheckxorden?: Prisma.atributoscheckxordenUpdateManyWithoutAtributoscheckboxNestedInput
 }
 
 export type atributoscheckboxUncheckedUpdateWithoutAtributostextboxInput = {
   id_estudio?: Prisma.StringFieldUpdateOperationsInput | string
   id?: Prisma.StringFieldUpdateOperationsInput | string
   nombre?: Prisma.StringFieldUpdateOperationsInput | string
+  precio?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  atributoscheckxorden?: Prisma.atributoscheckxordenUncheckedUpdateManyWithoutAtributoscheckboxNestedInput
 }
 
 export type atributoscheckboxUpdateWithWhereUniqueWithoutEstudiosInput = {
@@ -340,23 +455,29 @@ export type atributoscheckboxScalarWhereInput = {
   id_estudio?: Prisma.UuidFilter<"atributoscheckbox"> | string
   id?: Prisma.UuidFilter<"atributoscheckbox"> | string
   nombre?: Prisma.StringFilter<"atributoscheckbox"> | string
+  precio?: Prisma.DecimalFilter<"atributoscheckbox"> | runtime.Decimal | runtime.DecimalJsLike | number | string
 }
 
 export type atributoscheckboxUpdateWithoutEstudiosInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   nombre?: Prisma.StringFieldUpdateOperationsInput | string
+  precio?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  atributoscheckxorden?: Prisma.atributoscheckxordenUpdateManyWithoutAtributoscheckboxNestedInput
   atributostextbox?: Prisma.atributostextboxUpdateManyWithoutAtributoscheckboxNestedInput
 }
 
 export type atributoscheckboxUncheckedUpdateWithoutEstudiosInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   nombre?: Prisma.StringFieldUpdateOperationsInput | string
+  precio?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  atributoscheckxorden?: Prisma.atributoscheckxordenUncheckedUpdateManyWithoutAtributoscheckboxNestedInput
   atributostextbox?: Prisma.atributostextboxUncheckedUpdateManyWithoutAtributoscheckboxNestedInput
 }
 
 export type atributoscheckboxUncheckedUpdateManyWithoutEstudiosInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   nombre?: Prisma.StringFieldUpdateOperationsInput | string
+  precio?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
 }
 
 
@@ -365,10 +486,12 @@ export type atributoscheckboxUncheckedUpdateManyWithoutEstudiosInput = {
  */
 
 export type AtributoscheckboxCountOutputType = {
+  atributoscheckxorden: number
   atributostextbox: number
 }
 
 export type AtributoscheckboxCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  atributoscheckxorden?: boolean | AtributoscheckboxCountOutputTypeCountAtributoscheckxordenArgs
   atributostextbox?: boolean | AtributoscheckboxCountOutputTypeCountAtributostextboxArgs
 }
 
@@ -385,6 +508,13 @@ export type AtributoscheckboxCountOutputTypeDefaultArgs<ExtArgs extends runtime.
 /**
  * AtributoscheckboxCountOutputType without action
  */
+export type AtributoscheckboxCountOutputTypeCountAtributoscheckxordenArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.atributoscheckxordenWhereInput
+}
+
+/**
+ * AtributoscheckboxCountOutputType without action
+ */
 export type AtributoscheckboxCountOutputTypeCountAtributostextboxArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   where?: Prisma.atributostextboxWhereInput
 }
@@ -394,7 +524,9 @@ export type atributoscheckboxSelect<ExtArgs extends runtime.Types.Extensions.Int
   id_estudio?: boolean
   id?: boolean
   nombre?: boolean
+  precio?: boolean
   estudios?: boolean | Prisma.estudiosDefaultArgs<ExtArgs>
+  atributoscheckxorden?: boolean | Prisma.atributoscheckbox$atributoscheckxordenArgs<ExtArgs>
   atributostextbox?: boolean | Prisma.atributoscheckbox$atributostextboxArgs<ExtArgs>
   _count?: boolean | Prisma.AtributoscheckboxCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["atributoscheckbox"]>
@@ -404,6 +536,7 @@ export type atributoscheckboxSelectUpdateManyAndReturn<ExtArgs extends runtime.T
   id_estudio?: boolean
   id?: boolean
   nombre?: boolean
+  precio?: boolean
   estudios?: boolean | Prisma.estudiosDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["atributoscheckbox"]>
 
@@ -411,11 +544,13 @@ export type atributoscheckboxSelectScalar = {
   id_estudio?: boolean
   id?: boolean
   nombre?: boolean
+  precio?: boolean
 }
 
-export type atributoscheckboxOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id_estudio" | "id" | "nombre", ExtArgs["result"]["atributoscheckbox"]>
+export type atributoscheckboxOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id_estudio" | "id" | "nombre" | "precio", ExtArgs["result"]["atributoscheckbox"]>
 export type atributoscheckboxInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   estudios?: boolean | Prisma.estudiosDefaultArgs<ExtArgs>
+  atributoscheckxorden?: boolean | Prisma.atributoscheckbox$atributoscheckxordenArgs<ExtArgs>
   atributostextbox?: boolean | Prisma.atributoscheckbox$atributostextboxArgs<ExtArgs>
   _count?: boolean | Prisma.AtributoscheckboxCountOutputTypeDefaultArgs<ExtArgs>
 }
@@ -427,12 +562,14 @@ export type $atributoscheckboxPayload<ExtArgs extends runtime.Types.Extensions.I
   name: "atributoscheckbox"
   objects: {
     estudios: Prisma.$estudiosPayload<ExtArgs>
+    atributoscheckxorden: Prisma.$atributoscheckxordenPayload<ExtArgs>[]
     atributostextbox: Prisma.$atributostextboxPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id_estudio: string
     id: string
     nombre: string
+    precio: runtime.Decimal
   }, ExtArgs["result"]["atributoscheckbox"]>
   composites: {}
 }
@@ -757,6 +894,7 @@ readonly fields: atributoscheckboxFieldRefs;
 export interface Prisma__atributoscheckboxClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
   estudios<T extends Prisma.estudiosDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.estudiosDefaultArgs<ExtArgs>>): Prisma.Prisma__estudiosClient<runtime.Types.Result.GetResult<Prisma.$estudiosPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  atributoscheckxorden<T extends Prisma.atributoscheckbox$atributoscheckxordenArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.atributoscheckbox$atributoscheckxordenArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$atributoscheckxordenPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   atributostextbox<T extends Prisma.atributoscheckbox$atributostextboxArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.atributoscheckbox$atributostextboxArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$atributostextboxPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -790,6 +928,7 @@ export interface atributoscheckboxFieldRefs {
   readonly id_estudio: Prisma.FieldRef<"atributoscheckbox", 'String'>
   readonly id: Prisma.FieldRef<"atributoscheckbox", 'String'>
   readonly nombre: Prisma.FieldRef<"atributoscheckbox", 'String'>
+  readonly precio: Prisma.FieldRef<"atributoscheckbox", 'Decimal'>
 }
     
 
@@ -1102,6 +1241,30 @@ export type atributoscheckboxDeleteManyArgs<ExtArgs extends runtime.Types.Extens
    * Limit how many atributoscheckboxes to delete.
    */
   limit?: number
+}
+
+/**
+ * atributoscheckbox.atributoscheckxorden
+ */
+export type atributoscheckbox$atributoscheckxordenArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the atributoscheckxorden
+   */
+  select?: Prisma.atributoscheckxordenSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the atributoscheckxorden
+   */
+  omit?: Prisma.atributoscheckxordenOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.atributoscheckxordenInclude<ExtArgs> | null
+  where?: Prisma.atributoscheckxordenWhereInput
+  orderBy?: Prisma.atributoscheckxordenOrderByWithRelationInput | Prisma.atributoscheckxordenOrderByWithRelationInput[]
+  cursor?: Prisma.atributoscheckxordenWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.AtributoscheckxordenScalarFieldEnum | Prisma.AtributoscheckxordenScalarFieldEnum[]
 }
 
 /**

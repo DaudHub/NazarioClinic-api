@@ -45,15 +45,15 @@ export { Prisma }
  */
 export type atributoscheckbox = Prisma.atributoscheckboxModel
 /**
+ * Model atributoscheckxorden
+ * 
+ */
+export type atributoscheckxorden = Prisma.atributoscheckxordenModel
+/**
  * Model atributostextbox
  * 
  */
 export type atributostextbox = Prisma.atributostextboxModel
-/**
- * Model disponibilidadsede
- * This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
- */
-export type disponibilidadsede = Prisma.disponibilidadsedeModel
 /**
  * Model equipos
  * 
@@ -70,6 +70,11 @@ export type equiposxestudio = Prisma.equiposxestudioModel
  */
 export type estudios = Prisma.estudiosModel
 /**
+ * Model estudiosxorden
+ * 
+ */
+export type estudiosxorden = Prisma.estudiosxordenModel
+/**
  * Model estudiosxsede
  * 
  */
@@ -84,6 +89,16 @@ export type gruposusuario = Prisma.gruposusuarioModel
  * This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
  */
 export type horariosxsede = Prisma.horariosxsedeModel
+/**
+ * Model mails
+ * 
+ */
+export type mails = Prisma.mailsModel
+/**
+ * Model ordenes
+ * 
+ */
+export type ordenes = Prisma.ordenesModel
 /**
  * Model pacientes
  * 
@@ -119,6 +134,16 @@ export type sedes = Prisma.sedesModel
  * 
  */
 export type telefonos = Prisma.telefonosModel
+/**
+ * Model tiposidentificacion
+ * 
+ */
+export type tiposidentificacion = Prisma.tiposidentificacionModel
+/**
+ * Model titulares
+ * 
+ */
+export type titulares = Prisma.titularesModel
 /**
  * Model turnos
  * 
