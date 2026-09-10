@@ -66,6 +66,7 @@ export const ModelName = {
   salas: 'salas',
   salasxestudio: 'salasxestudio',
   sedes: 'sedes',
+  telefonos: 'telefonos',
   turnos: 'turnos',
   usuarios: 'usuarios',
   usuariosxgrupo: 'usuariosxgrupo',
@@ -234,11 +235,18 @@ export const SedesScalarFieldEnum = {
   direccion: 'direccion',
   x: 'x',
   y: 'y',
-  habilitada: 'habilitada',
-  turnos_simultaneos: 'turnos_simultaneos'
+  habilitada: 'habilitada'
 } as const
 
 export type SedesScalarFieldEnum = (typeof SedesScalarFieldEnum)[keyof typeof SedesScalarFieldEnum]
+
+
+export const TelefonosScalarFieldEnum = {
+  id_sede: 'id_sede',
+  telefono: 'telefono'
+} as const
+
+export type TelefonosScalarFieldEnum = (typeof TelefonosScalarFieldEnum)[keyof typeof TelefonosScalarFieldEnum]
 
 
 export const TurnosScalarFieldEnum = {

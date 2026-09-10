@@ -163,14 +163,21 @@ model sedes {
   x                  Decimal              @db.Decimal(8, 5)
   y                  Decimal              @db.Decimal(8, 5)
   habilitada         Boolean              @default(true)
-  turnos_simultaneos Int                  @default(1)
   disponibilidadsede disponibilidadsede[]
   equipos            equipos[]
   estudiosxsede      estudiosxsede[]
   horariosxsede      horariosxsede[]
   salas              salas[]
-  telefonos          telefonos[]          @ignore
+  telefonos          telefonos[]
   usuariosxsede      usuariosxsede[]
+}
+
+model telefonos {
+  id_sede  String @db.Uuid
+  telefono String
+  sedes    sedes  @relation(fields: [id_sede], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@id([id_sede, telefono])
 }
 
 model turnos {
@@ -220,13 +227,4 @@ model usuariosxsede {
   usuarios   usuarios @relation(fields: [id_usuario], references: [id], onDelete: NoAction, onUpdate: NoAction)
 
   @@id([id_usuario, id_sede])
-}
-
-/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
-model telefonos {
-  id_sede  String @db.Uuid
-  telefono String
-  sedes    sedes  @relation(fields: [id_sede], references: [id], onDelete: NoAction, onUpdate: NoAction)
-
-  @@ignore
 }

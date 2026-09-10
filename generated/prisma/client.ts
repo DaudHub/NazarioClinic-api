@@ -115,6 +115,11 @@ export type salasxestudio = Prisma.salasxestudioModel
  */
 export type sedes = Prisma.sedesModel
 /**
+ * Model telefonos
+ * 
+ */
+export type telefonos = Prisma.telefonosModel
+/**
  * Model turnos
  * 
  */

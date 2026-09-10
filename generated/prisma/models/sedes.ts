@@ -29,13 +29,11 @@ export type AggregateSedes = {
 export type SedesAvgAggregateOutputType = {
   x: runtime.Decimal | null
   y: runtime.Decimal | null
-  turnos_simultaneos: number | null
 }
 
 export type SedesSumAggregateOutputType = {
   x: runtime.Decimal | null
   y: runtime.Decimal | null
-  turnos_simultaneos: number | null
 }
 
 export type SedesMinAggregateOutputType = {
@@ -46,7 +44,6 @@ export type SedesMinAggregateOutputType = {
   x: runtime.Decimal | null
   y: runtime.Decimal | null
   habilitada: boolean | null
-  turnos_simultaneos: number | null
 }
 
 export type SedesMaxAggregateOutputType = {
@@ -57,7 +54,6 @@ export type SedesMaxAggregateOutputType = {
   x: runtime.Decimal | null
   y: runtime.Decimal | null
   habilitada: boolean | null
-  turnos_simultaneos: number | null
 }
 
 export type SedesCountAggregateOutputType = {
@@ -68,7 +64,6 @@ export type SedesCountAggregateOutputType = {
   x: number
   y: number
   habilitada: number
-  turnos_simultaneos: number
   _all: number
 }
 
@@ -76,13 +71,11 @@ export type SedesCountAggregateOutputType = {
 export type SedesAvgAggregateInputType = {
   x?: true
   y?: true
-  turnos_simultaneos?: true
 }
 
 export type SedesSumAggregateInputType = {
   x?: true
   y?: true
-  turnos_simultaneos?: true
 }
 
 export type SedesMinAggregateInputType = {
@@ -93,7 +86,6 @@ export type SedesMinAggregateInputType = {
   x?: true
   y?: true
   habilitada?: true
-  turnos_simultaneos?: true
 }
 
 export type SedesMaxAggregateInputType = {
@@ -104,7 +96,6 @@ export type SedesMaxAggregateInputType = {
   x?: true
   y?: true
   habilitada?: true
-  turnos_simultaneos?: true
 }
 
 export type SedesCountAggregateInputType = {
@@ -115,7 +106,6 @@ export type SedesCountAggregateInputType = {
   x?: true
   y?: true
   habilitada?: true
-  turnos_simultaneos?: true
   _all?: true
 }
 
@@ -213,7 +203,6 @@ export type SedesGroupByOutputType = {
   x: runtime.Decimal
   y: runtime.Decimal
   habilitada: boolean
-  turnos_simultaneos: number
   _count: SedesCountAggregateOutputType | null
   _avg: SedesAvgAggregateOutputType | null
   _sum: SedesSumAggregateOutputType | null
@@ -247,12 +236,12 @@ export type sedesWhereInput = {
   x?: Prisma.DecimalFilter<"sedes"> | runtime.Decimal | runtime.DecimalJsLike | number | string
   y?: Prisma.DecimalFilter<"sedes"> | runtime.Decimal | runtime.DecimalJsLike | number | string
   habilitada?: Prisma.BoolFilter<"sedes"> | boolean
-  turnos_simultaneos?: Prisma.IntFilter<"sedes"> | number
   disponibilidadsede?: Prisma.DisponibilidadsedeListRelationFilter
   equipos?: Prisma.EquiposListRelationFilter
   estudiosxsede?: Prisma.EstudiosxsedeListRelationFilter
   horariosxsede?: Prisma.HorariosxsedeListRelationFilter
   salas?: Prisma.SalasListRelationFilter
+  telefonos?: Prisma.TelefonosListRelationFilter
   usuariosxsede?: Prisma.UsuariosxsedeListRelationFilter
 }
 
@@ -264,12 +253,12 @@ export type sedesOrderByWithRelationInput = {
   x?: Prisma.SortOrder
   y?: Prisma.SortOrder
   habilitada?: Prisma.SortOrder
-  turnos_simultaneos?: Prisma.SortOrder
   disponibilidadsede?: Prisma.disponibilidadsedeOrderByRelationAggregateInput
   equipos?: Prisma.equiposOrderByRelationAggregateInput
   estudiosxsede?: Prisma.estudiosxsedeOrderByRelationAggregateInput
   horariosxsede?: Prisma.horariosxsedeOrderByRelationAggregateInput
   salas?: Prisma.salasOrderByRelationAggregateInput
+  telefonos?: Prisma.telefonosOrderByRelationAggregateInput
   usuariosxsede?: Prisma.usuariosxsedeOrderByRelationAggregateInput
 }
 
@@ -284,12 +273,12 @@ export type sedesWhereUniqueInput = Prisma.AtLeast<{
   x?: Prisma.DecimalFilter<"sedes"> | runtime.Decimal | runtime.DecimalJsLike | number | string
   y?: Prisma.DecimalFilter<"sedes"> | runtime.Decimal | runtime.DecimalJsLike | number | string
   habilitada?: Prisma.BoolFilter<"sedes"> | boolean
-  turnos_simultaneos?: Prisma.IntFilter<"sedes"> | number
   disponibilidadsede?: Prisma.DisponibilidadsedeListRelationFilter
   equipos?: Prisma.EquiposListRelationFilter
   estudiosxsede?: Prisma.EstudiosxsedeListRelationFilter
   horariosxsede?: Prisma.HorariosxsedeListRelationFilter
   salas?: Prisma.SalasListRelationFilter
+  telefonos?: Prisma.TelefonosListRelationFilter
   usuariosxsede?: Prisma.UsuariosxsedeListRelationFilter
 }, "id" | "codigo">
 
@@ -301,7 +290,6 @@ export type sedesOrderByWithAggregationInput = {
   x?: Prisma.SortOrder
   y?: Prisma.SortOrder
   habilitada?: Prisma.SortOrder
-  turnos_simultaneos?: Prisma.SortOrder
   _count?: Prisma.sedesCountOrderByAggregateInput
   _avg?: Prisma.sedesAvgOrderByAggregateInput
   _max?: Prisma.sedesMaxOrderByAggregateInput
@@ -320,7 +308,6 @@ export type sedesScalarWhereWithAggregatesInput = {
   x?: Prisma.DecimalWithAggregatesFilter<"sedes"> | runtime.Decimal | runtime.DecimalJsLike | number | string
   y?: Prisma.DecimalWithAggregatesFilter<"sedes"> | runtime.Decimal | runtime.DecimalJsLike | number | string
   habilitada?: Prisma.BoolWithAggregatesFilter<"sedes"> | boolean
-  turnos_simultaneos?: Prisma.IntWithAggregatesFilter<"sedes"> | number
 }
 
 export type sedesCreateInput = {
@@ -331,12 +318,12 @@ export type sedesCreateInput = {
   x: runtime.Decimal | runtime.DecimalJsLike | number | string
   y: runtime.Decimal | runtime.DecimalJsLike | number | string
   habilitada?: boolean
-  turnos_simultaneos?: number
   disponibilidadsede?: Prisma.disponibilidadsedeCreateNestedManyWithoutSedesInput
   equipos?: Prisma.equiposCreateNestedManyWithoutSedesInput
   estudiosxsede?: Prisma.estudiosxsedeCreateNestedManyWithoutSedesInput
   horariosxsede?: Prisma.horariosxsedeCreateNestedManyWithoutSedesInput
   salas?: Prisma.salasCreateNestedManyWithoutSedesInput
+  telefonos?: Prisma.telefonosCreateNestedManyWithoutSedesInput
   usuariosxsede?: Prisma.usuariosxsedeCreateNestedManyWithoutSedesInput
 }
 
@@ -348,12 +335,12 @@ export type sedesUncheckedCreateInput = {
   x: runtime.Decimal | runtime.DecimalJsLike | number | string
   y: runtime.Decimal | runtime.DecimalJsLike | number | string
   habilitada?: boolean
-  turnos_simultaneos?: number
   disponibilidadsede?: Prisma.disponibilidadsedeUncheckedCreateNestedManyWithoutSedesInput
   equipos?: Prisma.equiposUncheckedCreateNestedManyWithoutSedesInput
   estudiosxsede?: Prisma.estudiosxsedeUncheckedCreateNestedManyWithoutSedesInput
   horariosxsede?: Prisma.horariosxsedeUncheckedCreateNestedManyWithoutSedesInput
   salas?: Prisma.salasUncheckedCreateNestedManyWithoutSedesInput
+  telefonos?: Prisma.telefonosUncheckedCreateNestedManyWithoutSedesInput
   usuariosxsede?: Prisma.usuariosxsedeUncheckedCreateNestedManyWithoutSedesInput
 }
 
@@ -365,12 +352,12 @@ export type sedesUpdateInput = {
   x?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   y?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   habilitada?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  turnos_simultaneos?: Prisma.IntFieldUpdateOperationsInput | number
   disponibilidadsede?: Prisma.disponibilidadsedeUpdateManyWithoutSedesNestedInput
   equipos?: Prisma.equiposUpdateManyWithoutSedesNestedInput
   estudiosxsede?: Prisma.estudiosxsedeUpdateManyWithoutSedesNestedInput
   horariosxsede?: Prisma.horariosxsedeUpdateManyWithoutSedesNestedInput
   salas?: Prisma.salasUpdateManyWithoutSedesNestedInput
+  telefonos?: Prisma.telefonosUpdateManyWithoutSedesNestedInput
   usuariosxsede?: Prisma.usuariosxsedeUpdateManyWithoutSedesNestedInput
 }
 
@@ -382,12 +369,12 @@ export type sedesUncheckedUpdateInput = {
   x?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   y?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   habilitada?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  turnos_simultaneos?: Prisma.IntFieldUpdateOperationsInput | number
   disponibilidadsede?: Prisma.disponibilidadsedeUncheckedUpdateManyWithoutSedesNestedInput
   equipos?: Prisma.equiposUncheckedUpdateManyWithoutSedesNestedInput
   estudiosxsede?: Prisma.estudiosxsedeUncheckedUpdateManyWithoutSedesNestedInput
   horariosxsede?: Prisma.horariosxsedeUncheckedUpdateManyWithoutSedesNestedInput
   salas?: Prisma.salasUncheckedUpdateManyWithoutSedesNestedInput
+  telefonos?: Prisma.telefonosUncheckedUpdateManyWithoutSedesNestedInput
   usuariosxsede?: Prisma.usuariosxsedeUncheckedUpdateManyWithoutSedesNestedInput
 }
 
@@ -399,7 +386,6 @@ export type sedesCreateManyInput = {
   x: runtime.Decimal | runtime.DecimalJsLike | number | string
   y: runtime.Decimal | runtime.DecimalJsLike | number | string
   habilitada?: boolean
-  turnos_simultaneos?: number
 }
 
 export type sedesUpdateManyMutationInput = {
@@ -410,7 +396,6 @@ export type sedesUpdateManyMutationInput = {
   x?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   y?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   habilitada?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  turnos_simultaneos?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type sedesUncheckedUpdateManyInput = {
@@ -421,7 +406,6 @@ export type sedesUncheckedUpdateManyInput = {
   x?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   y?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   habilitada?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  turnos_simultaneos?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type SedesScalarRelationFilter = {
@@ -437,13 +421,11 @@ export type sedesCountOrderByAggregateInput = {
   x?: Prisma.SortOrder
   y?: Prisma.SortOrder
   habilitada?: Prisma.SortOrder
-  turnos_simultaneos?: Prisma.SortOrder
 }
 
 export type sedesAvgOrderByAggregateInput = {
   x?: Prisma.SortOrder
   y?: Prisma.SortOrder
-  turnos_simultaneos?: Prisma.SortOrder
 }
 
 export type sedesMaxOrderByAggregateInput = {
@@ -454,7 +436,6 @@ export type sedesMaxOrderByAggregateInput = {
   x?: Prisma.SortOrder
   y?: Prisma.SortOrder
   habilitada?: Prisma.SortOrder
-  turnos_simultaneos?: Prisma.SortOrder
 }
 
 export type sedesMinOrderByAggregateInput = {
@@ -465,13 +446,11 @@ export type sedesMinOrderByAggregateInput = {
   x?: Prisma.SortOrder
   y?: Prisma.SortOrder
   habilitada?: Prisma.SortOrder
-  turnos_simultaneos?: Prisma.SortOrder
 }
 
 export type sedesSumOrderByAggregateInput = {
   x?: Prisma.SortOrder
   y?: Prisma.SortOrder
-  turnos_simultaneos?: Prisma.SortOrder
 }
 
 export type sedesCreateNestedOneWithoutDisponibilidadsedeInput = {
@@ -552,6 +531,20 @@ export type DecimalFieldUpdateOperationsInput = {
   divide?: runtime.Decimal | runtime.DecimalJsLike | number | string
 }
 
+export type sedesCreateNestedOneWithoutTelefonosInput = {
+  create?: Prisma.XOR<Prisma.sedesCreateWithoutTelefonosInput, Prisma.sedesUncheckedCreateWithoutTelefonosInput>
+  connectOrCreate?: Prisma.sedesCreateOrConnectWithoutTelefonosInput
+  connect?: Prisma.sedesWhereUniqueInput
+}
+
+export type sedesUpdateOneRequiredWithoutTelefonosNestedInput = {
+  create?: Prisma.XOR<Prisma.sedesCreateWithoutTelefonosInput, Prisma.sedesUncheckedCreateWithoutTelefonosInput>
+  connectOrCreate?: Prisma.sedesCreateOrConnectWithoutTelefonosInput
+  upsert?: Prisma.sedesUpsertWithoutTelefonosInput
+  connect?: Prisma.sedesWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.sedesUpdateToOneWithWhereWithoutTelefonosInput, Prisma.sedesUpdateWithoutTelefonosInput>, Prisma.sedesUncheckedUpdateWithoutTelefonosInput>
+}
+
 export type sedesCreateNestedOneWithoutUsuariosxsedeInput = {
   create?: Prisma.XOR<Prisma.sedesCreateWithoutUsuariosxsedeInput, Prisma.sedesUncheckedCreateWithoutUsuariosxsedeInput>
   connectOrCreate?: Prisma.sedesCreateOrConnectWithoutUsuariosxsedeInput
@@ -574,11 +567,11 @@ export type sedesCreateWithoutDisponibilidadsedeInput = {
   x: runtime.Decimal | runtime.DecimalJsLike | number | string
   y: runtime.Decimal | runtime.DecimalJsLike | number | string
   habilitada?: boolean
-  turnos_simultaneos?: number
   equipos?: Prisma.equiposCreateNestedManyWithoutSedesInput
   estudiosxsede?: Prisma.estudiosxsedeCreateNestedManyWithoutSedesInput
   horariosxsede?: Prisma.horariosxsedeCreateNestedManyWithoutSedesInput
   salas?: Prisma.salasCreateNestedManyWithoutSedesInput
+  telefonos?: Prisma.telefonosCreateNestedManyWithoutSedesInput
   usuariosxsede?: Prisma.usuariosxsedeCreateNestedManyWithoutSedesInput
 }
 
@@ -590,11 +583,11 @@ export type sedesUncheckedCreateWithoutDisponibilidadsedeInput = {
   x: runtime.Decimal | runtime.DecimalJsLike | number | string
   y: runtime.Decimal | runtime.DecimalJsLike | number | string
   habilitada?: boolean
-  turnos_simultaneos?: number
   equipos?: Prisma.equiposUncheckedCreateNestedManyWithoutSedesInput
   estudiosxsede?: Prisma.estudiosxsedeUncheckedCreateNestedManyWithoutSedesInput
   horariosxsede?: Prisma.horariosxsedeUncheckedCreateNestedManyWithoutSedesInput
   salas?: Prisma.salasUncheckedCreateNestedManyWithoutSedesInput
+  telefonos?: Prisma.telefonosUncheckedCreateNestedManyWithoutSedesInput
   usuariosxsede?: Prisma.usuariosxsedeUncheckedCreateNestedManyWithoutSedesInput
 }
 
@@ -622,11 +615,11 @@ export type sedesUpdateWithoutDisponibilidadsedeInput = {
   x?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   y?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   habilitada?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  turnos_simultaneos?: Prisma.IntFieldUpdateOperationsInput | number
   equipos?: Prisma.equiposUpdateManyWithoutSedesNestedInput
   estudiosxsede?: Prisma.estudiosxsedeUpdateManyWithoutSedesNestedInput
   horariosxsede?: Prisma.horariosxsedeUpdateManyWithoutSedesNestedInput
   salas?: Prisma.salasUpdateManyWithoutSedesNestedInput
+  telefonos?: Prisma.telefonosUpdateManyWithoutSedesNestedInput
   usuariosxsede?: Prisma.usuariosxsedeUpdateManyWithoutSedesNestedInput
 }
 
@@ -638,11 +631,11 @@ export type sedesUncheckedUpdateWithoutDisponibilidadsedeInput = {
   x?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   y?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   habilitada?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  turnos_simultaneos?: Prisma.IntFieldUpdateOperationsInput | number
   equipos?: Prisma.equiposUncheckedUpdateManyWithoutSedesNestedInput
   estudiosxsede?: Prisma.estudiosxsedeUncheckedUpdateManyWithoutSedesNestedInput
   horariosxsede?: Prisma.horariosxsedeUncheckedUpdateManyWithoutSedesNestedInput
   salas?: Prisma.salasUncheckedUpdateManyWithoutSedesNestedInput
+  telefonos?: Prisma.telefonosUncheckedUpdateManyWithoutSedesNestedInput
   usuariosxsede?: Prisma.usuariosxsedeUncheckedUpdateManyWithoutSedesNestedInput
 }
 
@@ -654,11 +647,11 @@ export type sedesCreateWithoutEquiposInput = {
   x: runtime.Decimal | runtime.DecimalJsLike | number | string
   y: runtime.Decimal | runtime.DecimalJsLike | number | string
   habilitada?: boolean
-  turnos_simultaneos?: number
   disponibilidadsede?: Prisma.disponibilidadsedeCreateNestedManyWithoutSedesInput
   estudiosxsede?: Prisma.estudiosxsedeCreateNestedManyWithoutSedesInput
   horariosxsede?: Prisma.horariosxsedeCreateNestedManyWithoutSedesInput
   salas?: Prisma.salasCreateNestedManyWithoutSedesInput
+  telefonos?: Prisma.telefonosCreateNestedManyWithoutSedesInput
   usuariosxsede?: Prisma.usuariosxsedeCreateNestedManyWithoutSedesInput
 }
 
@@ -670,11 +663,11 @@ export type sedesUncheckedCreateWithoutEquiposInput = {
   x: runtime.Decimal | runtime.DecimalJsLike | number | string
   y: runtime.Decimal | runtime.DecimalJsLike | number | string
   habilitada?: boolean
-  turnos_simultaneos?: number
   disponibilidadsede?: Prisma.disponibilidadsedeUncheckedCreateNestedManyWithoutSedesInput
   estudiosxsede?: Prisma.estudiosxsedeUncheckedCreateNestedManyWithoutSedesInput
   horariosxsede?: Prisma.horariosxsedeUncheckedCreateNestedManyWithoutSedesInput
   salas?: Prisma.salasUncheckedCreateNestedManyWithoutSedesInput
+  telefonos?: Prisma.telefonosUncheckedCreateNestedManyWithoutSedesInput
   usuariosxsede?: Prisma.usuariosxsedeUncheckedCreateNestedManyWithoutSedesInput
 }
 
@@ -702,11 +695,11 @@ export type sedesUpdateWithoutEquiposInput = {
   x?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   y?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   habilitada?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  turnos_simultaneos?: Prisma.IntFieldUpdateOperationsInput | number
   disponibilidadsede?: Prisma.disponibilidadsedeUpdateManyWithoutSedesNestedInput
   estudiosxsede?: Prisma.estudiosxsedeUpdateManyWithoutSedesNestedInput
   horariosxsede?: Prisma.horariosxsedeUpdateManyWithoutSedesNestedInput
   salas?: Prisma.salasUpdateManyWithoutSedesNestedInput
+  telefonos?: Prisma.telefonosUpdateManyWithoutSedesNestedInput
   usuariosxsede?: Prisma.usuariosxsedeUpdateManyWithoutSedesNestedInput
 }
 
@@ -718,11 +711,11 @@ export type sedesUncheckedUpdateWithoutEquiposInput = {
   x?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   y?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   habilitada?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  turnos_simultaneos?: Prisma.IntFieldUpdateOperationsInput | number
   disponibilidadsede?: Prisma.disponibilidadsedeUncheckedUpdateManyWithoutSedesNestedInput
   estudiosxsede?: Prisma.estudiosxsedeUncheckedUpdateManyWithoutSedesNestedInput
   horariosxsede?: Prisma.horariosxsedeUncheckedUpdateManyWithoutSedesNestedInput
   salas?: Prisma.salasUncheckedUpdateManyWithoutSedesNestedInput
+  telefonos?: Prisma.telefonosUncheckedUpdateManyWithoutSedesNestedInput
   usuariosxsede?: Prisma.usuariosxsedeUncheckedUpdateManyWithoutSedesNestedInput
 }
 
@@ -734,11 +727,11 @@ export type sedesCreateWithoutEstudiosxsedeInput = {
   x: runtime.Decimal | runtime.DecimalJsLike | number | string
   y: runtime.Decimal | runtime.DecimalJsLike | number | string
   habilitada?: boolean
-  turnos_simultaneos?: number
   disponibilidadsede?: Prisma.disponibilidadsedeCreateNestedManyWithoutSedesInput
   equipos?: Prisma.equiposCreateNestedManyWithoutSedesInput
   horariosxsede?: Prisma.horariosxsedeCreateNestedManyWithoutSedesInput
   salas?: Prisma.salasCreateNestedManyWithoutSedesInput
+  telefonos?: Prisma.telefonosCreateNestedManyWithoutSedesInput
   usuariosxsede?: Prisma.usuariosxsedeCreateNestedManyWithoutSedesInput
 }
 
@@ -750,11 +743,11 @@ export type sedesUncheckedCreateWithoutEstudiosxsedeInput = {
   x: runtime.Decimal | runtime.DecimalJsLike | number | string
   y: runtime.Decimal | runtime.DecimalJsLike | number | string
   habilitada?: boolean
-  turnos_simultaneos?: number
   disponibilidadsede?: Prisma.disponibilidadsedeUncheckedCreateNestedManyWithoutSedesInput
   equipos?: Prisma.equiposUncheckedCreateNestedManyWithoutSedesInput
   horariosxsede?: Prisma.horariosxsedeUncheckedCreateNestedManyWithoutSedesInput
   salas?: Prisma.salasUncheckedCreateNestedManyWithoutSedesInput
+  telefonos?: Prisma.telefonosUncheckedCreateNestedManyWithoutSedesInput
   usuariosxsede?: Prisma.usuariosxsedeUncheckedCreateNestedManyWithoutSedesInput
 }
 
@@ -782,11 +775,11 @@ export type sedesUpdateWithoutEstudiosxsedeInput = {
   x?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   y?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   habilitada?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  turnos_simultaneos?: Prisma.IntFieldUpdateOperationsInput | number
   disponibilidadsede?: Prisma.disponibilidadsedeUpdateManyWithoutSedesNestedInput
   equipos?: Prisma.equiposUpdateManyWithoutSedesNestedInput
   horariosxsede?: Prisma.horariosxsedeUpdateManyWithoutSedesNestedInput
   salas?: Prisma.salasUpdateManyWithoutSedesNestedInput
+  telefonos?: Prisma.telefonosUpdateManyWithoutSedesNestedInput
   usuariosxsede?: Prisma.usuariosxsedeUpdateManyWithoutSedesNestedInput
 }
 
@@ -798,11 +791,11 @@ export type sedesUncheckedUpdateWithoutEstudiosxsedeInput = {
   x?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   y?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   habilitada?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  turnos_simultaneos?: Prisma.IntFieldUpdateOperationsInput | number
   disponibilidadsede?: Prisma.disponibilidadsedeUncheckedUpdateManyWithoutSedesNestedInput
   equipos?: Prisma.equiposUncheckedUpdateManyWithoutSedesNestedInput
   horariosxsede?: Prisma.horariosxsedeUncheckedUpdateManyWithoutSedesNestedInput
   salas?: Prisma.salasUncheckedUpdateManyWithoutSedesNestedInput
+  telefonos?: Prisma.telefonosUncheckedUpdateManyWithoutSedesNestedInput
   usuariosxsede?: Prisma.usuariosxsedeUncheckedUpdateManyWithoutSedesNestedInput
 }
 
@@ -814,11 +807,11 @@ export type sedesCreateWithoutHorariosxsedeInput = {
   x: runtime.Decimal | runtime.DecimalJsLike | number | string
   y: runtime.Decimal | runtime.DecimalJsLike | number | string
   habilitada?: boolean
-  turnos_simultaneos?: number
   disponibilidadsede?: Prisma.disponibilidadsedeCreateNestedManyWithoutSedesInput
   equipos?: Prisma.equiposCreateNestedManyWithoutSedesInput
   estudiosxsede?: Prisma.estudiosxsedeCreateNestedManyWithoutSedesInput
   salas?: Prisma.salasCreateNestedManyWithoutSedesInput
+  telefonos?: Prisma.telefonosCreateNestedManyWithoutSedesInput
   usuariosxsede?: Prisma.usuariosxsedeCreateNestedManyWithoutSedesInput
 }
 
@@ -830,11 +823,11 @@ export type sedesUncheckedCreateWithoutHorariosxsedeInput = {
   x: runtime.Decimal | runtime.DecimalJsLike | number | string
   y: runtime.Decimal | runtime.DecimalJsLike | number | string
   habilitada?: boolean
-  turnos_simultaneos?: number
   disponibilidadsede?: Prisma.disponibilidadsedeUncheckedCreateNestedManyWithoutSedesInput
   equipos?: Prisma.equiposUncheckedCreateNestedManyWithoutSedesInput
   estudiosxsede?: Prisma.estudiosxsedeUncheckedCreateNestedManyWithoutSedesInput
   salas?: Prisma.salasUncheckedCreateNestedManyWithoutSedesInput
+  telefonos?: Prisma.telefonosUncheckedCreateNestedManyWithoutSedesInput
   usuariosxsede?: Prisma.usuariosxsedeUncheckedCreateNestedManyWithoutSedesInput
 }
 
@@ -862,11 +855,11 @@ export type sedesUpdateWithoutHorariosxsedeInput = {
   x?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   y?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   habilitada?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  turnos_simultaneos?: Prisma.IntFieldUpdateOperationsInput | number
   disponibilidadsede?: Prisma.disponibilidadsedeUpdateManyWithoutSedesNestedInput
   equipos?: Prisma.equiposUpdateManyWithoutSedesNestedInput
   estudiosxsede?: Prisma.estudiosxsedeUpdateManyWithoutSedesNestedInput
   salas?: Prisma.salasUpdateManyWithoutSedesNestedInput
+  telefonos?: Prisma.telefonosUpdateManyWithoutSedesNestedInput
   usuariosxsede?: Prisma.usuariosxsedeUpdateManyWithoutSedesNestedInput
 }
 
@@ -878,11 +871,11 @@ export type sedesUncheckedUpdateWithoutHorariosxsedeInput = {
   x?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   y?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   habilitada?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  turnos_simultaneos?: Prisma.IntFieldUpdateOperationsInput | number
   disponibilidadsede?: Prisma.disponibilidadsedeUncheckedUpdateManyWithoutSedesNestedInput
   equipos?: Prisma.equiposUncheckedUpdateManyWithoutSedesNestedInput
   estudiosxsede?: Prisma.estudiosxsedeUncheckedUpdateManyWithoutSedesNestedInput
   salas?: Prisma.salasUncheckedUpdateManyWithoutSedesNestedInput
+  telefonos?: Prisma.telefonosUncheckedUpdateManyWithoutSedesNestedInput
   usuariosxsede?: Prisma.usuariosxsedeUncheckedUpdateManyWithoutSedesNestedInput
 }
 
@@ -894,11 +887,11 @@ export type sedesCreateWithoutSalasInput = {
   x: runtime.Decimal | runtime.DecimalJsLike | number | string
   y: runtime.Decimal | runtime.DecimalJsLike | number | string
   habilitada?: boolean
-  turnos_simultaneos?: number
   disponibilidadsede?: Prisma.disponibilidadsedeCreateNestedManyWithoutSedesInput
   equipos?: Prisma.equiposCreateNestedManyWithoutSedesInput
   estudiosxsede?: Prisma.estudiosxsedeCreateNestedManyWithoutSedesInput
   horariosxsede?: Prisma.horariosxsedeCreateNestedManyWithoutSedesInput
+  telefonos?: Prisma.telefonosCreateNestedManyWithoutSedesInput
   usuariosxsede?: Prisma.usuariosxsedeCreateNestedManyWithoutSedesInput
 }
 
@@ -910,11 +903,11 @@ export type sedesUncheckedCreateWithoutSalasInput = {
   x: runtime.Decimal | runtime.DecimalJsLike | number | string
   y: runtime.Decimal | runtime.DecimalJsLike | number | string
   habilitada?: boolean
-  turnos_simultaneos?: number
   disponibilidadsede?: Prisma.disponibilidadsedeUncheckedCreateNestedManyWithoutSedesInput
   equipos?: Prisma.equiposUncheckedCreateNestedManyWithoutSedesInput
   estudiosxsede?: Prisma.estudiosxsedeUncheckedCreateNestedManyWithoutSedesInput
   horariosxsede?: Prisma.horariosxsedeUncheckedCreateNestedManyWithoutSedesInput
+  telefonos?: Prisma.telefonosUncheckedCreateNestedManyWithoutSedesInput
   usuariosxsede?: Prisma.usuariosxsedeUncheckedCreateNestedManyWithoutSedesInput
 }
 
@@ -942,11 +935,11 @@ export type sedesUpdateWithoutSalasInput = {
   x?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   y?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   habilitada?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  turnos_simultaneos?: Prisma.IntFieldUpdateOperationsInput | number
   disponibilidadsede?: Prisma.disponibilidadsedeUpdateManyWithoutSedesNestedInput
   equipos?: Prisma.equiposUpdateManyWithoutSedesNestedInput
   estudiosxsede?: Prisma.estudiosxsedeUpdateManyWithoutSedesNestedInput
   horariosxsede?: Prisma.horariosxsedeUpdateManyWithoutSedesNestedInput
+  telefonos?: Prisma.telefonosUpdateManyWithoutSedesNestedInput
   usuariosxsede?: Prisma.usuariosxsedeUpdateManyWithoutSedesNestedInput
 }
 
@@ -958,11 +951,91 @@ export type sedesUncheckedUpdateWithoutSalasInput = {
   x?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   y?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   habilitada?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  turnos_simultaneos?: Prisma.IntFieldUpdateOperationsInput | number
   disponibilidadsede?: Prisma.disponibilidadsedeUncheckedUpdateManyWithoutSedesNestedInput
   equipos?: Prisma.equiposUncheckedUpdateManyWithoutSedesNestedInput
   estudiosxsede?: Prisma.estudiosxsedeUncheckedUpdateManyWithoutSedesNestedInput
   horariosxsede?: Prisma.horariosxsedeUncheckedUpdateManyWithoutSedesNestedInput
+  telefonos?: Prisma.telefonosUncheckedUpdateManyWithoutSedesNestedInput
+  usuariosxsede?: Prisma.usuariosxsedeUncheckedUpdateManyWithoutSedesNestedInput
+}
+
+export type sedesCreateWithoutTelefonosInput = {
+  id?: string
+  codigo: string
+  nombre: string
+  direccion: string
+  x: runtime.Decimal | runtime.DecimalJsLike | number | string
+  y: runtime.Decimal | runtime.DecimalJsLike | number | string
+  habilitada?: boolean
+  disponibilidadsede?: Prisma.disponibilidadsedeCreateNestedManyWithoutSedesInput
+  equipos?: Prisma.equiposCreateNestedManyWithoutSedesInput
+  estudiosxsede?: Prisma.estudiosxsedeCreateNestedManyWithoutSedesInput
+  horariosxsede?: Prisma.horariosxsedeCreateNestedManyWithoutSedesInput
+  salas?: Prisma.salasCreateNestedManyWithoutSedesInput
+  usuariosxsede?: Prisma.usuariosxsedeCreateNestedManyWithoutSedesInput
+}
+
+export type sedesUncheckedCreateWithoutTelefonosInput = {
+  id?: string
+  codigo: string
+  nombre: string
+  direccion: string
+  x: runtime.Decimal | runtime.DecimalJsLike | number | string
+  y: runtime.Decimal | runtime.DecimalJsLike | number | string
+  habilitada?: boolean
+  disponibilidadsede?: Prisma.disponibilidadsedeUncheckedCreateNestedManyWithoutSedesInput
+  equipos?: Prisma.equiposUncheckedCreateNestedManyWithoutSedesInput
+  estudiosxsede?: Prisma.estudiosxsedeUncheckedCreateNestedManyWithoutSedesInput
+  horariosxsede?: Prisma.horariosxsedeUncheckedCreateNestedManyWithoutSedesInput
+  salas?: Prisma.salasUncheckedCreateNestedManyWithoutSedesInput
+  usuariosxsede?: Prisma.usuariosxsedeUncheckedCreateNestedManyWithoutSedesInput
+}
+
+export type sedesCreateOrConnectWithoutTelefonosInput = {
+  where: Prisma.sedesWhereUniqueInput
+  create: Prisma.XOR<Prisma.sedesCreateWithoutTelefonosInput, Prisma.sedesUncheckedCreateWithoutTelefonosInput>
+}
+
+export type sedesUpsertWithoutTelefonosInput = {
+  update: Prisma.XOR<Prisma.sedesUpdateWithoutTelefonosInput, Prisma.sedesUncheckedUpdateWithoutTelefonosInput>
+  create: Prisma.XOR<Prisma.sedesCreateWithoutTelefonosInput, Prisma.sedesUncheckedCreateWithoutTelefonosInput>
+  where?: Prisma.sedesWhereInput
+}
+
+export type sedesUpdateToOneWithWhereWithoutTelefonosInput = {
+  where?: Prisma.sedesWhereInput
+  data: Prisma.XOR<Prisma.sedesUpdateWithoutTelefonosInput, Prisma.sedesUncheckedUpdateWithoutTelefonosInput>
+}
+
+export type sedesUpdateWithoutTelefonosInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  codigo?: Prisma.StringFieldUpdateOperationsInput | string
+  nombre?: Prisma.StringFieldUpdateOperationsInput | string
+  direccion?: Prisma.StringFieldUpdateOperationsInput | string
+  x?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  y?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  habilitada?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  disponibilidadsede?: Prisma.disponibilidadsedeUpdateManyWithoutSedesNestedInput
+  equipos?: Prisma.equiposUpdateManyWithoutSedesNestedInput
+  estudiosxsede?: Prisma.estudiosxsedeUpdateManyWithoutSedesNestedInput
+  horariosxsede?: Prisma.horariosxsedeUpdateManyWithoutSedesNestedInput
+  salas?: Prisma.salasUpdateManyWithoutSedesNestedInput
+  usuariosxsede?: Prisma.usuariosxsedeUpdateManyWithoutSedesNestedInput
+}
+
+export type sedesUncheckedUpdateWithoutTelefonosInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  codigo?: Prisma.StringFieldUpdateOperationsInput | string
+  nombre?: Prisma.StringFieldUpdateOperationsInput | string
+  direccion?: Prisma.StringFieldUpdateOperationsInput | string
+  x?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  y?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  habilitada?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  disponibilidadsede?: Prisma.disponibilidadsedeUncheckedUpdateManyWithoutSedesNestedInput
+  equipos?: Prisma.equiposUncheckedUpdateManyWithoutSedesNestedInput
+  estudiosxsede?: Prisma.estudiosxsedeUncheckedUpdateManyWithoutSedesNestedInput
+  horariosxsede?: Prisma.horariosxsedeUncheckedUpdateManyWithoutSedesNestedInput
+  salas?: Prisma.salasUncheckedUpdateManyWithoutSedesNestedInput
   usuariosxsede?: Prisma.usuariosxsedeUncheckedUpdateManyWithoutSedesNestedInput
 }
 
@@ -974,12 +1047,12 @@ export type sedesCreateWithoutUsuariosxsedeInput = {
   x: runtime.Decimal | runtime.DecimalJsLike | number | string
   y: runtime.Decimal | runtime.DecimalJsLike | number | string
   habilitada?: boolean
-  turnos_simultaneos?: number
   disponibilidadsede?: Prisma.disponibilidadsedeCreateNestedManyWithoutSedesInput
   equipos?: Prisma.equiposCreateNestedManyWithoutSedesInput
   estudiosxsede?: Prisma.estudiosxsedeCreateNestedManyWithoutSedesInput
   horariosxsede?: Prisma.horariosxsedeCreateNestedManyWithoutSedesInput
   salas?: Prisma.salasCreateNestedManyWithoutSedesInput
+  telefonos?: Prisma.telefonosCreateNestedManyWithoutSedesInput
 }
 
 export type sedesUncheckedCreateWithoutUsuariosxsedeInput = {
@@ -990,12 +1063,12 @@ export type sedesUncheckedCreateWithoutUsuariosxsedeInput = {
   x: runtime.Decimal | runtime.DecimalJsLike | number | string
   y: runtime.Decimal | runtime.DecimalJsLike | number | string
   habilitada?: boolean
-  turnos_simultaneos?: number
   disponibilidadsede?: Prisma.disponibilidadsedeUncheckedCreateNestedManyWithoutSedesInput
   equipos?: Prisma.equiposUncheckedCreateNestedManyWithoutSedesInput
   estudiosxsede?: Prisma.estudiosxsedeUncheckedCreateNestedManyWithoutSedesInput
   horariosxsede?: Prisma.horariosxsedeUncheckedCreateNestedManyWithoutSedesInput
   salas?: Prisma.salasUncheckedCreateNestedManyWithoutSedesInput
+  telefonos?: Prisma.telefonosUncheckedCreateNestedManyWithoutSedesInput
 }
 
 export type sedesCreateOrConnectWithoutUsuariosxsedeInput = {
@@ -1022,12 +1095,12 @@ export type sedesUpdateWithoutUsuariosxsedeInput = {
   x?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   y?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   habilitada?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  turnos_simultaneos?: Prisma.IntFieldUpdateOperationsInput | number
   disponibilidadsede?: Prisma.disponibilidadsedeUpdateManyWithoutSedesNestedInput
   equipos?: Prisma.equiposUpdateManyWithoutSedesNestedInput
   estudiosxsede?: Prisma.estudiosxsedeUpdateManyWithoutSedesNestedInput
   horariosxsede?: Prisma.horariosxsedeUpdateManyWithoutSedesNestedInput
   salas?: Prisma.salasUpdateManyWithoutSedesNestedInput
+  telefonos?: Prisma.telefonosUpdateManyWithoutSedesNestedInput
 }
 
 export type sedesUncheckedUpdateWithoutUsuariosxsedeInput = {
@@ -1038,12 +1111,12 @@ export type sedesUncheckedUpdateWithoutUsuariosxsedeInput = {
   x?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   y?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   habilitada?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  turnos_simultaneos?: Prisma.IntFieldUpdateOperationsInput | number
   disponibilidadsede?: Prisma.disponibilidadsedeUncheckedUpdateManyWithoutSedesNestedInput
   equipos?: Prisma.equiposUncheckedUpdateManyWithoutSedesNestedInput
   estudiosxsede?: Prisma.estudiosxsedeUncheckedUpdateManyWithoutSedesNestedInput
   horariosxsede?: Prisma.horariosxsedeUncheckedUpdateManyWithoutSedesNestedInput
   salas?: Prisma.salasUncheckedUpdateManyWithoutSedesNestedInput
+  telefonos?: Prisma.telefonosUncheckedUpdateManyWithoutSedesNestedInput
 }
 
 
@@ -1057,6 +1130,7 @@ export type SedesCountOutputType = {
   estudiosxsede: number
   horariosxsede: number
   salas: number
+  telefonos: number
   usuariosxsede: number
 }
 
@@ -1066,6 +1140,7 @@ export type SedesCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.
   estudiosxsede?: boolean | SedesCountOutputTypeCountEstudiosxsedeArgs
   horariosxsede?: boolean | SedesCountOutputTypeCountHorariosxsedeArgs
   salas?: boolean | SedesCountOutputTypeCountSalasArgs
+  telefonos?: boolean | SedesCountOutputTypeCountTelefonosArgs
   usuariosxsede?: boolean | SedesCountOutputTypeCountUsuariosxsedeArgs
 }
 
@@ -1117,6 +1192,13 @@ export type SedesCountOutputTypeCountSalasArgs<ExtArgs extends runtime.Types.Ext
 /**
  * SedesCountOutputType without action
  */
+export type SedesCountOutputTypeCountTelefonosArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.telefonosWhereInput
+}
+
+/**
+ * SedesCountOutputType without action
+ */
 export type SedesCountOutputTypeCountUsuariosxsedeArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   where?: Prisma.usuariosxsedeWhereInput
 }
@@ -1130,12 +1212,12 @@ export type sedesSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
   x?: boolean
   y?: boolean
   habilitada?: boolean
-  turnos_simultaneos?: boolean
   disponibilidadsede?: boolean | Prisma.sedes$disponibilidadsedeArgs<ExtArgs>
   equipos?: boolean | Prisma.sedes$equiposArgs<ExtArgs>
   estudiosxsede?: boolean | Prisma.sedes$estudiosxsedeArgs<ExtArgs>
   horariosxsede?: boolean | Prisma.sedes$horariosxsedeArgs<ExtArgs>
   salas?: boolean | Prisma.sedes$salasArgs<ExtArgs>
+  telefonos?: boolean | Prisma.sedes$telefonosArgs<ExtArgs>
   usuariosxsede?: boolean | Prisma.sedes$usuariosxsedeArgs<ExtArgs>
   _count?: boolean | Prisma.SedesCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["sedes"]>
@@ -1148,7 +1230,6 @@ export type sedesSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensi
   x?: boolean
   y?: boolean
   habilitada?: boolean
-  turnos_simultaneos?: boolean
 }, ExtArgs["result"]["sedes"]>
 
 export type sedesSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -1159,7 +1240,6 @@ export type sedesSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensi
   x?: boolean
   y?: boolean
   habilitada?: boolean
-  turnos_simultaneos?: boolean
 }, ExtArgs["result"]["sedes"]>
 
 export type sedesSelectScalar = {
@@ -1170,16 +1250,16 @@ export type sedesSelectScalar = {
   x?: boolean
   y?: boolean
   habilitada?: boolean
-  turnos_simultaneos?: boolean
 }
 
-export type sedesOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "codigo" | "nombre" | "direccion" | "x" | "y" | "habilitada" | "turnos_simultaneos", ExtArgs["result"]["sedes"]>
+export type sedesOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "codigo" | "nombre" | "direccion" | "x" | "y" | "habilitada", ExtArgs["result"]["sedes"]>
 export type sedesInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   disponibilidadsede?: boolean | Prisma.sedes$disponibilidadsedeArgs<ExtArgs>
   equipos?: boolean | Prisma.sedes$equiposArgs<ExtArgs>
   estudiosxsede?: boolean | Prisma.sedes$estudiosxsedeArgs<ExtArgs>
   horariosxsede?: boolean | Prisma.sedes$horariosxsedeArgs<ExtArgs>
   salas?: boolean | Prisma.sedes$salasArgs<ExtArgs>
+  telefonos?: boolean | Prisma.sedes$telefonosArgs<ExtArgs>
   usuariosxsede?: boolean | Prisma.sedes$usuariosxsedeArgs<ExtArgs>
   _count?: boolean | Prisma.SedesCountOutputTypeDefaultArgs<ExtArgs>
 }
@@ -1194,6 +1274,7 @@ export type $sedesPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs 
     estudiosxsede: Prisma.$estudiosxsedePayload<ExtArgs>[]
     horariosxsede: Prisma.$horariosxsedePayload<ExtArgs>[]
     salas: Prisma.$salasPayload<ExtArgs>[]
+    telefonos: Prisma.$telefonosPayload<ExtArgs>[]
     usuariosxsede: Prisma.$usuariosxsedePayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
@@ -1204,7 +1285,6 @@ export type $sedesPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs 
     x: runtime.Decimal
     y: runtime.Decimal
     habilitada: boolean
-    turnos_simultaneos: number
   }, ExtArgs["result"]["sedes"]>
   composites: {}
 }
@@ -1604,6 +1684,7 @@ export interface Prisma__sedesClient<T, Null = never, ExtArgs extends runtime.Ty
   estudiosxsede<T extends Prisma.sedes$estudiosxsedeArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.sedes$estudiosxsedeArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$estudiosxsedePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   horariosxsede<T extends Prisma.sedes$horariosxsedeArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.sedes$horariosxsedeArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$horariosxsedePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   salas<T extends Prisma.sedes$salasArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.sedes$salasArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$salasPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  telefonos<T extends Prisma.sedes$telefonosArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.sedes$telefonosArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$telefonosPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   usuariosxsede<T extends Prisma.sedes$usuariosxsedeArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.sedes$usuariosxsedeArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$usuariosxsedePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -1641,7 +1722,6 @@ export interface sedesFieldRefs {
   readonly x: Prisma.FieldRef<"sedes", 'Decimal'>
   readonly y: Prisma.FieldRef<"sedes", 'Decimal'>
   readonly habilitada: Prisma.FieldRef<"sedes", 'Boolean'>
-  readonly turnos_simultaneos: Prisma.FieldRef<"sedes", 'Int'>
 }
     
 
@@ -2152,6 +2232,30 @@ export type sedes$salasArgs<ExtArgs extends runtime.Types.Extensions.InternalArg
   take?: number
   skip?: number
   distinct?: Prisma.SalasScalarFieldEnum | Prisma.SalasScalarFieldEnum[]
+}
+
+/**
+ * sedes.telefonos
+ */
+export type sedes$telefonosArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the telefonos
+   */
+  select?: Prisma.telefonosSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the telefonos
+   */
+  omit?: Prisma.telefonosOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.telefonosInclude<ExtArgs> | null
+  where?: Prisma.telefonosWhereInput
+  orderBy?: Prisma.telefonosOrderByWithRelationInput | Prisma.telefonosOrderByWithRelationInput[]
+  cursor?: Prisma.telefonosWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.TelefonosScalarFieldEnum | Prisma.TelefonosScalarFieldEnum[]
 }
 
 /**

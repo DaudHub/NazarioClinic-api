@@ -1,4 +1,4 @@
-import { IsOptional, IsEmail, IsString, MinLength, isString, IsNumber, IsPhoneNumber } from 'class-validator';
+import { IsOptional, IsEmail, IsString, MinLength, isString, IsNumber, IsPhoneNumber, IsArray, IsBoolean } from 'class-validator';
 
 export class SedeDto {
     @IsString()
@@ -14,6 +14,9 @@ export class SedeDto {
     x!: number;
     @IsNumber()
     y!: number;
+    @IsArray()
     @IsPhoneNumber(undefined, { each: true })
     telefonos!: string[];
+    @IsBoolean()
+    habilitada!: boolean;
 }

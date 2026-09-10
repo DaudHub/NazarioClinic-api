@@ -5,11 +5,13 @@ import { SedeDto } from './dto/sede.dto'
 @Controller('sedes')
 export class SedesController {
 
-    constructor(_sed: SedesService) {}
 
-    @Post('new')
-    async CrearSede(@Body() sede: SedeDto) {
-        
+
+    constructor(private readonly _sed: SedesService) {}
+
+    @Post()
+    async crear(@Body() sede: SedeDto) {
+        return this._sed.createOrUpdate(sede)
     }
 
 }

@@ -412,6 +412,7 @@ export const ModelName = {
   salas: 'salas',
   salasxestudio: 'salasxestudio',
   sedes: 'sedes',
+  telefonos: 'telefonos',
   turnos: 'turnos',
   usuarios: 'usuarios',
   usuariosxgrupo: 'usuariosxgrupo',
@@ -431,7 +432,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "atributoscheckbox" | "atributostextbox" | "disponibilidadsede" | "equipos" | "equiposxestudio" | "estudios" | "estudiosxsede" | "gruposusuario" | "horariosxsede" | "pacientes" | "profesionales" | "refreshtokens" | "salas" | "salasxestudio" | "sedes" | "turnos" | "usuarios" | "usuariosxgrupo" | "usuariosxsede"
+    modelProps: "atributoscheckbox" | "atributostextbox" | "disponibilidadsede" | "equipos" | "equiposxestudio" | "estudios" | "estudiosxsede" | "gruposusuario" | "horariosxsede" | "pacientes" | "profesionales" | "refreshtokens" | "salas" | "salasxestudio" | "sedes" | "telefonos" | "turnos" | "usuarios" | "usuariosxgrupo" | "usuariosxsede"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -1513,6 +1514,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    telefonos: {
+      payload: Prisma.$telefonosPayload<ExtArgs>
+      fields: Prisma.telefonosFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.telefonosFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$telefonosPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.telefonosFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$telefonosPayload>
+        }
+        findFirst: {
+          args: Prisma.telefonosFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$telefonosPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.telefonosFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$telefonosPayload>
+        }
+        findMany: {
+          args: Prisma.telefonosFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$telefonosPayload>[]
+        }
+        create: {
+          args: Prisma.telefonosCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$telefonosPayload>
+        }
+        createMany: {
+          args: Prisma.telefonosCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.telefonosCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$telefonosPayload>[]
+        }
+        delete: {
+          args: Prisma.telefonosDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$telefonosPayload>
+        }
+        update: {
+          args: Prisma.telefonosUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$telefonosPayload>
+        }
+        deleteMany: {
+          args: Prisma.telefonosDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.telefonosUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.telefonosUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$telefonosPayload>[]
+        }
+        upsert: {
+          args: Prisma.telefonosUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$telefonosPayload>
+        }
+        aggregate: {
+          args: Prisma.TelefonosAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateTelefonos>
+        }
+        groupBy: {
+          args: Prisma.telefonosGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.TelefonosGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.telefonosCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.TelefonosCountAggregateOutputType> | number
+        }
+      }
+    }
     turnos: {
       payload: Prisma.$turnosPayload<ExtArgs>
       fields: Prisma.turnosFieldRefs
@@ -1978,11 +2053,18 @@ export const SedesScalarFieldEnum = {
   direccion: 'direccion',
   x: 'x',
   y: 'y',
-  habilitada: 'habilitada',
-  turnos_simultaneos: 'turnos_simultaneos'
+  habilitada: 'habilitada'
 } as const
 
 export type SedesScalarFieldEnum = (typeof SedesScalarFieldEnum)[keyof typeof SedesScalarFieldEnum]
+
+
+export const TelefonosScalarFieldEnum = {
+  id_sede: 'id_sede',
+  telefono: 'telefono'
+} as const
+
+export type TelefonosScalarFieldEnum = (typeof TelefonosScalarFieldEnum)[keyof typeof TelefonosScalarFieldEnum]
 
 
 export const TurnosScalarFieldEnum = {
@@ -2301,6 +2383,7 @@ export type GlobalOmitConfig = {
   salas?: Prisma.salasOmit
   salasxestudio?: Prisma.salasxestudioOmit
   sedes?: Prisma.sedesOmit
+  telefonos?: Prisma.telefonosOmit
   turnos?: Prisma.turnosOmit
   usuarios?: Prisma.usuariosOmit
   usuariosxgrupo?: Prisma.usuariosxgrupoOmit
